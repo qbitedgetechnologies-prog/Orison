@@ -27,6 +27,10 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Let the workflow enable Pages itself (needs pages:write, granted above),
+          # so a manual admin toggle in Settings isn't required.
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
