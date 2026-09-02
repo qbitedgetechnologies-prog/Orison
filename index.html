@@ -505,7 +505,12 @@
         </div>
       </div>
 
-      <form class="msg" action="mailto:salesorison@gmail.com" method="post" enctype="text/plain">
+      <form class="msg" action="https://formsubmit.co/salesorison@gmail.com" method="post">
+        <!-- FormSubmit config: secure HTTPS handler that emails submissions to salesorison@gmail.com -->
+        <input type="hidden" name="_subject" value="New enquiry from orisonigt.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label for="fname">Name</label>
         <input id="fname" name="Name" type="text" required placeholder="Your name">
         <label for="femail">Email Address</label>
