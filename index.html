@@ -136,6 +136,16 @@
   }
   .btn-ghost:hover{border-color:var(--gold-400);background:rgba(0,229,255,0.08);}
 
+  /* Mobile hero: fill the viewport (minus the 83px sticky header) and center the text */
+  @media (max-width:768px){
+    .hero{
+      min-height:calc(100vh - 83px);   /* fallback for browsers without svh */
+      min-height:calc(100svh - 83px);
+      display:flex;align-items:center;justify-content:center;
+      padding-top:0;padding-bottom:0;
+    }
+  }
+
   /* ---------- TRUST STRIP ---------- */
   .trust{
     border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
@@ -161,7 +171,7 @@
   /* ---------- PRODUCTS (asymmetric grid) ---------- */
   .products{background:var(--navy-950);}
   .prod-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1124px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1124px;margin:0 auto;
   }
   .prod-card{
     grid-column:auto;
@@ -178,12 +188,7 @@
   .prod-visual{width:100%;max-width:210px;height:auto;margin:20px auto 22px;}
   .prod-card h3{font-size:22px;color:var(--sand-50);margin-bottom:10px;}
   .prod-card p{font-size:14.5px;color:var(--slate-300);}
-  @media (max-width:900px){
-    .prod-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media (max-width:560px){
-    .prod-grid{grid-template-columns:1fr;}
-  }
+  /* Product grid resizes itself via auto-fit/minmax above — no fixed breakpoints needed. */
 
   /* ---------- B2B BAND ---------- */
   .b2b{
