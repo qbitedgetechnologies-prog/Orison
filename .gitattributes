@@ -4,3 +4,11 @@
 *.js text eol=lf
 *.yml text eol=lf
 *.svg text eol=lf
+
+# Binary assets — never apply text/EOL normalization (would corrupt them)
+*.png binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
