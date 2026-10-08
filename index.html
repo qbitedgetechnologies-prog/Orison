@@ -16,6 +16,8 @@
     --bg:#ffffff; --bg2:#f4f6f8; --bg3:#eef1f4; --panel:#e9f6f9;
     --ink:#0a0e14; --ink-2:#2a323c; --ink-dim:#636e7b; --line:#e4e7eb; --line-2:#d3d8de;
     --accent:#0097b2; --accent-2:#00bcd4; --accent-ink:#006173; --wa:#1fab54;
+    --sea:#0b73b4; --sea-deep:#075a92; --sea-2:#1792c9;
+    --grad-sea:linear-gradient(135deg,#00c6e0 0%,#0b73b4 100%);
     --cta:#0a0e14; --cta-hover:#272d36;
     --radius:16px;
   }
@@ -61,17 +63,18 @@
 
   /* Hero */
   .hero{position:relative;overflow:hidden;background:
-      radial-gradient(120% 90% at 85% 10%, #e7f7fb 0%, transparent 55%),
-      radial-gradient(90% 80% at 10% 90%, #eef1f4 0%, transparent 60%),
+      radial-gradient(120% 95% at 88% 8%, #d6f1f9 0%, transparent 52%),
+      radial-gradient(95% 85% at 78% 55%, #cfe8f7 0%, transparent 55%),
+      radial-gradient(90% 80% at 6% 92%, #e9eff4 0%, transparent 60%),
       #ffffff;}
   .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:70px;}
   .hero h1{font-size:clamp(40px,6vw,68px);}
-  .hero h1 em{font-style:normal;color:var(--accent-ink);}
+  .hero h1 em{font-style:normal;background:linear-gradient(120deg,#00bcd4,#0b73b4 60%,#075a92);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--sea);}
   .hero .lede{margin-top:22px;font-size:19px;color:var(--ink-dim);max-width:30ch;font-weight:500;}
   .hero .actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
   .hero .sub{margin-top:20px;font-size:13.5px;color:var(--ink-dim);font-weight:600;}
   .hero-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:380px;}
-  .hero-art .glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,188,212,.22),transparent 65%);filter:blur(10px);animation:float 7s ease-in-out infinite alternate;}
+  .hero-art .glow{position:absolute;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,rgba(0,198,224,.26),rgba(11,115,180,.18) 46%,transparent 70%);filter:blur(12px);animation:float 7s ease-in-out infinite alternate;}
   @keyframes float{to{transform:translateY(-16px) scale(1.04);}}
   .phone{position:relative;width:230px;height:470px;border-radius:38px;background:linear-gradient(150deg,#1a2028,#0a0e14);box-shadow:0 40px 80px rgba(10,14,20,.33),inset 0 0 0 2px #2a323c;padding:11px;z-index:1;}
   .phone .screen{width:100%;height:100%;border-radius:28px;background:linear-gradient(160deg,#00c6e0,#0097b2 55%,#006173);position:relative;overflow:hidden;}
@@ -116,35 +119,29 @@
   .wrench{color:#00c6e0;}
 
   /* Real photography */
-  .art-frame{position:relative;width:310px;max-width:80%;aspect-ratio:3/4;border-radius:30px;overflow:hidden;box-shadow:0 40px 90px rgba(10,14,20,.28);z-index:1;}
+  .art-frame{position:relative;width:310px;max-width:80%;aspect-ratio:3/4;border-radius:30px;overflow:hidden;box-shadow:0 40px 90px rgba(11,90,146,.30),0 0 0 6px rgba(255,255,255,.9),0 0 0 7px rgba(11,115,180,.16);z-index:1;}
   .art-frame img{width:100%;height:100%;object-fit:cover;}
   .f-media img.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .f-media.m2 img.fill{opacity:.96;}
 
-  /* Showcase gallery */
-  .showcase{background:var(--bg2);}
-  .sh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .sh-card{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 18px 40px rgba(10,14,20,.10);}
-  .sh-card img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease;}
-  .sh-card:hover img{transform:scale(1.06);}
-  .sh-card .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 15px;background:linear-gradient(to top,rgba(10,14,20,.82),transparent);color:#fff;font-weight:700;font-size:15px;letter-spacing:-0.01em;}
-  .sh-card .cap small{display:block;font-weight:600;font-size:12.5px;color:rgba(255,255,255,.72);margin-top:2px;}
-  @media (max-width:760px){.sh-grid{grid-template-columns:1fr 1fr;} .sh-card:last-child{grid-column:1/-1;aspect-ratio:16/9;}}
-  @media (max-width:440px){.sh-grid{grid-template-columns:1fr;} .sh-card:last-child{aspect-ratio:1/1;}}
 
-  /* Category grid */
+  /* Category image tiles */
   .cats{background:var(--bg2);}
   .cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
-  .cat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 20px;text-align:center;transition:transform .2s ease,box-shadow .2s ease,border-color .2s;}
-  .cat:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(10,14,20,.10);border-color:var(--accent-2);}
-  .cat .ic{width:62px;height:62px;margin:0 auto 16px;border-radius:16px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);}
-  .cat .ic svg{width:30px;height:30px;}
-  .cat h4{font-size:16px;font-weight:700;}
-  .cat p{font-size:13px;color:var(--ink-dim);margin-top:5px;font-weight:500;}
-  @media (max-width:1000px){.cat-grid{grid-template-columns:repeat(2,1fr);} .trust .wrap{grid-template-columns:repeat(2,1fr);}}
+  .cat{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 14px 34px rgba(10,14,20,.10);transition:transform .25s ease,box-shadow .25s ease;}
+  .cat:hover{transform:translateY(-6px);box-shadow:0 28px 52px rgba(11,90,146,.20);}
+  .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease;}
+  .cat:hover img{transform:scale(1.07);}
+  .cat .grad-ic{position:absolute;inset:0;background:var(--grad-sea);display:flex;align-items:center;justify-content:center;color:#fff;}
+  .cat .grad-ic svg{width:56px;height:56px;opacity:.95;}
+  .cat .grad-ic::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 20% 15%,rgba(255,255,255,.22),transparent 55%);}
+  .cat .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:40px 16px 15px;background:linear-gradient(to top,rgba(6,20,34,.88),rgba(6,20,34,.22) 58%,transparent);color:#fff;}
+  .cat .cap h4{font-size:15.5px;font-weight:700;letter-spacing:-0.01em;}
+  .cat .cap p{font-size:12.5px;color:rgba(255,255,255,.80);margin-top:3px;font-weight:600;}
+  @media (max-width:1000px){.cat-grid{grid-template-columns:repeat(2,1fr);} .trust .wrap{grid-template-columns:repeat(2,1fr);} .cat:last-child{grid-column:1/-1;aspect-ratio:16/10;}}
 
   /* B2B band */
-  .b2b{background:var(--ink);color:#fff;border-radius:28px;overflow:hidden;}
+  .b2b{background:radial-gradient(95% 130% at 100% 0%,rgba(11,115,180,.42),transparent 52%),radial-gradient(80% 120% at 0% 100%,rgba(0,188,212,.18),transparent 55%),var(--ink);color:#fff;border-radius:28px;overflow:hidden;}
   .b2b-in{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:56px;}
   .b2b h2{font-size:clamp(28px,3.4vw,40px);color:#fff;}
   .b2b p{margin-top:16px;color:#aab3bd;font-size:16.5px;font-weight:500;}
@@ -265,7 +262,7 @@
       </div>
       <div class="hero-art">
         <div class="glow"></div>
-        <div class="art-frame"><img src="assets/iphone-hero.jpg" alt="A customer holding a flagship smartphone" loading="eager" width="844" height="1500"></div>
+        <div class="art-frame"><img src="assets/ipad-lifestyle.jpg" alt="A customer using a tablet at home" loading="eager" width="1000" height="1500"></div>
         <div class="badge b1"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div>Checked &amp; tested<small>Every used device</small></div></div>
         <div class="badge b2"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><div>Same-day repairs<small>Screens · batteries</small></div></div>
       </div>
@@ -287,7 +284,7 @@
     <div class="wrap">
       <div class="feature">
         <div class="f-media m1">
-          <img class="fill" src="assets/ipad-lifestyle.jpg" alt="Hands holding a tablet at home" loading="lazy" width="1000" height="1500">
+          <img class="fill" src="assets/iphone-hero.jpg" alt="A customer holding a flagship smartphone" loading="lazy" width="844" height="1500">
         </div>
         <div class="f-copy">
           <span class="eyebrow">New &amp; used mobiles</span>
@@ -332,41 +329,25 @@
       </div>
       <div class="cat-grid">
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
-          <h4>Mobiles</h4><p>New &amp; used</p>
+          <img src="assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
+          <span class="cap"><h4>New &amp; Used Mobiles</h4><p>Latest + inspected pre-owned</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M2 21h20"/></svg></span>
-          <h4>Laptops</h4><p>New &amp; refurbished</p>
+          <img src="assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
+          <span class="cap"><h4>Laptops</h4><p>New &amp; refurbished</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.3L3 18l3 3 6.4-6.3a4 4 0 0 0 5.3-5.4l-2.6 2.6-2.3-.3-.3-2.3 2.6-2.6Z"/></svg></span>
-          <h4>Repairs</h4><p>Phones &amp; laptops</p>
+          <img src="assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
+          <span class="cap"><h4>Repair Services</h4><p>Screens &amp; batteries, often same-day</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16v4H4z"/><path d="M8 11v8m8-8v8M6 19h12"/></svg></span>
-          <h4>Accessories</h4><p>Cases · chargers · cables</p>
+          <span class="grad-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16v4H4z"/><path d="M8 11v8m8-8v8M6 19h12"/></svg></span>
+          <span class="cap"><h4>Accessories</h4><p>Cases · chargers · cables</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="7" rx="2"/><path d="M8 9V6m8 3V6M8 16v2m8-2v2"/></svg></span>
-          <h4>Networking</h4><p>Routers · SIM · more</p>
+          <span class="grad-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="7" rx="2"/><path d="M8 9V6m8 3V6M8 16v2m8-2v2"/></svg></span>
+          <span class="cap"><h4>Networking &amp; More</h4><p>Routers · SIM · setups</p></span>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SHOWCASE -->
-  <section class="showcase">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Across the counter</span>
-        <h2 style="margin-top:12px;">Bought, sold, swapped and repaired — every day.</h2>
-        <p>A look at what comes through the Satwa shop, from flagship handsets to board-level repairs.</p>
-      </div>
-      <div class="sh-grid">
-        <div class="sh-card"><img src="assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500"><div class="cap">Latest &amp; pre-owned handsets<small>Buy, sell or trade in</small></div></div>
-        <div class="sh-card"><img src="assets/repair-parts.jpg" alt="A phone opened up with its parts and tools laid out" loading="lazy" width="1700" height="1133"><div class="cap">Board-level repairs<small>Screens, batteries &amp; more</small></div></div>
-        <div class="sh-card"><img src="assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135"><div class="cap">Laptops too<small>New &amp; refurbished</small></div></div>
       </div>
     </div>
   </section>
