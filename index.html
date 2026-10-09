@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#ffffff; --bg2:#f4f6f8; --bg3:#eef1f4; --panel:#e9f6f9;
@@ -24,7 +24,14 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
-  [lang="ar"] body, html[dir="rtl"] body{font-family:'Tajawal','Manrope',system-ui,sans-serif;}
+  html[dir="rtl"] body{font-family:'Tajawal','Manrope',system-ui,sans-serif;}
+  html[lang="ur"] body{font-family:'Noto Nastaliq Urdu','Tajawal','Manrope',system-ui,sans-serif;line-height:2.15;}
+  html[lang="ur"] h1,html[lang="ur"] h2,html[lang="ur"] h3,html[lang="ur"] h4{font-weight:700;line-height:1.9;}
+  html[lang="ur"] .hero h1{line-height:1.75;}
+  html[lang="ur"] .badge{font-size:12px;}
+  html[lang="ur"] .badge small{font-size:10.5px;}
+  html[lang="ur"] .b2b-stat b{line-height:1.5;}
+  html[lang="ur"] .f-list li,html[lang="ur"] .nav-links{line-height:1.8;}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
   a{color:inherit;text-decoration:none;}
   img,svg{display:block;max-width:100%;}
@@ -554,9 +561,9 @@
   /* ---- i18n: built-in switcher (English + Arabic live; Urdu + Hindi scaffolded for step 2) ---- */
   const LANGS = [
     {code:'en', label:'EN', native:'English', dir:'ltr'},
-    {code:'ar', label:'AR', native:'العربية', dir:'rtl'}
-    /* Step 2 — flip on once strings reviewed:
-    ,{code:'ur', label:'UR', native:'اردو', dir:'rtl'}
+    {code:'ar', label:'AR', native:'العربية', dir:'rtl'},
+    {code:'ur', label:'UR', native:'اردو', dir:'rtl'}
+    /* Hindi — flip on once strings reviewed:
     ,{code:'hi', label:'HI', native:'हिन्दी', dir:'ltr'} */
   ];
 
@@ -602,6 +609,27 @@
       'contact.eyebrow':'تواصل معنا','contact.h2':'زُر المتجر، أو تواصل معنا عبر الإنترنت.','contact.intro':'نحن في السطوة دائمًا، وعلى بُعد رسالة واحدة.','contact.loc_l':'الموقع','contact.loc_v':'Orison International، بالقرب من موقف الحافلات، السطوة، دبي','contact.wa_l':'واتساب','contact.email_l':'البريد الإلكتروني','contact.hours_l':'ساعات العمل','contact.hours_v':'مفتوح يوميًا · من الأحد إلى السبت، 12:00 ظهرًا – 12:00 منتصف الليل (بتوقيت دبي)',
       'form.name':'الاسم','form.name_ph':'اسمك','form.email':'البريد الإلكتروني','form.email_ph':'you@example.com','form.phone':'رقم الهاتف','form.phone_ph':'+971 5X XXX XXXX','form.help':'كيف يمكننا مساعدتك؟','form.help_ph':'شراء، بيع، إصلاح، أو طلب جملة؟','form.submit':'إرسال الطلب',
       'footer.cr':'© {year} Orison International General Trading — السطوة، دبي · مفتوح يوميًا من 12 ظهرًا حتى 12 ليلًا'
+    },
+    ur: {
+      'meta.title':'Orison جنرل ٹریڈنگ — موبائل، لیپ ٹاپ اور مرمت، الستوہ دبئی',
+      'meta.desc':'نئے اور استعمال شدہ موبائل اور لیپ ٹاپ، ماہرانہ موبائل و لیپ ٹاپ مرمت، لوازمات اور نیٹ ورکنگ سامان — اور تھوک (B2B) فروخت۔ الستوہ، دبئی۔ روزانہ دوپہر 12 بجے سے رات 12 بجے تک کھلا۔',
+      'promo':'نئے اور استعمال شدہ فون اور لیپ ٹاپ &middot; <b>اسی دن مرمت</b> &middot; تھوک اور کاروباری گاہکوں کو خوش آمدید &mdash; الستوہ، دبئی',
+      'nav.shop':'اسٹور','nav.repairs':'مرمت','nav.categories':'اقسام','nav.b2b':'تھوک اور کاروبار','nav.visit':'ہم سے ملیں','nav.whatsapp':'واٹس ایپ','nav.menu':'مینو','foot.b2b':'تھوک',
+      'hero.eyebrow':'الستوہ، دبئی',
+      'hero.h1':'خرید، فروخت اور مرمت <em>بھروسے</em> کے ساتھ — سب ایک ہی چھت تلے۔',
+      'hero.lede':'نئے اور استعمال شدہ موبائل اور لیپ ٹاپ، ماہرانہ مرمت، لوازمات اور نیٹ ورکنگ سامان — ایمانداری کے ساتھ خریدتے، بیچتے، ٹھیک کرتے اور تجارت کرتے ہیں۔',
+      'hero.cta_wa':'واٹس ایپ پر رابطہ کریں','hero.cta_browse':'ہماری اشیاء دیکھیں',
+      'hero.sub':'روزانہ کھلا · دوپہر 12:00 – رات 12:00 · آئیں یا کسی بھی وقت پیغام بھیجیں',
+      'badge1.t':'جانچا اور آزمایا','badge1.s':'ہر استعمال شدہ ڈیوائس','badge2.t':'اسی دن مرمت','badge2.s':'اسکرین · بیٹریاں',
+      'trust1.t':'نیا اور استعمال شدہ','trust1.s':'فروخت سے پہلے جانچ','trust2.t':'ماہرانہ مرمت','trust2.s':'فون اور لیپ ٹاپ','trust3.t':'تھوک اور کاروبار','trust3.s':'تھوک قیمتیں','trust4.t':'ہفتے کے 7 دن کھلا','trust4.s':'روزانہ دوپہر 12 – رات 12',
+      'feat1.eyebrow':'نئے اور استعمال شدہ موبائل','feat1.h3':'تازہ ترین ماڈلز، اور بہترین استعمال شدہ بھی۔','feat1.p':'ہر بڑے برانڈ کے تازہ ترین فلیگ شپ فونز کے ساتھ احتیاط سے جانچے گئے استعمال شدہ فون — اور آپ کے پرانے ڈیوائس کی منصفانہ قیمت پر تبدیلی۔','feat1.li1':'ہر استعمال شدہ ڈیوائس جانچا اور آزمایا گیا','feat1.li2':'منصفانہ تبادلہ قیمت، نقد یا ایکسچینج','feat1.li3':'تمام بڑے برانڈز دستیاب','feat1.cta':'دستیابی اور قیمت پوچھیں',
+      'feat2.eyebrow':'مرمت کی خدمات','feat2.h3':'ٹوٹی اسکرین؟ خراب بیٹری؟ ٹھیک — اکثر اسی دن۔','feat2.p':'الستوہ میں ہاتھوں سے تیز اور قابلِ اعتماد موبائل اور لیپ ٹاپ مرمت — اسکرین، بیٹری، چارجنگ پورٹ، سافٹ ویئر اور بہت کچھ۔','feat2.li1':'اسکرین اور بیٹریاں انتظار کے دوران','feat2.li2':'فون اور لیپ ٹاپ، تمام برانڈز','feat2.li3':'کام شروع کرنے سے پہلے ایماندار قیمت','feat2.cta':'مرمت کی قیمت حاصل کریں',
+      'cats.eyebrow':'ہم کیا بیچتے ہیں','cats.h2':'آپ کے فون، لیپ ٹاپ اور نیٹ ورک کے لیے ہر چیز','cats.p':'الستوہ میں ہمارے اسٹور پر دیکھیں یا موجودہ دستیابی اور قیمتوں کے لیے پیغام بھیجیں۔',
+      'cat1.t':'نئے اور استعمال شدہ موبائل','cat1.s':'تازہ ترین + جانچ شدہ استعمال شدہ','cat2.t':'لیپ ٹاپ','cat2.s':'نئے اور تجدید شدہ','cat3.t':'مرمت کی خدمات','cat3.s':'اسکرین اور بیٹریاں، اکثر اسی دن','cat4.t':'لوازمات','cat4.s':'کور · چارجر · کیبلز','cat5.t':'نیٹ ورکنگ اور مزید','cat5.s':'راؤٹر · سم · سیٹ اپ',
+      'b2b.eyebrow':'کاروبار کے لیے','b2b.h2':'جنرل ٹریڈنگ، تھوک پیمانے پر۔','b2b.p':'ریٹیل کاؤنٹر کے ساتھ ساتھ، Orison کاروباروں کو براہِ راست سپلائی کرتا ہے — خطے بھر کے ری سیلرز، برآمد کنندگان اور دکانیں۔','b2b.li1':'نئے اور استعمال شدہ موبائل و لیپ ٹاپ کی تھوک سپلائی','b2b.li2':'لوازمات اور نیٹ ورکنگ سامان کی فراہمی','b2b.li3':'آرڈر کے حجم کے مطابق تجارتی شرائط','b2b.cta':'تھوک آرڈر پر بات کریں','b2b.s1t':'تمام برانڈز','b2b.s1s':'درخواست پر فراہم','b2b.s2t':'الستوہ','b2b.s2s':'دبئی کا تجارتی مرکز','b2b.s3t':'تھوک','b2b.s3s':'ری سیلر قیمتیں','b2b.s4t':'12–12','b2b.s4s':'روزانہ کھلا',
+      'contact.eyebrow':'رابطہ کریں','contact.h2':'دکان پر آئیں، یا آن لائن رابطہ کریں۔','contact.intro':'ہم الستوہ میں موجود ہیں اور ہمیشہ ایک پیغام کی دوری پر ہیں۔','contact.loc_l':'مقام','contact.loc_v':'Orison International، بس اسٹاپ کے قریب، الستوہ، دبئی','contact.wa_l':'واٹس ایپ','contact.email_l':'ای میل','contact.hours_l':'اوقاتِ کار','contact.hours_v':'روزانہ کھلا · اتوار تا ہفتہ، دوپہر 12:00 – رات 12:00 (دبئی وقت)',
+      'form.name':'نام','form.name_ph':'آپ کا نام','form.email':'ای میل ایڈریس','form.email_ph':'you@example.com','form.phone':'فون نمبر','form.phone_ph':'+971 5X XXX XXXX','form.help':'ہم کیسے مدد کر سکتے ہیں؟','form.help_ph':'خریداری، فروخت، مرمت، یا تھوک آرڈر؟','form.submit':'استفسار بھیجیں',
+      'footer.cr':'© {year} Orison International General Trading — الستوہ، دبئی · روزانہ دوپہر 12 سے رات 12 تک کھلا'
     }
   };
 
