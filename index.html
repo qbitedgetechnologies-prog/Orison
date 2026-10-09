@@ -103,11 +103,24 @@
   /* Dubai skyline (hero dynamic element) */
   .skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:188px;z-index:1;pointer-events:none;opacity:.92;}
   .skyline svg{width:100%;height:100%;display:block;}
-  .skyline .win{fill:#00d4f0;opacity:.1;animation:twinkle 4.5s ease-in-out infinite;}
-  .skyline .scan{animation:scan 7s linear infinite;}
-  @keyframes twinkle{0%,100%{opacity:.08;}44%{opacity:.9;}62%{opacity:.28;}}
+  .skyline .win{fill:#1fe3ff;opacity:.15;filter:drop-shadow(0 0 3px rgba(31,227,255,.85));animation:twinkle 4.2s ease-in-out infinite;}
+  .skyline .scan{animation:scan 6.5s linear infinite;}
+  @keyframes twinkle{0%,100%{opacity:.12;}44%{opacity:1;}62%{opacity:.4;}}
   @keyframes scan{0%{transform:translateX(-170px);}100%{transform:translateX(1600px);}}
-  @media (max-width:900px){.skyline{height:118px;opacity:.8;}}
+  @media (max-width:900px){.skyline{height:118px;opacity:.82;}}
+
+  /* Circuit traces (tech motif, tied to the hexagon mark) */
+  .circuits{position:absolute;top:-30px;right:-30px;width:560px;max-width:66%;z-index:1;pointer-events:none;color:#0b73b4;}
+  .circuits svg{width:100%;height:auto;overflow:visible;}
+  .circuits .trace{fill:none;stroke:currentColor;stroke-width:1.2;opacity:.15;}
+  .circuits .hex{fill:none;stroke:currentColor;stroke-width:1.4;opacity:.13;}
+  .circuits .chip{fill:none;stroke:currentColor;stroke-width:1.1;opacity:.14;}
+  .circuits .node{fill:var(--accent-2);opacity:.34;}
+  .circuits .pulse{fill:#1fe3ff;filter:drop-shadow(0 0 5px rgba(31,227,255,.95));animation:pulse-run 4.8s ease-in-out infinite;}
+  @keyframes pulse-run{0%{transform:translate(0,0);opacity:0;}6%{opacity:1;}30%{transform:translate(0px,60px);}63%{transform:translate(-170px,60px);}94%{transform:translate(-170px,90px);opacity:1;}100%{transform:translate(-170px,90px);opacity:0;}}
+  [dir="rtl"] .circuits{right:auto;left:-30px;transform:scaleX(-1);}
+  @media (max-width:900px){.circuits{width:420px;top:-10px;opacity:.85;}}
+  @media (max-width:560px){.circuits{display:none;}}
 
   /* Real photography */
   .art-frame{position:relative;width:310px;max-width:80%;aspect-ratio:3/4;border-radius:30px;overflow:hidden;box-shadow:0 40px 90px rgba(11,90,146,.30),0 0 0 6px rgba(255,255,255,.9),0 0 0 7px rgba(11,115,180,.16);z-index:1;}
@@ -277,6 +290,29 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="circuits" aria-hidden="true">
+      <svg viewBox="0 0 560 440" fill="none">
+        <polygon class="hex" points="470,44 509.8,67 509.8,113 470,136 430.2,113 430.2,67"/>
+        <polygon class="hex" points="300,180 325.98,195 325.98,225 300,240 274.02,225 274.02,195"/>
+        <polygon class="hex" points="120,292 152.9,311 152.9,349 120,368 87.1,349 87.1,311"/>
+        <path class="trace" d="M470 90 L470 150 L300 150 L300 180"/>
+        <path class="trace" d="M300 240 L300 300 L120 300 L120 292"/>
+        <path class="trace" d="M470 44 L470 12"/>
+        <path class="trace" d="M120 368 L120 420 L250 420"/>
+        <path class="trace" d="M509.8 113 L556 113"/>
+        <rect class="chip" x="236" y="406" width="28" height="28" rx="4"/>
+        <circle class="node" cx="470" cy="150" r="3.4"/>
+        <circle class="node" cx="300" cy="150" r="3.4"/>
+        <circle class="node" cx="300" cy="300" r="3.4"/>
+        <circle class="node" cx="120" cy="300" r="3.4"/>
+        <circle class="node" cx="470" cy="12" r="3.4"/>
+        <circle class="node" cx="556" cy="113" r="3.4"/>
+        <circle class="node" cx="470" cy="90" r="2.6"/>
+        <circle class="node" cx="300" cy="210" r="2.6"/>
+        <circle class="node" cx="120" cy="330" r="2.6"/>
+        <circle class="pulse" cx="470" cy="90" r="3.4"/>
+      </svg>
+    </div>
     <div class="wrap">
       <div>
         <span class="eyebrow" data-i18n="hero.eyebrow">Al Satwa, Dubai</span>
@@ -606,6 +642,16 @@
     try { saved = localStorage.getItem('orison_lang') || 'en'; } catch (e) {}
     if (!LANGS.find(x => x.code === saved)) saved = 'en';
     applyLang(saved);
+  })();
+
+  /* ---- Skyline parallax on scroll ---- */
+  (function parallax(){
+    const sky = document.querySelector('.skyline');
+    if (!sky || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    let ticking = false;
+    function upd(){ const y = window.pageYOffset || 0; sky.style.transform = 'translateY(' + Math.min(y * 0.18, 90) + 'px)'; ticking = false; }
+    addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(upd); ticking = true; } }, {passive:true});
+    upd();
   })();
 
   /* ---- Mobile menu ---- */
