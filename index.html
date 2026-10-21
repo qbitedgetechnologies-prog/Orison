@@ -3,335 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orison International General Trading — Satwa, Dubai</title>
-<meta name="description" content="New & used mobiles, laptops, accessories and B2B trading. Al Satwa, Dubai.">
+<title>Orison International General Trading — Mobiles, Laptops & Repairs, Satwa Dubai</title>
+<meta name="description" content="New & used mobiles and laptops, expert phone & laptop repair, accessories and networking gear — plus B2B wholesale. Al Satwa, Dubai. Open daily 12pm–12am.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy-950:#060e1f;
-    --navy-900:#0b1e3d;
-    --navy-850:#0f2547;
-    --navy-800:#12294f;
-    --blue-500:#2f6fed;
-    --blue-400:#5b8bf5;
-    --gold-400:#00e5ff;
-    --gold-300:#7cfbff;
-    --gold-200:#c9feff;
-    --sand-50:#eafdff;
-    --slate-300:#7fa0ac;
-    --slate-400:#5c7a86;
-    --hairline:rgba(0,229,255,0.28);
-    --radius-cut:14px;
-    --tron-cyan:#00e5ff;
-    --tron-cyan-soft:#7cfbff;
+    --bg:#ffffff; --bg2:#f4f6f8; --bg3:#eef1f4; --panel:#e9f6f9;
+    --ink:#0a0e14; --ink-2:#2a323c; --ink-dim:#636e7b; --line:#e4e7eb; --line-2:#d3d8de;
+    --accent:#0097b2; --accent-2:#00bcd4; --accent-ink:#006173; --wa:#1fab54;
+    --sea:#0b73b4; --sea-deep:#075a92; --sea-2:#1792c9;
+    --grad-sea:linear-gradient(135deg,#00c6e0 0%,#0b73b4 100%);
+    --cta:#0a0e14; --cta-hover:#272d36;
+    --radius:16px;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
+  *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    background:var(--navy-950);
-    color:var(--sand-50);
-    font-family:'Manrope',sans-serif;
-    font-weight:400;
-    line-height:1.6;
-    text-align:center;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.serif{font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:0.01em;}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  html[dir="rtl"] body{font-family:'Tajawal','Manrope',system-ui,sans-serif;}
+  html[lang="ur"] body{font-family:'Noto Nastaliq Urdu','Tajawal','Manrope',system-ui,sans-serif;line-height:2.15;}
+  html[lang="ur"] h1,html[lang="ur"] h2,html[lang="ur"] h3,html[lang="ur"] h4{font-weight:700;line-height:1.9;}
+  html[lang="ur"] .hero h1{line-height:1.75;}
+  html[lang="ur"] .badge{font-size:12px;}
+  html[lang="ur"] .badge small{font-size:10.5px;}
+  html[lang="ur"] .b2b-stat b{line-height:1.5;}
+  html[lang="ur"] .f-list li,html[lang="ur"] .nav-links{line-height:1.8;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
   a{color:inherit;text-decoration:none;}
   img,svg{display:block;max-width:100%;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
-  ::selection{background:var(--gold-400);color:var(--navy-950);}
-  :focus-visible{outline:2px solid var(--gold-300);outline-offset:3px;}
+  h1,h2,h3,h4{letter-spacing:-0.02em;line-height:1.08;font-weight:800;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent-ink);}
+  ::selection{background:var(--accent-2);color:#001b20;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  .ltr{direction:ltr;unicode-bidi:isolate;}
 
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(6,14,31,0.86);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--hairline);
-  }
-  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1180px;margin:0 auto;}
-  .brand{display:flex;align-items:center;gap:12px;}
-  .brand svg{width:50px;height:50px;flex-shrink:0;animation:logoGlowPulse 3.2s ease-in-out infinite;}
-  .brand .name{line-height:1.15;}
-  .brand .name .full{
-    font-family:'Orbitron','Manrope',sans-serif;font-weight:700;font-size:17px;
-    letter-spacing:0.12em;text-transform:uppercase;color:var(--tron-cyan-soft);
-    animation:textGlowPulse 3.2s ease-in-out infinite;
-  }
-  .brand .name .sub{display:block;font-size:9px;letter-spacing:0.2em;color:var(--tron-cyan);opacity:0.75;margin-top:3px;}
-  @keyframes logoGlowPulse{
-    0%,100%{filter:drop-shadow(0 0 6px rgba(0,229,255,0.7)) drop-shadow(0 0 14px rgba(0,229,255,0.4));}
-    50%{filter:drop-shadow(0 0 13px rgba(0,229,255,1)) drop-shadow(0 0 30px rgba(0,229,255,0.7)) drop-shadow(0 0 50px rgba(0,229,255,0.35));}
-  }
-  @keyframes textGlowPulse{
-    0%,100%{text-shadow:0 0 6px rgba(0,229,255,0.6), 0 0 16px rgba(0,229,255,0.32);}
-    50%{text-shadow:0 0 10px rgba(0,229,255,0.95), 0 0 26px rgba(0,229,255,0.6), 0 0 46px rgba(0,229,255,0.3);}
-  }
-  footer .fbrand svg{animation:logoGlowPulse 3.2s ease-in-out infinite;}
-  .nav-links{display:flex;gap:34px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-family:'Orbitron',sans-serif;font-weight:500;color:var(--slate-300);}
-  .nav-links a{position:relative;padding:4px 0;transition:color .2s ease;}
-  .nav-links a:hover{color:var(--sand-50);}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold-400);transition:width .25s ease;}
-  .nav-links a:hover::after{width:100%;}
-  .nav-cta{display:flex;align-items:center;gap:14px;}
-  .btn-wa{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--gold-400);color:var(--navy-950);
-    font-family:'Orbitron',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
-    padding:10px 18px;border-radius:2px;
-    clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .btn-wa:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,229,255,0.3);}
-  .menu-btn{display:none;background:none;border:1px solid var(--hairline);color:var(--sand-50);width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;}
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;padding:14px 26px;border-radius:100px;transition:transform .15s ease,background .2s ease,box-shadow .2s ease;white-space:nowrap;}
+  .btn-dark{background:var(--cta);color:#fff;}
+  .btn-dark:hover{background:var(--cta-hover);transform:translateY(-1px);}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 6px 18px rgba(31,171,84,.28);}
+  .btn-wa:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(31,171,84,.38);}
+  .btn-line{background:#fff;color:var(--ink);border:1.5px solid var(--line-2);}
+  .btn-line:hover{border-color:var(--ink);transform:translateY(-1px);}
+  .btn-sm{padding:11px 20px;font-size:14px;}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;overflow:hidden;
-    padding:120px 28px 110px;
-    text-align:center;
-    background:
-      radial-gradient(ellipse 70% 60% at 50% 18%, rgba(47,111,237,0.16), transparent 60%),
-      linear-gradient(180deg,var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-950) 100%);
-  }
-  .hero-pattern{
-    position:absolute;inset:0;z-index:0;opacity:0.5;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .hero-pattern svg{width:min(900px,140vw);height:auto;animation:spin 140s linear infinite;}
-  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-  .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:0.18em;color:var(--gold-300);
-    margin-bottom:26px;
-  }
-  .eyebrow .line{width:26px;height:1px;background:var(--gold-400);}
-  .hero h1{
-    font-size:clamp(36px,6vw,64px);
-    line-height:1.08;color:var(--sand-50);
-    margin-bottom:22px;
-  }
-  .hero h1 em{font-style:normal;color:var(--gold-300);text-shadow:0 0 10px rgba(0,229,255,0.55), 0 0 24px rgba(0,229,255,0.3);}
-  .hero p.lede{
-    font-size:17px;color:var(--slate-300);max-width:520px;margin:0 auto 40px;
-  }
-  .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-  .btn-primary{
-    background:var(--gold-400);color:var(--navy-950);font-family:'Orbitron',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;
-    padding:15px 30px;
-    clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
-    display:inline-flex;align-items:center;gap:10px;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,229,255,0.28);}
-  .btn-ghost{
-    border:1px solid var(--hairline);color:var(--sand-50);font-family:'Orbitron',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;
-    padding:15px 28px;
-    clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
-    display:inline-flex;align-items:center;gap:10px;transition:border-color .2s ease, background .2s ease;
-  }
-  .btn-ghost:hover{border-color:var(--gold-400);background:rgba(0,229,255,0.08);}
+  /* Promo bar */
+  .promo{background:var(--ink);color:#fff;font-size:13px;font-weight:600;letter-spacing:.01em;}
+  .promo .wrap{display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 32px;text-align:center;}
+  .promo b{color:var(--accent-2);}
 
-  /* Mobile hero: fill the viewport (minus the 83px sticky header) and center the text */
-  @media (max-width:768px){
-    .hero{
-      min-height:calc(100vh - 83px);   /* fallback for browsers without svh */
-      min-height:calc(100svh - 83px);
-      display:flex;align-items:center;justify-content:center;
-      padding-top:0;padding-bottom:0;
-    }
-  }
+  /* Header */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 32px;max-width:1200px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+  .brand .mark{width:38px;height:38px;}
+  .brand .bn{font-weight:800;font-size:19px;letter-spacing:-0.01em;}
+  .brand .bn span{color:var(--accent-ink);}
+  .nav-links{display:flex;gap:30px;font-size:15px;font-weight:600;color:var(--ink-2);}
+  .nav-links a{position:relative;padding:4px 0;transition:color .15s;}
+  .nav-links a:hover{color:var(--accent-ink);}
+  .nav-right{display:flex;align-items:center;gap:12px;}
+  .menu-btn{display:none;background:none;border:1.5px solid var(--line-2);border-radius:10px;width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);}
 
-  /* ---------- TRUST STRIP ---------- */
-  .trust{
-    border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
-    background:var(--navy-900);
-  }
-  .trust .wrap{display:flex;flex-wrap:wrap;gap:0;}
-  .trust-item{
-    flex:1 1 220px;padding:28px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
-    border-right:1px solid var(--hairline);
-  }
-  .trust-item:last-child{border-right:none;}
-  .trust-item svg{width:26px;height:26px;flex-shrink:0;color:var(--gold-400);}
-  .trust-item span{font-size:13.5px;color:var(--slate-300);line-height:1.4;}
-  .trust-item strong{display:block;color:var(--sand-50);font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:0.02em;font-weight:600;margin-bottom:3px;}
+  /* Language switcher */
+  .lang{position:relative;}
+  .lang-btn{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--line-2);border-radius:100px;padding:9px 13px;font-family:inherit;font-weight:700;font-size:13.5px;color:var(--ink);cursor:pointer;transition:border-color .15s;}
+  .lang-btn:hover{border-color:var(--accent-2);}
+  .lang-btn>svg{width:16px;height:16px;color:var(--accent-ink);}
+  .lang-btn .chev{width:12px;height:12px;transition:transform .2s;}
+  .lang.open .lang-btn .chev{transform:rotate(180deg);}
+  .lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(10,14,20,.14);padding:6px;min-width:158px;display:none;z-index:70;}
+  .lang.open .lang-menu{display:block;}
+  [dir="rtl"] .lang-menu{right:auto;left:0;}
+  .lang-menu button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;background:none;border:none;border-radius:9px;padding:10px 12px;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer;text-align:start;}
+  .lang-menu button:hover{background:var(--panel);color:var(--accent-ink);}
+  .lang-menu button[aria-current="true"]{color:var(--accent-ink);background:var(--panel);}
+  .lang-menu .nat{font-weight:700;}
+  .lang-menu .code{font-size:12px;color:var(--ink-dim);}
 
-  /* ---------- SECTION HEADS ---------- */
-  section{padding:100px 28px;}
-  .section-head{max-width:620px;margin:0 auto 56px;}
-  .section-head .kicker{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:0.18em;color:var(--gold-300);display:block;margin-bottom:14px;}
-  .section-head h2{font-size:clamp(28px,4vw,42px);color:var(--sand-50);line-height:1.15;}
-  .section-head p{color:var(--slate-300);margin-top:16px;font-size:16px;max-width:520px;}
+  /* Hero */
+  .hero{position:relative;overflow:hidden;background:
+      radial-gradient(120% 95% at 88% 8%, #d6f1f9 0%, transparent 52%),
+      radial-gradient(95% 85% at 78% 55%, #cfe8f7 0%, transparent 55%),
+      radial-gradient(90% 80% at 6% 92%, #e9eff4 0%, transparent 60%),
+      #ffffff;}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:84px;}
+  .hero h1{font-size:clamp(40px,6vw,68px);}
+  .hero h1 em{font-style:normal;background:linear-gradient(120deg,#00bcd4,#0b73b4 60%,#075a92);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--sea);}
+  .hero .lede{margin-top:22px;font-size:19px;color:var(--ink-dim);max-width:32ch;font-weight:500;}
+  .hero .actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .hero .sub{margin-top:20px;font-size:13.5px;color:var(--ink-dim);font-weight:600;}
+  .hero-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:380px;}
+  .hero-art .glow{position:absolute;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,rgba(0,198,224,.26),rgba(11,115,180,.18) 46%,transparent 70%);filter:blur(12px);animation:float 7s ease-in-out infinite alternate;}
+  @keyframes float{to{transform:translateY(-16px) scale(1.04);}}
+  .badge{position:absolute;background:#fff;border-radius:14px;box-shadow:0 14px 34px rgba(10,14,20,.16);padding:12px 15px;z-index:3;font-weight:700;font-size:13px;display:flex;align-items:center;gap:9px;}
+  .badge small{display:block;font-weight:600;font-size:11px;color:var(--ink-dim);}
+  .badge .ic{width:30px;height:30px;border-radius:9px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);}
+  .badge.b1{top:40px;left:-6px;} .badge.b2{bottom:70px;right:-14px;}
+  [dir="rtl"] .badge.b1{left:auto;right:-6px;} [dir="rtl"] .badge.b2{right:auto;left:-14px;}
 
-  /* ---------- PRODUCTS (asymmetric grid) ---------- */
-  .products{background:var(--navy-950);}
-  .prod-grid{
-    display:grid;grid-template-columns:repeat(6,1fr);gap:20px;max-width:1124px;margin:0 auto;
-  }
-  .prod-card{
-    grid-column:span 3;
-    background:var(--navy-900);
-    border:1px solid var(--hairline);
-    padding:38px 32px;
-    clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));
-    position:relative;overflow:hidden;transition:border-color .25s ease, transform .25s ease;
-  }
-  .prod-card:hover{border-color:var(--gold-400);transform:translateY(-3px);}
-  .prod-card.wide{grid-column:span 4;}
-  .prod-card.narrow{grid-column:span 2;}
-  .prod-card .num{font-family:'Orbitron',sans-serif;font-size:12px;color:var(--gold-400);letter-spacing:0.1em;}
-  .prod-visual{width:100%;max-width:210px;height:auto;margin:20px auto 22px;}
-  .prod-card h3{font-size:22px;color:var(--sand-50);margin-bottom:10px;}
-  .prod-card p{font-size:14.5px;color:var(--slate-300);}
-  @media (max-width:820px){
-    .prod-card,.prod-card.wide,.prod-card.narrow{grid-column:span 6;}
-  }
+  /* Dubai skyline (hero dynamic element) */
+  .skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:188px;z-index:1;pointer-events:none;opacity:.92;}
+  .skyline svg{width:100%;height:100%;display:block;}
+  .skyline .win{fill:#1fe3ff;opacity:.15;filter:drop-shadow(0 0 3px rgba(31,227,255,.85));animation:twinkle 4.2s ease-in-out infinite;}
+  .skyline .scan{animation:scan 6.5s linear infinite;}
+  @keyframes twinkle{0%,100%{opacity:.12;}44%{opacity:1;}62%{opacity:.4;}}
+  @keyframes scan{0%{transform:translateX(-170px);}100%{transform:translateX(1600px);}}
+  @media (max-width:900px){.skyline{height:118px;opacity:.82;}}
 
-  /* ---------- B2B BAND ---------- */
-  .b2b{
-    background:linear-gradient(180deg,var(--navy-900),var(--navy-950));
-    border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
-  }
-  .b2b .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;}
-  .b2b-visual{position:relative;aspect-ratio:1/1;max-width:340px;}
-  .b2b-visual svg{width:100%;height:100%;}
-  .b2b-copy .kicker{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:0.18em;color:var(--gold-300);display:block;margin-bottom:14px;}
-  .b2b-copy h2{font-size:clamp(26px,3.6vw,38px);color:var(--sand-50);margin-bottom:20px;line-height:1.18;}
-  .b2b-copy p{color:var(--slate-300);font-size:15.5px;margin:0 auto 26px;max-width:480px;}
-  .b2b-list{display:flex;flex-direction:column;align-items:center;gap:14px;margin:0 auto 30px;max-width:420px;}
-  .b2b-list li{display:flex;gap:12px;align-items:flex-start;list-style:none;font-size:14.5px;color:var(--sand-50);text-align:left;}
-  .b2b-list svg{width:16px;height:16px;color:var(--gold-400);margin-top:4px;flex-shrink:0;}
-  @media (max-width:860px){.b2b .wrap{grid-template-columns:1fr;}.b2b-visual{margin:0 auto;}}
+  /* Circuit traces (tech motif, tied to the hexagon mark) */
+  .circuits{position:absolute;top:-30px;right:-30px;width:560px;max-width:66%;z-index:1;pointer-events:none;color:#0b73b4;}
+  .circuits svg{width:100%;height:auto;overflow:visible;}
+  .circuits .trace{fill:none;stroke:currentColor;stroke-width:1.2;opacity:.15;}
+  .circuits .hex{fill:none;stroke:currentColor;stroke-width:1.4;opacity:.13;}
+  .circuits .chip{fill:none;stroke:currentColor;stroke-width:1.1;opacity:.14;}
+  .circuits .node{fill:var(--accent-2);opacity:.34;}
+  .circuits .pulse{fill:#1fe3ff;filter:drop-shadow(0 0 5px rgba(31,227,255,.95));animation:pulse-run 4.8s ease-in-out infinite;}
+  @keyframes pulse-run{0%{transform:translate(0,0);opacity:0;}6%{opacity:1;}30%{transform:translate(0px,60px);}63%{transform:translate(-170px,60px);}94%{transform:translate(-170px,90px);opacity:1;}100%{transform:translate(-170px,90px);opacity:0;}}
+  [dir="rtl"] .circuits{right:auto;left:-30px;transform:scaleX(-1);}
+  @media (max-width:900px){.circuits{width:420px;top:-10px;opacity:.85;}}
+  @media (max-width:560px){.circuits{display:none;}}
 
-  /* ---------- CONTACT ---------- */
-  .contact{background:var(--navy-950);}
-  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
-  .contact-info h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:18px;}
-  .contact-info p{color:var(--slate-300);font-size:15.5px;margin:0 auto 32px;max-width:440px;}
-  .info-row{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:18px 0;border-bottom:1px solid var(--hairline);}
-  .info-row svg{width:20px;height:20px;color:var(--gold-400);flex-shrink:0;margin-top:2px;}
-  .info-row strong{display:block;font-family:'Orbitron',sans-serif;font-size:12.5px;letter-spacing:0.03em;color:var(--sand-50);margin-bottom:4px;}
-  .info-row span, .info-row a{font-size:14px;color:var(--slate-300);}
-  .info-row a:hover{color:var(--gold-300);}
-  .social-row{display:flex;justify-content:center;gap:12px;margin:28px auto 0;}
-  .social-row a{
-    width:44px;height:44px;border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;
-    transition:border-color .2s ease, background .2s ease;
-  }
-  .social-row a:hover{border-color:var(--gold-400);background:rgba(0,229,255,0.08);}
-  .social-row svg{width:19px;height:19px;color:var(--gold-300);}
+  /* Real photography */
+  .art-frame{position:relative;width:310px;max-width:80%;aspect-ratio:3/4;border-radius:30px;overflow:hidden;box-shadow:0 40px 90px rgba(11,90,146,.30),0 0 0 6px rgba(255,255,255,.9),0 0 0 7px rgba(11,115,180,.16);z-index:1;}
+  .art-frame img{width:100%;height:100%;object-fit:cover;}
+  .f-media img.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .f-media.m2 img.fill{opacity:.96;}
 
-  form.msg{background:var(--navy-900);border:1px solid var(--hairline);padding:36px;clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));}
-  form.msg label{display:block;font-family:'Orbitron',sans-serif;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-300);margin-bottom:8px;margin-top:20px;}
+  /* Trust strip */
+  .trust{border-bottom:1px solid var(--line);background:#fff;}
+  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:26px 32px;}
+  .trust-item{display:flex;align-items:center;gap:12px;}
+  .trust-item .ic{width:40px;height:40px;border-radius:11px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);flex-shrink:0;}
+  .trust-item svg{width:21px;height:21px;}
+  .trust-item b{font-size:14.5px;display:block;}
+  .trust-item span{font-size:12.5px;color:var(--ink-dim);}
+
+  /* Section shell */
+  section{padding:84px 0;}
+  .sec-head{max-width:640px;margin:0 auto 46px;text-align:center;}
+  .sec-head h2{font-size:clamp(30px,4vw,46px);}
+  .sec-head p{margin-top:16px;color:var(--ink-dim);font-size:17px;font-weight:500;}
+
+  /* Feature blocks (alternating, Anker-style) */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .feature + .feature{margin-top:30px;}
+  .feature.flip .f-media{order:2;}
+  .f-media{border-radius:24px;min-height:360px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .f-media.m1{background:linear-gradient(140deg,#e9f6f9,#d4eef4);}
+  .f-media.m2{background:linear-gradient(140deg,#0a0e14,#1a2832);}
+  .f-copy .eyebrow{display:block;margin-bottom:16px;}
+  .f-copy h3{font-size:clamp(26px,3.3vw,38px);}
+  .f-copy p{margin-top:16px;color:var(--ink-dim);font-size:16.5px;font-weight:500;max-width:46ch;}
+  .f-list{margin:22px 0 28px;display:flex;flex-direction:column;gap:11px;}
+  .f-list li{list-style:none;display:flex;gap:11px;align-items:center;font-weight:600;font-size:15px;}
+  .f-list .dot{width:22px;height:22px;border-radius:50%;background:var(--panel);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .f-list svg{width:13px;height:13px;}
+
+  /* Category image tiles */
+  .cats{background:var(--bg2);}
+  .cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .cat{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 14px 34px rgba(10,14,20,.10);transition:transform .25s ease,box-shadow .25s ease;}
+  .cat:hover{transform:translateY(-6px);box-shadow:0 28px 52px rgba(11,90,146,.20);}
+  .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease;}
+  .cat:hover img{transform:scale(1.07);}
+  .cat .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:40px 16px 15px;background:linear-gradient(to top,rgba(6,20,34,.88),rgba(6,20,34,.22) 58%,transparent);color:#fff;}
+  .cat .cap h4{font-size:15.5px;font-weight:700;letter-spacing:-0.01em;}
+  .cat .cap p{font-size:12.5px;color:rgba(255,255,255,.80);margin-top:3px;font-weight:600;}
+  @media (max-width:1000px){.cat-grid{grid-template-columns:repeat(2,1fr);} .trust .wrap{grid-template-columns:repeat(2,1fr);} .cat:last-child{grid-column:1/-1;aspect-ratio:16/10;}}
+
+  /* B2B band */
+  .b2b{background:radial-gradient(95% 130% at 100% 0%,rgba(11,115,180,.42),transparent 52%),radial-gradient(80% 120% at 0% 100%,rgba(0,188,212,.18),transparent 55%),var(--ink);color:#fff;border-radius:28px;overflow:hidden;}
+  .b2b-in{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:56px;}
+  .b2b h2{font-size:clamp(28px,3.4vw,40px);color:#fff;}
+  .b2b p{margin-top:16px;color:#aab3bd;font-size:16.5px;font-weight:500;}
+  .b2b .f-list li{color:#e9edf1;}
+  .b2b .f-list .dot{background:rgba(0,188,212,.18);color:var(--accent-2);}
+  .b2b-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#222a33;border-radius:18px;overflow:hidden;}
+  .b2b-stat{background:#12171f;padding:28px 24px;}
+  .b2b-stat b{display:block;font-size:30px;color:var(--accent-2);}
+  .b2b-stat span{font-size:13px;color:#aab3bd;font-weight:600;}
+
+  /* Contact */
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .contact h2{font-size:clamp(28px,3.6vw,42px);}
+  .contact .intro{margin-top:14px;color:var(--ink-dim);font-size:16.5px;font-weight:500;}
+  .info-row{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .info-row .ic{width:42px;height:42px;border-radius:11px;background:var(--panel);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .info-row svg{width:20px;height:20px;}
+  .info-row strong{display:block;font-size:13px;letter-spacing:.02em;}
+  .info-row span,.info-row a{font-size:14.5px;color:var(--ink-dim);font-weight:500;}
+  .info-row a:hover{color:var(--accent-ink);}
+  .social-row{display:flex;gap:11px;margin-top:24px;}
+  .social-row a{width:44px;height:44px;border:1.5px solid var(--line-2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:border-color .2s,background .2s,color .2s;}
+  .social-row a:hover{border-color:var(--accent-2);background:var(--panel);color:var(--accent-ink);}
+  .social-row svg{width:19px;height:19px;}
+  form.msg{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:34px;}
+  form.msg label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--ink-2);margin:18px 0 7px;}
   form.msg label:first-of-type{margin-top:0;}
-  form.msg input, form.msg textarea{
-    width:100%;background:var(--navy-950);border:1px solid var(--hairline);color:var(--sand-50);
-    padding:12px 14px;font-family:'Manrope',sans-serif;font-size:14.5px;
-  }
-  form.msg input:focus, form.msg textarea:focus{border-color:var(--gold-400);}
-  form.msg textarea{resize:vertical;min-height:100px;}
-  form.msg button{
-    margin-top:26px;width:100%;background:var(--gold-400);color:var(--navy-950);font-family:'Orbitron',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
-    padding:15px;border:none;cursor:pointer;
-    clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
-    transition:transform .2s ease;
-  }
-  form.msg button:hover{transform:translateY(-2px);}
-  @media (max-width:860px){.contact .wrap{grid-template-columns:1fr;}}
+  form.msg input,form.msg textarea{width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:12px;color:var(--ink);padding:13px 15px;font-family:inherit;font-size:15px;transition:border-color .15s;}
+  form.msg input:focus,form.msg textarea:focus{outline:none;border-color:var(--accent);}
+  form.msg textarea{resize:vertical;min-height:110px;}
+  form.msg button{margin-top:24px;width:100%;justify-content:center;border:none;cursor:pointer;}
 
-  /* ---------- FOOTER ---------- */
-  footer{border-top:1px solid var(--hairline);padding:34px 28px;background:var(--navy-950);}
-  footer .wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;}
-  footer .fbrand{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--slate-400);}
-  footer .fbrand svg{width:22px;height:22px;}
-  footer nav.flinks{display:flex;gap:24px;font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate-400);}
-  footer nav.flinks a:hover{color:var(--gold-300);}
+  /* Footer */
+  footer{background:var(--bg3);border-top:1px solid var(--line);padding:46px 0 34px;}
+  footer .ftop{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;}
+  footer .fbrand{display:flex;align-items:center;gap:11px;}
+  footer .fbrand .mark{width:34px;height:34px;}
+  footer .fbrand b{font-weight:800;font-size:17px;}
+  footer .flinks{display:flex;gap:28px;font-size:14.5px;font-weight:600;color:var(--ink-2);flex-wrap:wrap;}
+  footer .flinks a:hover{color:var(--accent-ink);}
+  footer .fcr{margin-top:30px;padding-top:22px;border-top:1px solid var(--line-2);font-size:13px;color:var(--ink-dim);font-weight:500;}
 
-  /* ---------- MOBILE NAV ---------- */
-  @media (max-width:860px){
+  /* RTL headline tuning */
+  [dir="rtl"] .eyebrow{letter-spacing:0;}
+  [dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3{letter-spacing:0;line-height:1.25;}
+  [dir="rtl"] .info-row a.ltr{display:inline-block;}
+
+  /* Responsive */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:10px;padding-top:50px;padding-bottom:60px;}
+    .hero-art{min-height:340px;order:-1;}
+    .feature,.feature.flip .f-media{grid-template-columns:1fr;gap:28px;order:0;}
+    .feature .f-media{order:-1;min-height:280px;}
+    .b2b-in{grid-template-columns:1fr;gap:30px;padding:38px 28px;}
+    .contact .wrap{grid-template-columns:1fr;}
     .nav-links{display:none;}
     .menu-btn{display:flex;}
-    .nav-links.open{
-      display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-      background:var(--navy-900);border-bottom:1px solid var(--hairline);padding:22px 28px;gap:20px;
-    }
-    .btn-wa span.long{display:none;}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:22px 32px;gap:18px;}
+    .nav-right .btn .long{display:none;}
+    .lang-btn{padding:9px 11px;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;} nav{padding:13px 20px;gap:10px;}
+    section{padding:60px 0;}
+    .trust .wrap{grid-template-columns:1fr;gap:14px;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+    .b2b-stats{grid-template-columns:1fr;}
+    .hero h1{font-size:clamp(34px,10vw,44px);}
   }
 </style>
 </head>
 <body>
 
+<!-- PROMO BAR -->
+<div class="promo"><div class="wrap" data-i18n-html="promo">New &amp; used phones &amp; laptops &middot; <b>Same-day repairs</b> &middot; Wholesale &amp; B2B welcome &mdash; Al Satwa, Dubai</div></div>
+
+<!-- HEADER -->
 <header>
   <nav>
-    <a href="#top" class="brand">
-      <svg viewBox="0 0 60 60" aria-hidden="true">
-        <defs>
-          <filter id="tronGlowHeader" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="2.6" result="blur1"/>
-            <feGaussianBlur in="blur1" stdDeviation="1.1" result="blur2"/>
-            <feMerge>
-              <feMergeNode in="blur2"/>
-              <feMergeNode in="blur1"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <linearGradient id="cyanGradHeader" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#eafdff"/>
-            <stop offset="45%" stop-color="#00e5ff"/>
-            <stop offset="100%" stop-color="#0090b0"/>
-          </linearGradient>
-        </defs>
-        <polygon points="30,2 53,15.5 53,44.5 30,58 7,44.5 7,15.5" fill="#020c14" stroke="url(#cyanGradHeader)" stroke-width="1.3" filter="url(#tronGlowHeader)"/>
-        <polygon points="30,8.5 46.5,18 46.5,42 30,51.5 13.5,42 13.5,18" fill="none" stroke="var(--tron-cyan)" stroke-width="0.6" stroke-dasharray="1.5 3" opacity="0.55" transform="rotate(15 30 30)"/>
-        <circle cx="30" cy="30" r="15" fill="none" stroke="var(--tron-cyan)" stroke-width="0.9" opacity="0.6"/>
-        <path d="M30 15 A15 15 0 1 1 29.9 15" fill="none" stroke="var(--tron-cyan-soft)" stroke-width="1.7" filter="url(#tronGlowHeader)"/>
-        <g stroke="var(--tron-cyan)" stroke-width="1.3" filter="url(#tronGlowHeader)">
-          <line x1="30" y1="5.5" x2="30" y2="14"/>
-          <line x1="47" y1="18" x2="40" y2="23"/>
-          <line x1="47" y1="42" x2="40" y2="37"/>
-          <line x1="30" y1="54.5" x2="30" y2="46"/>
-          <line x1="13" y1="42" x2="20" y2="37"/>
-          <line x1="13" y1="18" x2="20" y2="23"/>
-        </g>
-        <g fill="var(--tron-cyan-soft)" filter="url(#tronGlowHeader)">
-          <circle cx="30" cy="4.5" r="1.7"/>
-          <circle cx="48.3" cy="17.2" r="1.7"/>
-          <circle cx="48.3" cy="42.8" r="1.7"/>
-          <circle cx="30" cy="55.5" r="1.7"/>
-          <circle cx="11.7" cy="42.8" r="1.7"/>
-          <circle cx="11.7" cy="17.2" r="1.7"/>
-        </g>
-        <text x="30" y="36.5" text-anchor="middle" font-family="Orbitron, sans-serif" font-weight="800" font-size="18" fill="#eafdff" filter="url(#tronGlowHeader)">O</text>
+    <a href="#top" class="brand" aria-label="Orison home">
+      <svg class="mark" viewBox="0 0 60 60" aria-hidden="true">
+        <polygon points="30,3 52,16 52,44 30,57 8,44 8,16" fill="none" stroke="#0097b2" stroke-width="2.4"/>
+        <circle cx="30" cy="30" r="13" fill="none" stroke="#00bcd4" stroke-width="2.4"/>
+        <text x="30" y="37.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="19" fill="#0a0e14">O</text>
       </svg>
-      <span class="name">
-        <span class="full">Orison</span>
-        <span class="sub">INT'L GENERAL TRADING</span>
-      </span>
+      <span class="bn">ORISON<span> IGT</span></span>
     </a>
-
     <div class="nav-links" id="navLinks">
-      <a href="#b2b">B2B Trading</a>
-      <a href="#contact">Visit Us</a>
-      <a href="#contact">Contact</a>
+      <a href="#shop" data-i18n="nav.shop">Shop</a>
+      <a href="#repairs" data-i18n="nav.repairs">Repairs</a>
+      <a href="#categories" data-i18n="nav.categories">Categories</a>
+      <a href="#b2b" data-i18n="nav.b2b">B2B &amp; Wholesale</a>
+      <a href="#contact" data-i18n="nav.visit">Visit Us</a>
     </div>
-
-    <div class="nav-cta">
-      <a class="btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.6 3 14.4 0 18M12 3c-3 3.6-3 14.4 0 18"/></svg>
+          <span id="langCur">EN</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu"></div>
+      </div>
+      <a class="btn btn-wa btn-sm" href="https://wa.me/971563480513" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.42-.71-2.89-1.16-4.74-4.14-4.88-4.33-.14-.19-1.16-1.55-1.16-2.96 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.66.5.24.58.83 2 .9 2.15.07.15.11.32.02.51-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.13.57.16.28.7 1.16 1.5 1.88 1.03.93 1.9 1.22 2.18 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.68-.17 1.36Z"/></svg>
-        <span class="long">WhatsApp</span>
+        <span class="long" data-i18n="nav.whatsapp">WhatsApp</span>
       </a>
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" data-i18n-aria="nav.menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </nav>
@@ -340,155 +296,206 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero" style="padding-top:0;">
-    <div class="hero-pattern" aria-hidden="true">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="var(--gold-400)" stroke-width="0.6" opacity="0.55">
-          <path d="M200 40 L320 120 L280 260 L120 260 L80 120 Z"/>
-          <path d="M200 360 L80 280 L120 140 L280 140 L320 280 Z"/>
-          <circle cx="200" cy="200" r="150" stroke-dasharray="2 6"/>
-          <circle cx="200" cy="200" r="110"/>
-        </g>
+  <section class="hero">
+    <div class="circuits" aria-hidden="true">
+      <svg viewBox="0 0 560 440" fill="none">
+        <polygon class="hex" points="470,44 509.8,67 509.8,113 470,136 430.2,113 430.2,67"/>
+        <polygon class="hex" points="300,180 325.98,195 325.98,225 300,240 274.02,225 274.02,195"/>
+        <polygon class="hex" points="120,292 152.9,311 152.9,349 120,368 87.1,349 87.1,311"/>
+        <path class="trace" d="M470 90 L470 150 L300 150 L300 180"/>
+        <path class="trace" d="M300 240 L300 300 L120 300 L120 292"/>
+        <path class="trace" d="M470 44 L470 12"/>
+        <path class="trace" d="M120 368 L120 420 L250 420"/>
+        <path class="trace" d="M509.8 113 L556 113"/>
+        <rect class="chip" x="236" y="406" width="28" height="28" rx="4"/>
+        <circle class="node" cx="470" cy="150" r="3.4"/>
+        <circle class="node" cx="300" cy="150" r="3.4"/>
+        <circle class="node" cx="300" cy="300" r="3.4"/>
+        <circle class="node" cx="120" cy="300" r="3.4"/>
+        <circle class="node" cx="470" cy="12" r="3.4"/>
+        <circle class="node" cx="556" cy="113" r="3.4"/>
+        <circle class="node" cx="470" cy="90" r="2.6"/>
+        <circle class="node" cx="300" cy="210" r="2.6"/>
+        <circle class="node" cx="120" cy="330" r="2.6"/>
+        <circle class="pulse" cx="470" cy="90" r="3.4"/>
       </svg>
     </div>
-    <div class="hero-inner">
-      <h1>Trade, repair, and <em>trust</em> —<br>all under one roof.</h1>
-      <p class="lede">New and used mobiles, laptops, accessories and networking gear — plus expert phone and laptop repair services — all bought, sold, fixed and traded with honesty, right in the heart of Satwa. Wholesale and B2B welcome.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="https://wa.me/971563480513" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Al Satwa, Dubai</span>
+        <h1 style="margin-top:14px;" data-i18n-html="hero.h1">Trade, repair, and <em>trust</em> — all under one roof.</h1>
+        <p class="lede" data-i18n="hero.lede">New &amp; used mobiles and laptops, expert repairs, accessories and networking gear — bought, sold, fixed and traded with honesty.</p>
+        <div class="actions">
+          <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
+            <span data-i18n="hero.cta_wa">Chat on WhatsApp</span>
+          </a>
+          <a class="btn btn-line" href="#categories" data-i18n="hero.cta_browse">Browse what we trade</a>
+        </div>
+        <p class="sub" data-i18n="hero.sub">Open daily · 12:00 PM – 12:00 AM · Walk in or message anytime</p>
       </div>
+      <div class="hero-art">
+        <div class="glow"></div>
+        <div class="art-frame"><img src="assets/ipad-lifestyle.jpg" alt="A customer using a tablet at home" loading="eager" width="1000" height="1500"></div>
+        <div class="badge b1"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div><span data-i18n="badge1.t">Checked &amp; tested</span><small data-i18n="badge1.s">Every used device</small></div></div>
+        <div class="badge b2"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><div><span data-i18n="badge2.t">Same-day repairs</span><small data-i18n="badge2.s">Screens · batteries</small></div></div>
+      </div>
+    </div>
+    <!-- Dubai skyline: animated dynamic element -->
+    <div class="skyline">
+      <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0b73b4" stop-opacity="0.07"/>
+            <stop offset="1" stop-color="#075a92" stop-opacity="0.52"/>
+          </linearGradient>
+          <linearGradient id="scanG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#00e5ff" stop-opacity="0"/>
+            <stop offset="0.5" stop-color="#00e5ff" stop-opacity="0.5"/>
+            <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="skyClip"><path d="M0,200 L0,150 L70,150 L70,125 L130,125 L130,155 L200,155 L200,95 L260,95 L260,135 L330,135 L330,80 L400,80 L400,120 L470,120 L470,150 L540,150 L540,100 L600,100 L600,140 L670,140 L670,90 L690,90 L690,70 L700,70 L700,45 L706,15 L712,45 L722,45 L722,90 L732,90 L732,140 L770,140 L770,110 L840,110 L840,150 L900,150 L900,95 L970,95 L970,130 L1040,130 L1040,75 L1110,75 L1110,120 L1180,120 L1180,150 L1250,150 L1250,105 L1320,105 L1320,140 L1390,140 L1390,120 L1440,120 L1440,200 Z"/></clipPath>
+        </defs>
+        <path d="M0,200 L0,150 L70,150 L70,125 L130,125 L130,155 L200,155 L200,95 L260,95 L260,135 L330,135 L330,80 L400,80 L400,120 L470,120 L470,150 L540,150 L540,100 L600,100 L600,140 L670,140 L670,90 L690,90 L690,70 L700,70 L700,45 L706,15 L712,45 L722,45 L722,90 L732,90 L732,140 L770,140 L770,110 L840,110 L840,150 L900,150 L900,95 L970,95 L970,130 L1040,130 L1040,75 L1110,75 L1110,120 L1180,120 L1180,150 L1250,150 L1250,105 L1320,105 L1320,140 L1390,140 L1390,120 L1440,120 L1440,200 Z" fill="url(#bld)"/>
+        <g clip-path="url(#skyClip)">
+          <rect class="scan" x="-170" y="0" width="150" height="200" fill="url(#scanG)"/>
+        </g>
+        <g>
+          <circle class="win" cx="35" cy="168" r="2.3" style="animation-delay:.2s"/>
+          <circle class="win" cx="100" cy="142" r="2.3" style="animation-delay:1.9s"/>
+          <circle class="win" cx="165" cy="172" r="2.3" style="animation-delay:.9s"/>
+          <circle class="win" cx="230" cy="116" r="2.3" style="animation-delay:2.7s"/>
+          <circle class="win" cx="230" cy="150" r="2.3" style="animation-delay:1.3s"/>
+          <circle class="win" cx="297" cy="152" r="2.3" style="animation-delay:3.4s"/>
+          <circle class="win" cx="360" cy="100" r="2.3" style="animation-delay:.6s"/>
+          <circle class="win" cx="360" cy="132" r="2.3" style="animation-delay:2.1s"/>
+          <circle class="win" cx="435" cy="100" r="2.3" style="animation-delay:1.6s"/>
+          <circle class="win" cx="505" cy="136" r="2.3" style="animation-delay:3.1s"/>
+          <circle class="win" cx="570" cy="120" r="2.3" style="animation-delay:.4s"/>
+          <circle class="win" cx="635" cy="156" r="2.3" style="animation-delay:2.4s"/>
+          <circle class="win" cx="706" cy="62" r="2.6" style="animation-delay:1.1s"/>
+          <circle class="win" cx="706" cy="104" r="2.6" style="animation-delay:3.0s"/>
+          <circle class="win" cx="800" cy="130" r="2.3" style="animation-delay:.8s"/>
+          <circle class="win" cx="870" cy="166" r="2.3" style="animation-delay:2.9s"/>
+          <circle class="win" cx="935" cy="116" r="2.3" style="animation-delay:1.5s"/>
+          <circle class="win" cx="1005" cy="150" r="2.3" style="animation-delay:3.6s"/>
+          <circle class="win" cx="1075" cy="96" r="2.3" style="animation-delay:.3s"/>
+          <circle class="win" cx="1145" cy="140" r="2.3" style="animation-delay:2.2s"/>
+          <circle class="win" cx="1215" cy="166" r="2.3" style="animation-delay:1.0s"/>
+          <circle class="win" cx="1285" cy="126" r="2.3" style="animation-delay:3.3s"/>
+          <circle class="win" cx="1355" cy="156" r="2.3" style="animation-delay:.7s"/>
+          <circle class="win" cx="1415" cy="140" r="2.3" style="animation-delay:2.6s"/>
+        </g>
+      </svg>
     </div>
   </section>
 
   <!-- TRUST STRIP -->
   <div class="trust">
     <div class="wrap">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 21 12 17l-5.5 4L8 14.5 3 10l6.5-1.5L12 2Z"/></svg>
-        <span><strong>New &amp; pre-owned</strong>Every used device checked before it's sold</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
-        <span><strong>B2B &amp; wholesale</strong>Bulk pricing for resellers and businesses</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-        <span><strong>Same-day service</strong>Walk in, message, or call — we're responsive</span>
-      </div>
+      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 21 12 17l-5.5 4L8 14.5 3 10l6.5-1.5L12 2Z"/></svg></span><div><b data-i18n="trust1.t">New &amp; pre-owned</b><span data-i18n="trust1.s">Inspected before sale</span></div></div>
+      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2v6h6"/><path d="M4 2h10l6 6v14H4z"/><path d="M9 15l2 2 4-4"/></svg></span><div><b data-i18n="trust2.t">Expert repairs</b><span data-i18n="trust2.s">Phones &amp; laptops</span></div></div>
+      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/></svg></span><div><b data-i18n="trust3.t">B2B &amp; wholesale</b><span data-i18n="trust3.s">Bulk pricing</span></div></div>
+      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><b data-i18n="trust4.t">Open 7 days</b><span data-i18n="trust4.s">12pm – 12am daily</span></div></div>
     </div>
   </div>
 
-  <!-- PRODUCTS -->
-  <section class="products" id="products">
+  <!-- FEATURE: MOBILES -->
+  <section id="shop">
     <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">WHAT WE TRADE</span>
-        <h2>Everything for your phone,<br>laptop and network.</h2>
-        <p>Four pillars of the shop floor — browse in-store in Satwa or message us for stock and pricing.</p>
+      <div class="feature">
+        <div class="f-media m1">
+          <img class="fill" src="assets/iphone-hero.jpg" alt="A customer holding a flagship smartphone" loading="lazy" width="844" height="1500">
+        </div>
+        <div class="f-copy">
+          <span class="eyebrow" data-i18n="feat1.eyebrow">New &amp; used mobiles</span>
+          <h3 data-i18n="feat1.h3">The latest releases, and great pre-owned too.</h3>
+          <p data-i18n="feat1.p">Flagship launches alongside carefully inspected used phones across every major brand — with a fair trade-in on your old device.</p>
+          <ul class="f-list">
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li1">Every used device checked &amp; tested</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li2">Fair trade-in value, cash or swap</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li3">All major brands in stock</span></li>
+          </ul>
+          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat1.cta">Ask about stock &amp; pricing</a>
+        </div>
       </div>
 
-      <div class="prod-grid">
-        <div class="prod-card wide">
-          <span class="num">01</span>
-          <svg class="prod-visual" viewBox="0 0 220 130" fill="none" stroke="var(--gold-400)" stroke-width="1.3" aria-hidden="true">
-            <rect x="30" y="18" width="54" height="98" rx="8" stroke-dasharray="3 4" opacity="0.55"/>
-            <line x1="42" y1="100" x2="72" y2="100" stroke-dasharray="3 4" opacity="0.55"/>
-            <rect x="86" y="8" width="60" height="108" rx="9"/>
-            <line x1="100" y1="98" x2="132" y2="98"/>
-            <circle cx="116" cy="20" r="1.6" fill="var(--gold-400)" stroke="none"/>
-            <path d="M172 30 L176 40 L186 44 L176 48 L172 58 L168 48 L158 44 L168 40 Z" fill="var(--gold-300)" stroke="none" opacity="0.9"/>
-            <text x="57" y="128" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" letter-spacing="0.12em" fill="var(--slate-300)" opacity="0.8">USED</text>
-            <text x="116" y="128" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" letter-spacing="0.12em" fill="var(--gold-300)">NEW</text>
-          </svg>
-          <h3>New &amp; Used Mobiles</h3>
-          <p>Latest releases alongside carefully inspected pre-owned phones across every major brand — with fair trade-in value on your old device.</p>
+      <!-- FEATURE: REPAIRS -->
+      <div class="feature flip" id="repairs">
+        <div class="f-media m2">
+          <img class="fill" src="assets/repair-tech.jpg" alt="A technician repairing a phone's circuit board at the workbench" loading="lazy" width="844" height="1500">
         </div>
-        <div class="prod-card narrow">
-          <span class="num">02</span>
-          <svg class="prod-visual" viewBox="0 0 220 130" fill="none" stroke="var(--gold-400)" stroke-width="1.3" aria-hidden="true">
-            <path d="M40 96 L180 96 L192 112 L28 112 Z"/>
-            <line x1="28" y1="112" x2="192" y2="112"/>
-            <path d="M54 30 L166 30 L166 96 L54 96 Z"/>
-            <line x1="54" y1="86" x2="166" y2="86" opacity="0.4"/>
-            <path d="M110 45 L116 58 L130 60 L119 69 L122 83 L110 75 L98 83 L101 69 L90 60 L104 58 Z" stroke-width="1" opacity="0.85"/>
-          </svg>
-          <h3>Laptops</h3>
-          <p>New and refurbished laptops for work, study and everyday use.</p>
-        </div>
-        <div class="prod-card narrow">
-          <span class="num">03</span>
-          <svg class="prod-visual" viewBox="0 0 220 130" fill="none" stroke="var(--gold-400)" stroke-width="1.3" aria-hidden="true">
-            <path d="M46 96 L92 50" stroke-width="6" stroke-linecap="round"/>
-            <path d="M40 84 a14 14 0 1 1 20 -20" stroke-width="3"/>
-            <circle cx="46" cy="96" r="9"/>
-            <path d="M170 40 L124 86" stroke-width="6" stroke-linecap="round"/>
-            <rect x="160" y="24" width="18" height="12" rx="2" transform="rotate(45 169 30)"/>
-            <circle cx="124" cy="86" r="6" fill="var(--gold-300)" stroke="none"/>
-            <path d="M100 100 L104 108 L112 110 L104 112 L100 120 L96 112 L88 110 L96 108 Z" fill="var(--gold-300)" stroke="none" opacity="0.9"/>
-          </svg>
-          <h3>Repair Services</h3>
-          <p>Fast, reliable phone and laptop repairs — screens, batteries and hardware fixed by hand, often the same day.</p>
-        </div>
-        <div class="prod-card narrow">
-          <span class="num">04</span>
-          <svg class="prod-visual" viewBox="0 0 220 130" fill="none" stroke="var(--gold-400)" stroke-width="1.3" aria-hidden="true">
-            <path d="M40 70 a30 30 0 0 1 60 0"/>
-            <rect x="34" y="68" width="12" height="22" rx="4"/>
-            <rect x="94" y="68" width="12" height="22" rx="4"/>
-            <path d="M130 40 q10 8 0 16 q-10 8 0 16 q10 8 0 16 q-10 8 0 16" opacity="0.8"/>
-            <rect x="160" y="55" width="40" height="60" rx="6"/>
-            <rect x="172" y="46" width="16" height="10" rx="2"/>
-            <circle cx="180" cy="80" r="3" fill="var(--gold-300)" stroke="none"/>
-          </svg>
-          <h3>Accessories</h3>
-          <p>Cases, chargers, cables and parts for phones and laptops alike.</p>
-        </div>
-        <div class="prod-card narrow">
-          <span class="num">05</span>
-          <svg class="prod-visual" viewBox="0 0 220 130" fill="none" stroke="var(--gold-400)" stroke-width="1.3" aria-hidden="true">
-            <rect x="30" y="60" width="70" height="34" rx="6"/>
-            <line x1="45" y1="60" x2="35" y2="34"/>
-            <line x1="85" y1="60" x2="95" y2="34"/>
-            <circle cx="42" cy="77" r="2.4" fill="var(--gold-300)" stroke="none"/>
-            <circle cx="54" cy="77" r="2.4" fill="var(--gold-300)" stroke="none" opacity="0.6"/>
-            <circle cx="66" cy="77" r="2.4" fill="var(--gold-300)" stroke="none" opacity="0.6"/>
-            <rect x="120" y="70" width="70" height="34" rx="6"/>
-            <line x1="135" y1="70" x2="125" y2="44"/>
-            <line x1="175" y1="70" x2="185" y2="44"/>
-            <circle cx="132" cy="87" r="2.4" fill="var(--gold-300)" stroke="none"/>
-            <circle cx="144" cy="87" r="2.4" fill="var(--gold-300)" stroke="none" opacity="0.6"/>
-            <circle cx="156" cy="87" r="2.4" fill="var(--gold-300)" stroke="none" opacity="0.6"/>
-          </svg>
-          <h3>Networking &amp; More</h3>
-          <p>Routers, SIM solutions and other networking equipment for home and business setups, sourced on request.</p>
+        <div class="f-copy">
+          <span class="eyebrow" data-i18n="feat2.eyebrow">Repair services</span>
+          <h3 data-i18n="feat2.h3">Broken screen? Dead battery? Fixed — often same day.</h3>
+          <p data-i18n="feat2.p">Fast, reliable phone and laptop repairs done by hand in Satwa — screens, batteries, charging ports, software and more.</p>
+          <ul class="f-list">
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li1">Screens &amp; batteries while you wait</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li2">Phones &amp; laptops, all brands</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li3">Honest quote before we start</span></li>
+          </ul>
+          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat2.cta">Get a repair quote</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- B2B -->
-  <section class="b2b" id="b2b">
+  <!-- CATEGORIES -->
+  <section class="cats" id="categories">
     <div class="wrap">
-      <div class="b2b-visual" aria-hidden="true">
-        <svg viewBox="0 0 300 300">
-          <g fill="none" stroke="var(--gold-400)" stroke-width="1">
-            <path d="M150 20 L260 90 L220 220 L80 220 L40 90 Z" opacity="0.7"/>
-            <path d="M150 280 L40 210 L80 80 L220 80 L260 210 Z" opacity="0.4"/>
-            <circle cx="150" cy="150" r="60" opacity="0.6"/>
-          </g>
-          <text x="150" y="158" text-anchor="middle" font-family="Orbitron, sans-serif" font-weight="700" font-size="26" fill="var(--gold-300)">B2B</text>
-        </svg>
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="cats.eyebrow">What we trade</span>
+        <h2 style="margin-top:12px;" data-i18n="cats.h2">Everything for your phone, laptop &amp; network</h2>
+        <p data-i18n="cats.p">Browse in-store in Satwa or message us for current stock and pricing.</p>
       </div>
-      <div class="b2b-copy">
-        <span class="kicker">FOR BUSINESSES</span>
-        <h2>General trading, done at wholesale scale.</h2>
-        <p>Alongside our retail counter, Orison International General Trading supplies other businesses directly — resellers, exporters and shops across the region.</p>
-        <ul class="b2b-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Bulk supply of new &amp; used mobiles and laptops</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Accessory and networking-equipment sourcing</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Trade terms tailored per order volume</li>
-        </ul>
-        <a class="btn-ghost" href="https://wa.me/971563480513" target="_blank" rel="noopener">Discuss a B2B order</a>
+      <div class="cat-grid">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+          <img src="assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
+          <span class="cap"><h4 data-i18n="cat1.t">New &amp; Used Mobiles</h4><p data-i18n="cat1.s">Latest + inspected pre-owned</p></span>
+        </a>
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+          <img src="assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
+          <span class="cap"><h4 data-i18n="cat2.t">Laptops</h4><p data-i18n="cat2.s">New &amp; refurbished</p></span>
+        </a>
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+          <img src="assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
+          <span class="cap"><h4 data-i18n="cat3.t">Repair Services</h4><p data-i18n="cat3.s">Screens &amp; batteries, often same-day</p></span>
+        </a>
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+          <img src="assets/accessories.jpg" alt="Chargers, power banks and cables" loading="lazy" width="1125" height="1500">
+          <span class="cap"><h4 data-i18n="cat4.t">Accessories</h4><p data-i18n="cat4.s">Cases · chargers · cables</p></span>
+        </a>
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+          <img src="assets/networking.jpg" alt="Home and office Wi-Fi routers" loading="lazy" width="1700" height="1133">
+          <span class="cap"><h4 data-i18n="cat5.t">Networking &amp; More</h4><p data-i18n="cat5.s">Routers · SIM · setups</p></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B -->
+  <section id="b2b">
+    <div class="wrap">
+      <div class="b2b">
+        <div class="b2b-in">
+          <div>
+            <span class="eyebrow" style="color:var(--accent-2);" data-i18n="b2b.eyebrow">For businesses</span>
+            <h2 style="margin-top:14px;" data-i18n="b2b.h2">General trading, done at wholesale scale.</h2>
+            <p data-i18n="b2b.p">Alongside our retail counter, Orison supplies businesses directly — resellers, exporters and shops across the region.</p>
+            <ul class="f-list">
+              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li1">Bulk supply of new &amp; used mobiles &amp; laptops</span></li>
+              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">Accessory &amp; networking sourcing</span></li>
+              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">Trade terms tailored per order volume</span></li>
+            </ul>
+            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="b2b.cta">Discuss a B2B order</a>
+          </div>
+          <div class="b2b-stats">
+            <div class="b2b-stat"><b data-i18n="b2b.s1t">All brands</b><span data-i18n="b2b.s1s">Sourced on request</span></div>
+            <div class="b2b-stat"><b data-i18n="b2b.s2t">Satwa</b><span data-i18n="b2b.s2s">Dubai trade hub</span></div>
+            <div class="b2b-stat"><b data-i18n="b2b.s3t">Bulk</b><span data-i18n="b2b.s3s">Reseller pricing</span></div>
+            <div class="b2b-stat"><b data-i18n="b2b.s4t">12–12</b><span data-i18n="b2b.s4s">Open every day</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -496,58 +503,35 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap">
-      <div class="contact-info">
-        <span class="kicker" style="font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:0.18em;color:var(--gold-300);display:block;margin-bottom:14px;">GET IN TOUCH</span>
-        <h2>Visit the shop, or reach us online.</h2>
-        <p>We're on the ground in Al Satwa and always a message away.</p>
-
-        <div class="info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <div><strong>Location</strong><span>Orison International, Near Bus Stop, Al Satwa, Dubai</span></div>
-        </div>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg>
-          <div><strong>WhatsApp</strong><a href="https://wa.me/971563480513" target="_blank" rel="noopener">+971 56 348 0513</a></div>
-        </div>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <div><strong>Email</strong><a href="mailto:salesorison@gmail.com">salesorison@gmail.com</a></div>
-        </div>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-          <div><strong>Hours</strong><span>Open daily · Sunday&ndash;Saturday, 12:00 PM &ndash; 12:00 AM (Dubai Time)</span></div>
-        </div>
-
+      <div>
+        <span class="eyebrow" data-i18n="contact.eyebrow">Get in touch</span>
+        <h2 style="margin-top:12px;" data-i18n="contact.h2">Visit the shop, or reach us online.</h2>
+        <p class="intro" data-i18n="contact.intro">We're on the ground in Al Satwa and always a message away.</p>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong data-i18n="contact.loc_l">Location</strong><span data-i18n="contact.loc_v">Orison International, Near Bus Stop, Al Satwa, Dubai</span></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">WhatsApp</strong><a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener">+971 56 348 0513</a></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong data-i18n="contact.email_l">Email</strong><a class="ltr" href="mailto:salesorison@gmail.com">salesorison@gmail.com</a></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><strong data-i18n="contact.hours_l">Hours</strong><span data-i18n="contact.hours_v">Open daily · Sunday–Saturday, 12:00 PM – 12:00 AM (Dubai Time)</span></div></div>
         <div class="social-row">
-          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@orisonmobile.sales" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.4a6 6 0 1 0 5.5 5.98V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/orisonmobile.sales/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-          </a>
-          <a href="mailto:salesorison@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          </a>
+          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
+          <a href="https://www.tiktok.com/@orisonmobile.sales" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.4a6 6 0 1 0 5.5 5.98V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg></a>
+          <a href="https://www.instagram.com/orisonmobile.sales/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="mailto:salesorison@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
         </div>
       </div>
-
       <form class="msg" action="https://formsubmit.co/salesorison@gmail.com" method="post">
         <input type="hidden" name="_subject" value="New enquiry from orisonigt.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label for="fname">Name</label>
-        <input id="fname" name="Name" type="text" required placeholder="Your name">
-        <label for="femail">Email Address</label>
-        <input id="femail" name="Email" type="email" required placeholder="you@example.com">
-        <label for="fphone">Phone Number</label>
-        <input id="fphone" name="Phone" type="tel" required placeholder="+971 5X XXX XXXX">
-        <label for="freason">Reason for Call</label>
-        <textarea id="freason" name="Reason for Call" required placeholder="What can we help you with?"></textarea>
-        <button type="submit">Submit</button>
+        <label for="fname" data-i18n="form.name">Name</label>
+        <input id="fname" name="Name" type="text" required placeholder="Your name" data-i18n-ph="form.name_ph">
+        <label for="femail" data-i18n="form.email">Email Address</label>
+        <input id="femail" name="Email" type="email" required placeholder="you@example.com" data-i18n-ph="form.email_ph">
+        <label for="fphone" data-i18n="form.phone">Phone Number</label>
+        <input id="fphone" name="Phone" type="tel" required placeholder="+971 5X XXX XXXX" data-i18n-ph="form.phone_ph">
+        <label for="freason" data-i18n="form.help">How can we help?</label>
+        <textarea id="freason" name="Reason for Call" required placeholder="Buying, selling, a repair, or a wholesale order?" data-i18n-ph="form.help_ph"></textarea>
+        <button type="submit" class="btn btn-dark" data-i18n="form.submit">Send enquiry</button>
       </form>
     </div>
   </section>
@@ -556,53 +540,154 @@
 
 <footer>
   <div class="wrap">
-    <div class="fbrand">
-      <svg viewBox="0 0 60 60">
-        <defs>
-          <filter id="tronGlowFooter" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="2.2" result="blur1"/>
-            <feGaussianBlur in="blur1" stdDeviation="0.9" result="blur2"/>
-            <feMerge>
-              <feMergeNode in="blur2"/>
-              <feMergeNode in="blur1"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <linearGradient id="cyanGradFooter" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#eafdff"/>
-            <stop offset="45%" stop-color="#00e5ff"/>
-            <stop offset="100%" stop-color="#0090b0"/>
-          </linearGradient>
-        </defs>
-        <polygon points="30,2 53,15.5 53,44.5 30,58 7,44.5 7,15.5" fill="#020c14" stroke="url(#cyanGradFooter)" stroke-width="1.2" filter="url(#tronGlowFooter)"/>
-        <polygon points="30,8.5 46.5,18 46.5,42 30,51.5 13.5,42 13.5,18" fill="none" stroke="var(--tron-cyan)" stroke-width="0.5" stroke-dasharray="1.5 3" opacity="0.5" transform="rotate(15 30 30)"/>
-        <path d="M30 15 A15 15 0 1 1 29.9 15" fill="none" stroke="var(--tron-cyan-soft)" stroke-width="1.5" filter="url(#tronGlowFooter)"/>
-        <g fill="var(--tron-cyan-soft)" filter="url(#tronGlowFooter)">
-          <circle cx="30" cy="4.5" r="1.4"/>
-          <circle cx="48.3" cy="17.2" r="1.4"/>
-          <circle cx="48.3" cy="42.8" r="1.4"/>
-          <circle cx="30" cy="55.5" r="1.4"/>
-          <circle cx="11.7" cy="42.8" r="1.4"/>
-          <circle cx="11.7" cy="17.2" r="1.4"/>
-        </g>
-        <text x="30" y="36.5" text-anchor="middle" font-family="Orbitron, sans-serif" font-weight="800" font-size="18" fill="#eafdff" filter="url(#tronGlowFooter)">O</text>
-      </svg>
-      <span>© <span id="year"></span> Orison International General Trading — Al Satwa, Dubai</span>
+    <div class="ftop">
+      <div class="fbrand">
+        <svg class="mark" viewBox="0 0 60 60" aria-hidden="true"><polygon points="30,3 52,16 52,44 30,57 8,44 8,16" fill="none" stroke="#0097b2" stroke-width="2.4"/><circle cx="30" cy="30" r="13" fill="none" stroke="#00bcd4" stroke-width="2.4"/><text x="30" y="37.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="19" fill="#0a0e14">O</text></svg>
+        <b>Orison IGT</b>
+      </div>
+      <nav class="flinks">
+        <a href="#shop" data-i18n="nav.shop">Shop</a>
+        <a href="#repairs" data-i18n="nav.repairs">Repairs</a>
+        <a href="#categories" data-i18n="nav.categories">Categories</a>
+        <a href="#b2b" data-i18n="foot.b2b">B2B</a>
+        <a href="#contact" data-i18n="nav.visit">Visit Us</a>
+      </nav>
     </div>
-    <nav class="flinks">
-      <a href="#b2b">B2B</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="fcr" data-i18n-html="footer.cr">© <span id="year"></span> Orison International General Trading — Al Satwa, Dubai · Open daily 12pm–12am</div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  /* ---- i18n: built-in switcher (English + Arabic live; Urdu + Hindi scaffolded for step 2) ---- */
+  const LANGS = [
+    {code:'en', label:'EN', native:'English', dir:'ltr'},
+    {code:'ar', label:'AR', native:'العربية', dir:'rtl'},
+    {code:'ur', label:'UR', native:'اردو', dir:'rtl'}
+    /* Hindi — flip on once strings reviewed:
+    ,{code:'hi', label:'HI', native:'हिन्दी', dir:'ltr'} */
+  ];
+
+  const I18N = {
+    en: {
+      'meta.title':'Orison International General Trading — Mobiles, Laptops & Repairs, Satwa Dubai',
+      'meta.desc':'New & used mobiles and laptops, expert phone & laptop repair, accessories and networking gear — plus B2B wholesale. Al Satwa, Dubai. Open daily 12pm–12am.',
+      'promo':'New &amp; used phones &amp; laptops &middot; <b>Same-day repairs</b> &middot; Wholesale &amp; B2B welcome &mdash; Al Satwa, Dubai',
+      'nav.shop':'Shop','nav.repairs':'Repairs','nav.categories':'Categories','nav.b2b':'B2B & Wholesale','nav.visit':'Visit Us','nav.whatsapp':'WhatsApp','nav.menu':'Toggle menu','foot.b2b':'B2B',
+      'hero.eyebrow':'Al Satwa, Dubai',
+      'hero.h1':'Trade, repair, and <em>trust</em> — all under one roof.',
+      'hero.lede':'New & used mobiles and laptops, expert repairs, accessories and networking gear — bought, sold, fixed and traded with honesty.',
+      'hero.cta_wa':'Chat on WhatsApp','hero.cta_browse':'Browse what we trade',
+      'hero.sub':'Open daily · 12:00 PM – 12:00 AM · Walk in or message anytime',
+      'badge1.t':'Checked & tested','badge1.s':'Every used device','badge2.t':'Same-day repairs','badge2.s':'Screens · batteries',
+      'trust1.t':'New & pre-owned','trust1.s':'Inspected before sale','trust2.t':'Expert repairs','trust2.s':'Phones & laptops','trust3.t':'B2B & wholesale','trust3.s':'Bulk pricing','trust4.t':'Open 7 days','trust4.s':'12pm – 12am daily',
+      'feat1.eyebrow':'New & used mobiles','feat1.h3':'The latest releases, and great pre-owned too.','feat1.p':'Flagship launches alongside carefully inspected used phones across every major brand — with a fair trade-in on your old device.','feat1.li1':'Every used device checked & tested','feat1.li2':'Fair trade-in value, cash or swap','feat1.li3':'All major brands in stock','feat1.cta':'Ask about stock & pricing',
+      'feat2.eyebrow':'Repair services','feat2.h3':'Broken screen? Dead battery? Fixed — often same day.','feat2.p':'Fast, reliable phone and laptop repairs done by hand in Satwa — screens, batteries, charging ports, software and more.','feat2.li1':'Screens & batteries while you wait','feat2.li2':'Phones & laptops, all brands','feat2.li3':'Honest quote before we start','feat2.cta':'Get a repair quote',
+      'cats.eyebrow':'What we trade','cats.h2':'Everything for your phone, laptop & network','cats.p':'Browse in-store in Satwa or message us for current stock and pricing.',
+      'cat1.t':'New & Used Mobiles','cat1.s':'Latest + inspected pre-owned','cat2.t':'Laptops','cat2.s':'New & refurbished','cat3.t':'Repair Services','cat3.s':'Screens & batteries, often same-day','cat4.t':'Accessories','cat4.s':'Cases · chargers · cables','cat5.t':'Networking & More','cat5.s':'Routers · SIM · setups',
+      'b2b.eyebrow':'For businesses','b2b.h2':'General trading, done at wholesale scale.','b2b.p':'Alongside our retail counter, Orison supplies businesses directly — resellers, exporters and shops across the region.','b2b.li1':'Bulk supply of new & used mobiles & laptops','b2b.li2':'Accessory & networking sourcing','b2b.li3':'Trade terms tailored per order volume','b2b.cta':'Discuss a B2B order','b2b.s1t':'All brands','b2b.s1s':'Sourced on request','b2b.s2t':'Satwa','b2b.s2s':'Dubai trade hub','b2b.s3t':'Bulk','b2b.s3s':'Reseller pricing','b2b.s4t':'12–12','b2b.s4s':'Open every day',
+      'contact.eyebrow':'Get in touch','contact.h2':'Visit the shop, or reach us online.','contact.intro':"We're on the ground in Al Satwa and always a message away.",'contact.loc_l':'Location','contact.loc_v':'Orison International, Near Bus Stop, Al Satwa, Dubai','contact.wa_l':'WhatsApp','contact.email_l':'Email','contact.hours_l':'Hours','contact.hours_v':'Open daily · Sunday–Saturday, 12:00 PM – 12:00 AM (Dubai Time)',
+      'form.name':'Name','form.name_ph':'Your name','form.email':'Email Address','form.email_ph':'you@example.com','form.phone':'Phone Number','form.phone_ph':'+971 5X XXX XXXX','form.help':'How can we help?','form.help_ph':'Buying, selling, a repair, or a wholesale order?','form.submit':'Send enquiry',
+      'footer.cr':'© {year} Orison International General Trading — Al Satwa, Dubai · Open daily 12pm–12am'
+    },
+    ar: {
+      'meta.title':'Orison للتجارة العامة — هواتف ولابتوبات وإصلاح، السطوة دبي',
+      'meta.desc':'هواتف ولابتوبات جديدة ومستعملة، وإصلاح احترافي للهواتف واللابتوبات، وإكسسوارات ومعدات شبكات — إضافةً إلى البيع بالجملة للشركات. السطوة، دبي. مفتوح يوميًا من 12 ظهرًا حتى 12 منتصف الليل.',
+      'promo':'هواتف ولابتوبات جديدة ومستعملة &middot; <b>إصلاح في نفس اليوم</b> &middot; نرحّب بالجملة والشركات &mdash; السطوة، دبي',
+      'nav.shop':'المتجر','nav.repairs':'الإصلاح','nav.categories':'الأقسام','nav.b2b':'الجملة والشركات','nav.visit':'زورونا','nav.whatsapp':'واتساب','nav.menu':'القائمة','foot.b2b':'الجملة',
+      'hero.eyebrow':'السطوة، دبي',
+      'hero.h1':'بيع وشراء وإصلاح <em>بثقة</em> — كل ذلك تحت سقف واحد.',
+      'hero.lede':'هواتف ولابتوبات جديدة ومستعملة، وإصلاح احترافي، وإكسسوارات ومعدات شبكات — نبيعها ونشتريها ونصلحها ونتاجر بها بأمانة.',
+      'hero.cta_wa':'تواصل عبر واتساب','hero.cta_browse':'تصفّح ما نتاجر به',
+      'hero.sub':'مفتوح يوميًا · 12:00 ظهرًا – 12:00 منتصف الليل · زُرنا أو راسلنا في أي وقت',
+      'badge1.t':'مفحوص ومُختبَر','badge1.s':'كل جهاز مستعمل','badge2.t':'إصلاح في نفس اليوم','badge2.s':'شاشات · بطاريات',
+      'trust1.t':'جديد ومستعمل','trust1.s':'مفحوص قبل البيع','trust2.t':'إصلاح احترافي','trust2.s':'هواتف ولابتوبات','trust3.t':'جملة وشركات','trust3.s':'أسعار الجملة','trust4.t':'مفتوح 7 أيام','trust4.s':'من 12 ظهرًا حتى 12 ليلًا يوميًا',
+      'feat1.eyebrow':'هواتف جديدة ومستعملة','feat1.h3':'أحدث الإصدارات، وأيضًا أجهزة مستعملة ممتازة.','feat1.p':'أحدث الهواتف الرائدة إلى جانب هواتف مستعملة مفحوصة بعناية من كل العلامات الكبرى — مع سعر عادل لمقايضة جهازك القديم.','feat1.li1':'كل جهاز مستعمل مفحوص ومُختبَر','feat1.li2':'قيمة مقايضة عادلة، نقدًا أو استبدالًا','feat1.li3':'كل العلامات الكبرى متوفرة','feat1.cta':'اسأل عن التوفر والأسعار',
+      'feat2.eyebrow':'خدمات الإصلاح','feat2.h3':'شاشة مكسورة؟ بطارية تالفة؟ نصلحها — غالبًا في نفس اليوم.','feat2.p':'إصلاح سريع وموثوق للهواتف واللابتوبات يدويًا في السطوة — شاشات وبطاريات ومنافذ شحن وبرمجيات وأكثر.','feat2.li1':'شاشات وبطاريات أثناء انتظارك','feat2.li2':'هواتف ولابتوبات، كل العلامات','feat2.li3':'عرض سعر صادق قبل أن نبدأ','feat2.cta':'احصل على عرض سعر للإصلاح',
+      'cats.eyebrow':'ما نتاجر به','cats.h2':'كل ما يخص هاتفك ولابتوبك وشبكتك','cats.p':'تصفّح في متجرنا بالسطوة أو راسلنا لمعرفة التوفر والأسعار الحالية.',
+      'cat1.t':'هواتف جديدة ومستعملة','cat1.s':'الأحدث + مستعمل مفحوص','cat2.t':'لابتوبات','cat2.s':'جديدة ومجددة','cat3.t':'خدمات الإصلاح','cat3.s':'شاشات وبطاريات، غالبًا في نفس اليوم','cat4.t':'إكسسوارات','cat4.s':'أغطية · شواحن · كابلات','cat5.t':'شبكات وأكثر','cat5.s':'راوترات · شرائح · تركيب',
+      'b2b.eyebrow':'للشركات','b2b.h2':'تجارة عامة، على نطاق الجملة.','b2b.p':'إلى جانب البيع بالتجزئة، تزوّد Orison الشركات مباشرةً — الموزّعين والمصدّرين والمحلات في المنطقة.','b2b.li1':'توريد بالجملة لهواتف ولابتوبات جديدة ومستعملة','b2b.li2':'توفير الإكسسوارات ومعدات الشبكات','b2b.li3':'شروط تجارية حسب حجم الطلب','b2b.cta':'ناقش طلب جملة','b2b.s1t':'كل العلامات','b2b.s1s':'نوفّرها عند الطلب','b2b.s2t':'السطوة','b2b.s2s':'مركز تجاري في دبي','b2b.s3t':'الجملة','b2b.s3s':'أسعار الموزّعين','b2b.s4t':'12–12','b2b.s4s':'مفتوح كل يوم',
+      'contact.eyebrow':'تواصل معنا','contact.h2':'زُر المتجر، أو تواصل معنا عبر الإنترنت.','contact.intro':'نحن في السطوة دائمًا، وعلى بُعد رسالة واحدة.','contact.loc_l':'الموقع','contact.loc_v':'Orison International، بالقرب من موقف الحافلات، السطوة، دبي','contact.wa_l':'واتساب','contact.email_l':'البريد الإلكتروني','contact.hours_l':'ساعات العمل','contact.hours_v':'مفتوح يوميًا · من الأحد إلى السبت، 12:00 ظهرًا – 12:00 منتصف الليل (بتوقيت دبي)',
+      'form.name':'الاسم','form.name_ph':'اسمك','form.email':'البريد الإلكتروني','form.email_ph':'you@example.com','form.phone':'رقم الهاتف','form.phone_ph':'+971 5X XXX XXXX','form.help':'كيف يمكننا مساعدتك؟','form.help_ph':'شراء، بيع، إصلاح، أو طلب جملة؟','form.submit':'إرسال الطلب',
+      'footer.cr':'© {year} Orison International General Trading — السطوة، دبي · مفتوح يوميًا من 12 ظهرًا حتى 12 ليلًا'
+    },
+    ur: {
+      'meta.title':'Orison جنرل ٹریڈنگ — موبائل، لیپ ٹاپ اور مرمت، الستوہ دبئی',
+      'meta.desc':'نئے اور استعمال شدہ موبائل اور لیپ ٹاپ، ماہرانہ موبائل و لیپ ٹاپ مرمت، لوازمات اور نیٹ ورکنگ سامان — اور تھوک (B2B) فروخت۔ الستوہ، دبئی۔ روزانہ دوپہر 12 بجے سے رات 12 بجے تک کھلا۔',
+      'promo':'نئے اور استعمال شدہ فون اور لیپ ٹاپ &middot; <b>اسی دن مرمت</b> &middot; تھوک اور کاروباری گاہکوں کو خوش آمدید &mdash; الستوہ، دبئی',
+      'nav.shop':'اسٹور','nav.repairs':'مرمت','nav.categories':'اقسام','nav.b2b':'تھوک اور کاروبار','nav.visit':'ہم سے ملیں','nav.whatsapp':'واٹس ایپ','nav.menu':'مینو','foot.b2b':'تھوک',
+      'hero.eyebrow':'الستوہ، دبئی',
+      'hero.h1':'خرید، فروخت اور مرمت <em>بھروسے</em> کے ساتھ — سب ایک ہی چھت تلے۔',
+      'hero.lede':'نئے اور استعمال شدہ موبائل اور لیپ ٹاپ، ماہرانہ مرمت، لوازمات اور نیٹ ورکنگ سامان — ایمانداری کے ساتھ خریدتے، بیچتے، ٹھیک کرتے اور تجارت کرتے ہیں۔',
+      'hero.cta_wa':'واٹس ایپ پر رابطہ کریں','hero.cta_browse':'ہماری اشیاء دیکھیں',
+      'hero.sub':'روزانہ کھلا · دوپہر 12:00 – رات 12:00 · آئیں یا کسی بھی وقت پیغام بھیجیں',
+      'badge1.t':'جانچا اور آزمایا','badge1.s':'ہر استعمال شدہ ڈیوائس','badge2.t':'اسی دن مرمت','badge2.s':'اسکرین · بیٹریاں',
+      'trust1.t':'نیا اور استعمال شدہ','trust1.s':'فروخت سے پہلے جانچ','trust2.t':'ماہرانہ مرمت','trust2.s':'فون اور لیپ ٹاپ','trust3.t':'تھوک اور کاروبار','trust3.s':'تھوک قیمتیں','trust4.t':'ہفتے کے 7 دن کھلا','trust4.s':'روزانہ دوپہر 12 – رات 12',
+      'feat1.eyebrow':'نئے اور استعمال شدہ موبائل','feat1.h3':'تازہ ترین ماڈلز، اور بہترین استعمال شدہ بھی۔','feat1.p':'ہر بڑے برانڈ کے تازہ ترین فلیگ شپ فونز کے ساتھ احتیاط سے جانچے گئے استعمال شدہ فون — اور آپ کے پرانے ڈیوائس کی منصفانہ قیمت پر تبدیلی۔','feat1.li1':'ہر استعمال شدہ ڈیوائس جانچا اور آزمایا گیا','feat1.li2':'منصفانہ تبادلہ قیمت، نقد یا ایکسچینج','feat1.li3':'تمام بڑے برانڈز دستیاب','feat1.cta':'دستیابی اور قیمت پوچھیں',
+      'feat2.eyebrow':'مرمت کی خدمات','feat2.h3':'ٹوٹی اسکرین؟ خراب بیٹری؟ ٹھیک — اکثر اسی دن۔','feat2.p':'الستوہ میں ہاتھوں سے تیز اور قابلِ اعتماد موبائل اور لیپ ٹاپ مرمت — اسکرین، بیٹری، چارجنگ پورٹ، سافٹ ویئر اور بہت کچھ۔','feat2.li1':'اسکرین اور بیٹریاں انتظار کے دوران','feat2.li2':'فون اور لیپ ٹاپ، تمام برانڈز','feat2.li3':'کام شروع کرنے سے پہلے ایماندار قیمت','feat2.cta':'مرمت کی قیمت حاصل کریں',
+      'cats.eyebrow':'ہم کیا بیچتے ہیں','cats.h2':'آپ کے فون، لیپ ٹاپ اور نیٹ ورک کے لیے ہر چیز','cats.p':'الستوہ میں ہمارے اسٹور پر دیکھیں یا موجودہ دستیابی اور قیمتوں کے لیے پیغام بھیجیں۔',
+      'cat1.t':'نئے اور استعمال شدہ موبائل','cat1.s':'تازہ ترین + جانچ شدہ استعمال شدہ','cat2.t':'لیپ ٹاپ','cat2.s':'نئے اور تجدید شدہ','cat3.t':'مرمت کی خدمات','cat3.s':'اسکرین اور بیٹریاں، اکثر اسی دن','cat4.t':'لوازمات','cat4.s':'کور · چارجر · کیبلز','cat5.t':'نیٹ ورکنگ اور مزید','cat5.s':'راؤٹر · سم · سیٹ اپ',
+      'b2b.eyebrow':'کاروبار کے لیے','b2b.h2':'جنرل ٹریڈنگ، تھوک پیمانے پر۔','b2b.p':'ریٹیل کاؤنٹر کے ساتھ ساتھ، Orison کاروباروں کو براہِ راست سپلائی کرتا ہے — خطے بھر کے ری سیلرز، برآمد کنندگان اور دکانیں۔','b2b.li1':'نئے اور استعمال شدہ موبائل و لیپ ٹاپ کی تھوک سپلائی','b2b.li2':'لوازمات اور نیٹ ورکنگ سامان کی فراہمی','b2b.li3':'آرڈر کے حجم کے مطابق تجارتی شرائط','b2b.cta':'تھوک آرڈر پر بات کریں','b2b.s1t':'تمام برانڈز','b2b.s1s':'درخواست پر فراہم','b2b.s2t':'الستوہ','b2b.s2s':'دبئی کا تجارتی مرکز','b2b.s3t':'تھوک','b2b.s3s':'ری سیلر قیمتیں','b2b.s4t':'12–12','b2b.s4s':'روزانہ کھلا',
+      'contact.eyebrow':'رابطہ کریں','contact.h2':'دکان پر آئیں، یا آن لائن رابطہ کریں۔','contact.intro':'ہم الستوہ میں موجود ہیں اور ہمیشہ ایک پیغام کی دوری پر ہیں۔','contact.loc_l':'مقام','contact.loc_v':'Orison International، بس اسٹاپ کے قریب، الستوہ، دبئی','contact.wa_l':'واٹس ایپ','contact.email_l':'ای میل','contact.hours_l':'اوقاتِ کار','contact.hours_v':'روزانہ کھلا · اتوار تا ہفتہ، دوپہر 12:00 – رات 12:00 (دبئی وقت)',
+      'form.name':'نام','form.name_ph':'آپ کا نام','form.email':'ای میل ایڈریس','form.email_ph':'you@example.com','form.phone':'فون نمبر','form.phone_ph':'+971 5X XXX XXXX','form.help':'ہم کیسے مدد کر سکتے ہیں؟','form.help_ph':'خریداری، فروخت، مرمت، یا تھوک آرڈر؟','form.submit':'استفسار بھیجیں',
+      'footer.cr':'© {year} Orison International General Trading — الستوہ، دبئی · روزانہ دوپہر 12 سے رات 12 تک کھلا'
+    }
+  };
+
+  function applyLang(code){
+    const l = LANGS.find(x => x.code === code) || LANGS[0];
+    const dict = I18N[l.code] || I18N.en;
+    const year = new Date().getFullYear();
+    const get = k => (dict[k] != null ? dict[k] : (I18N.en[k] != null ? I18N.en[k] : ''));
+    document.documentElement.lang = l.code;
+    document.documentElement.dir = l.dir;
+    document.querySelectorAll('[data-i18n]').forEach(el => { const v = get(el.dataset.i18n); if (v !== '') el.textContent = v; });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => { let v = get(el.dataset.i18nHtml); if (v !== '') el.innerHTML = v.replace('{year}', year); });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => { const v = get(el.dataset.i18nPh); if (v !== '') el.setAttribute('placeholder', v); });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = get(el.dataset.i18nAria); if (v !== '') el.setAttribute('aria-label', v); });
+    const t = get('meta.title'); if (t) document.title = t;
+    const d = get('meta.desc'); const md = document.querySelector('meta[name="description"]'); if (d && md) md.setAttribute('content', d);
+    const cur = document.getElementById('langCur'); if (cur) cur.textContent = l.label;
+    document.querySelectorAll('#langMenu button').forEach(b => b.setAttribute('aria-current', String(b.dataset.code === l.code)));
+    try { localStorage.setItem('orison_lang', l.code); } catch (e) {}
+  }
+
+  (function initLang(){
+    const menu = document.getElementById('langMenu');
+    LANGS.forEach(l => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.dataset.code = l.code; b.setAttribute('role', 'menuitem');
+      b.innerHTML = '<span class="nat">' + l.native + '</span><span class="code">' + l.label + '</span>';
+      b.addEventListener('click', () => { applyLang(l.code); closeLang(); });
+      menu.appendChild(b);
+    });
+    const lang = document.getElementById('lang');
+    const langBtn = document.getElementById('langBtn');
+    window.closeLang = function(){ lang.classList.remove('open'); langBtn.setAttribute('aria-expanded', 'false'); };
+    langBtn.addEventListener('click', e => { e.stopPropagation(); const o = lang.classList.toggle('open'); langBtn.setAttribute('aria-expanded', String(o)); });
+    document.addEventListener('click', e => { if (!lang.contains(e.target)) closeLang(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLang(); });
+    let saved = 'en';
+    try { saved = localStorage.getItem('orison_lang') || 'en'; } catch (e) {}
+    if (!LANGS.find(x => x.code === saved)) saved = 'en';
+    applyLang(saved);
+  })();
+
+  /* ---- Skyline parallax on scroll ---- */
+  (function parallax(){
+    const sky = document.querySelector('.skyline');
+    if (!sky || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    let ticking = false;
+    function upd(){ const y = window.pageYOffset || 0; sky.style.transform = 'translateY(' + Math.min(y * 0.18, 90) + 'px)'; ticking = false; }
+    addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(upd); ticking = true; } }, {passive:true});
+    upd();
+  })();
+
+  /* ---- Mobile menu ---- */
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   menuBtn.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', isOpen);
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
   });
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 </script>
