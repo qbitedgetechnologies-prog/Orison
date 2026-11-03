@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orison International General Trading — Mobiles, Laptops & Repairs, Satwa Dubai</title>
-<meta name="description" content="New & used mobiles and laptops, expert phone & laptop repair, accessories and networking gear — plus B2B wholesale. Al Satwa, Dubai. Open daily 12pm–12am.">
+<meta name="description" content="New and pre-owned mobiles, laptops, accessories and networking equipment, plus phone and laptop repair services and B2B wholesale. Al Satwa, Dubai. Contact us to confirm stock and pricing.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -93,9 +93,10 @@
       radial-gradient(90% 80% at 6% 92%, #e9eff4 0%, transparent 60%),
       #ffffff;}
   .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:84px;}
-  .hero h1{font-size:clamp(40px,6vw,68px);}
+  .hero h1{font-size:clamp(38px,5.4vw,62px);}
+  @media (min-width:1100px){.hero h1 em{white-space:nowrap;}}
   .hero h1 em{font-style:normal;background:linear-gradient(120deg,#00bcd4,#0b73b4 60%,#075a92);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--sea);}
-  .hero .lede{margin-top:22px;font-size:19px;color:var(--ink-dim);max-width:32ch;font-weight:500;}
+  .hero .lede{margin-top:22px;font-size:19px;color:var(--ink-dim);max-width:42ch;font-weight:500;}
   .hero .actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
   .hero .sub{margin-top:20px;font-size:13.5px;color:var(--ink-dim);font-weight:600;}
   .hero-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:380px;}
@@ -137,7 +138,7 @@
 
   /* Trust strip */
   .trust{border-bottom:1px solid var(--line);background:#fff;}
-  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:26px 32px;}
+  .trust .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:26px 32px;}
   .trust-item{display:flex;align-items:center;gap:12px;}
   .trust-item .ic{width:40px;height:40px;border-radius:11px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);flex-shrink:0;}
   .trust-item svg{width:21px;height:21px;}
@@ -177,6 +178,21 @@
   .cat .cap p{font-size:12.5px;color:rgba(255,255,255,.80);margin-top:3px;font-weight:600;}
   @media (max-width:1000px){.cat-grid{grid-template-columns:repeat(2,1fr);} .trust .wrap{grid-template-columns:repeat(2,1fr);} .cat:last-child{grid-column:1/-1;aspect-ratio:16/10;}}
 
+  /* Pricing / catalogue */
+  .pricing{background:var(--bg2);}
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .price-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;box-shadow:0 10px 28px rgba(10,14,20,.06);}
+  .price-card h3{font-size:17px;line-height:1.3;}
+  .price-card .pc-meta{font-size:13px;color:var(--ink-dim);font-weight:600;line-height:1.55;margin:0;}
+  .price-card .pc-price{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);}
+  .price-card .pc-price b{display:block;font-size:16px;}
+  .price-card .pc-price span{font-size:12.5px;color:var(--ink-dim);font-weight:600;}
+  .price-card .pc-link{font-size:13.5px;font-weight:700;color:var(--accent-ink);}
+  .price-card .pc-link:hover{color:var(--accent);}
+  .price-note{margin:24px auto 0;font-size:13.5px;color:var(--ink-dim);font-weight:500;text-align:center;max-width:82ch;}
+  @media (max-width:1000px){.price-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.price-grid{grid-template-columns:1fr;}}
+
   /* B2B band */
   .b2b{background:radial-gradient(95% 130% at 100% 0%,rgba(11,115,180,.42),transparent 52%),radial-gradient(80% 120% at 0% 100%,rgba(0,188,212,.18),transparent 55%),var(--ink);color:#fff;border-radius:28px;overflow:hidden;}
   .b2b-in{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:56px;}
@@ -210,6 +226,8 @@
   form.msg input:focus,form.msg textarea:focus{outline:none;border-color:var(--accent);}
   form.msg textarea{resize:vertical;min-height:110px;}
   form.msg button{margin-top:24px;width:100%;justify-content:center;border:none;cursor:pointer;}
+  .form-note{margin-top:14px;font-size:12px;line-height:1.55;color:var(--ink-dim);font-weight:500;}
+  .form-note a{color:var(--accent-ink);font-weight:700;text-decoration:underline;text-underline-offset:2px;}
 
   /* Footer */
   footer{background:var(--bg3);border-top:1px solid var(--line);padding:46px 0 34px;}
@@ -217,9 +235,14 @@
   footer .fbrand{display:flex;align-items:center;gap:11px;}
   footer .fbrand .mark{width:34px;height:34px;}
   footer .fbrand b{font-weight:800;font-size:17px;}
-  footer .flinks{display:flex;gap:28px;font-size:14.5px;font-weight:600;color:var(--ink-2);flex-wrap:wrap;}
+  footer .fcontact{margin-top:12px;font-size:13.5px;color:var(--ink-dim);font-weight:500;line-height:1.75;}
+  footer .fcontact strong{color:var(--ink-2);font-weight:700;}
+  footer .fcontact a:hover{color:var(--accent-ink);}
+  footer .flinks{display:flex;gap:28px;font-size:14.5px;font-weight:600;color:var(--ink-2);flex-wrap:wrap;padding:0;max-width:none;margin:0;justify-content:flex-start;}
   footer .flinks a:hover{color:var(--accent-ink);}
-  footer .fcr{margin-top:30px;padding-top:22px;border-top:1px solid var(--line-2);font-size:13px;color:var(--ink-dim);font-weight:500;}
+  footer .fpolicy{margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--line-2);display:flex;gap:22px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--ink-2);max-width:none;justify-content:flex-start;}
+  footer .fpolicy a:hover{color:var(--accent-ink);}
+  footer .fcr{margin-top:18px;padding-top:18px;border-top:1px solid var(--line-2);font-size:13px;color:var(--ink-dim);font-weight:500;}
 
   /* RTL headline tuning */
   [dir="rtl"] .eyebrow{letter-spacing:0;}
@@ -253,7 +276,7 @@
 <body>
 
 <!-- PROMO BAR -->
-<div class="promo"><div class="wrap" data-i18n-html="promo">New &amp; used phones &amp; laptops &middot; <b>Same-day repairs</b> &middot; Wholesale &amp; B2B welcome &mdash; Al Satwa, Dubai</div></div>
+<div class="promo"><div class="wrap" data-i18n-html="promo">New &amp; pre-owned phones &amp; laptops &middot; Repair services &middot; Wholesale &amp; B2B welcome &mdash; Al Satwa, Dubai</div></div>
 
 <!-- HEADER -->
 <header>
@@ -323,22 +346,22 @@
     <div class="wrap">
       <div>
         <span class="eyebrow" data-i18n="hero.eyebrow">Al Satwa, Dubai</span>
-        <h1 style="margin-top:14px;" data-i18n-html="hero.h1">Trade, repair, and <em>trust</em> — all under one roof.</h1>
-        <p class="lede" data-i18n="hero.lede">New &amp; used mobiles and laptops, expert repairs, accessories and networking gear — bought, sold, fixed and traded with honesty.</p>
+        <h1 style="margin-top:14px;" data-i18n-html="hero.h1">Trade, repair and <em>source technology</em> — all under one roof.</h1>
+        <p class="lede" data-i18n="hero.lede">New and pre-owned mobile phones, laptops, accessories and networking equipment, plus phone and laptop repair services. Serving retail customers, resellers and businesses from Al Satwa, Dubai. Contact us to confirm current stock, service availability and pricing.</p>
         <div class="actions">
           <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
             <span data-i18n="hero.cta_wa">Chat on WhatsApp</span>
           </a>
-          <a class="btn btn-line" href="#categories" data-i18n="hero.cta_browse">Browse what we trade</a>
+          <a class="btn btn-line" href="#categories" data-i18n="hero.cta_browse">View Products &amp; Services</a>
         </div>
-        <p class="sub" data-i18n="hero.sub">Open daily · 12:00 PM – 12:00 AM · Walk in or message anytime</p>
+        <p class="sub" data-i18n="hero.sub">Al Satwa, Dubai · Contact us to confirm stock, service availability and pricing.</p>
       </div>
       <div class="hero-art">
         <div class="glow"></div>
         <div class="art-frame"><img src="assets/ipad-lifestyle.jpg" alt="A customer using a tablet at home" loading="eager" width="1000" height="1500"></div>
-        <div class="badge b1"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div><span data-i18n="badge1.t">Checked &amp; tested</span><small data-i18n="badge1.s">Every used device</small></div></div>
-        <div class="badge b2"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><div><span data-i18n="badge2.t">Same-day repairs</span><small data-i18n="badge2.s">Screens · batteries</small></div></div>
+        <div class="badge b1"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div><span data-i18n="badge1.t">New &amp; pre-owned</span><small data-i18n="badge1.s">Condition confirmed</small></div></div>
+        <div class="badge b2"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><div><span data-i18n="badge2.t">Repair services</span><small data-i18n="badge2.s">Assessment before work</small></div></div>
       </div>
     </div>
     <!-- Dubai skyline: animated dynamic element -->
@@ -393,10 +416,9 @@
   <!-- TRUST STRIP -->
   <div class="trust">
     <div class="wrap">
-      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 21 12 17l-5.5 4L8 14.5 3 10l6.5-1.5L12 2Z"/></svg></span><div><b data-i18n="trust1.t">New &amp; pre-owned</b><span data-i18n="trust1.s">Inspected before sale</span></div></div>
-      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2v6h6"/><path d="M4 2h10l6 6v14H4z"/><path d="M9 15l2 2 4-4"/></svg></span><div><b data-i18n="trust2.t">Expert repairs</b><span data-i18n="trust2.s">Phones &amp; laptops</span></div></div>
-      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/></svg></span><div><b data-i18n="trust3.t">B2B &amp; wholesale</b><span data-i18n="trust3.s">Bulk pricing</span></div></div>
-      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><b data-i18n="trust4.t">Open 7 days</b><span data-i18n="trust4.s">12pm – 12am daily</span></div></div>
+      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 21 12 17l-5.5 4L8 14.5 3 10l6.5-1.5L12 2Z"/></svg></span><div><b data-i18n="trust1.t">New &amp; pre-owned devices</b><span data-i18n="trust1.s">Product condition and availability confirmed before purchase.</span></div></div>
+      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/></svg></span><div><b data-i18n="trust2.t">B2B &amp; wholesale</b><span data-i18n="trust2.s">Request a quotation for bulk supply and business orders.</span></div></div>
+      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2v6h6"/><path d="M4 2h10l6 6v14H4z"/><path d="M9 15l2 2 4-4"/></svg></span><div><b data-i18n="trust3.t">Repair services</b><span data-i18n="trust3.s">Repair options and estimated costs confirmed after assessment, where required.</span></div></div>
     </div>
   </div>
 
@@ -408,13 +430,13 @@
           <img class="fill" src="assets/iphone-hero.jpg" alt="A customer holding a flagship smartphone" loading="lazy" width="844" height="1500">
         </div>
         <div class="f-copy">
-          <span class="eyebrow" data-i18n="feat1.eyebrow">New &amp; used mobiles</span>
-          <h3 data-i18n="feat1.h3">The latest releases, and great pre-owned too.</h3>
-          <p data-i18n="feat1.p">Flagship launches alongside carefully inspected used phones across every major brand — with a fair trade-in on your old device.</p>
+          <span class="eyebrow" data-i18n="feat1.eyebrow">New &amp; pre-owned mobiles</span>
+          <h3 data-i18n="feat1.h3">Selected new and pre-owned phones.</h3>
+          <p data-i18n="feat1.p">Mobile phones in selected models and conditions. Ask us to confirm specifications, availability and current price before purchase.</p>
           <ul class="f-list">
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li1">Every used device checked &amp; tested</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li2">Fair trade-in value, cash or swap</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li3">All major brands in stock</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li1">Condition and availability confirmed before purchase</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li2">Ask about trade-in options</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li3">Selected models across major brands</span></li>
           </ul>
           <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat1.cta">Ask about stock &amp; pricing</a>
         </div>
@@ -427,12 +449,12 @@
         </div>
         <div class="f-copy">
           <span class="eyebrow" data-i18n="feat2.eyebrow">Repair services</span>
-          <h3 data-i18n="feat2.h3">Broken screen? Dead battery? Fixed — often same day.</h3>
-          <p data-i18n="feat2.p">Fast, reliable phone and laptop repairs done by hand in Satwa — screens, batteries, charging ports, software and more.</p>
+          <h3 data-i18n="feat2.h3">Phone and laptop repairs, assessed before work begins.</h3>
+          <p data-i18n="feat2.p">Phone and laptop repair enquiries are welcome — screens, batteries, charging ports, software and more. Repair options and estimated costs are confirmed after assessment, where required.</p>
           <ul class="f-list">
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li1">Screens &amp; batteries while you wait</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li2">Phones &amp; laptops, all brands</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li3">Honest quote before we start</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li1">Repair options confirmed after assessment</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li2">Phones &amp; laptops, selected brands</span></li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li3">Quoted work approved before it starts</span></li>
           </ul>
           <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat2.cta">Get a repair quote</a>
         </div>
@@ -444,32 +466,70 @@
   <section class="cats" id="categories">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow" data-i18n="cats.eyebrow">What we trade</span>
-        <h2 style="margin-top:12px;" data-i18n="cats.h2">Everything for your phone, laptop &amp; network</h2>
-        <p data-i18n="cats.p">Browse in-store in Satwa or message us for current stock and pricing.</p>
+        <span class="eyebrow" data-i18n="cats.eyebrow">Product and service categories</span>
+        <h2 style="margin-top:12px;" data-i18n="cats.h2">Products and services</h2>
+        <p data-i18n="cats.p">Browse selected categories below, or message us for current stock, specifications and pricing.</p>
       </div>
       <div class="cat-grid">
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
           <img src="assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
-          <span class="cap"><h4 data-i18n="cat1.t">New &amp; Used Mobiles</h4><p data-i18n="cat1.s">Latest + inspected pre-owned</p></span>
+          <span class="cap"><h4 data-i18n="cat1.t">New &amp; Pre-Owned Mobiles</h4><p data-i18n="cat1.s">Selected models &amp; conditions</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
           <img src="assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
           <span class="cap"><h4 data-i18n="cat2.t">Laptops</h4><p data-i18n="cat2.s">New &amp; refurbished</p></span>
         </a>
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="#repairs">
           <img src="assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
-          <span class="cap"><h4 data-i18n="cat3.t">Repair Services</h4><p data-i18n="cat3.s">Screens &amp; batteries, often same-day</p></span>
+          <span class="cap"><h4 data-i18n="cat3.t">Repair Services</h4><p data-i18n="cat3.s">Assessment before repair</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
           <img src="assets/accessories.jpg" alt="Chargers, power banks and cables" loading="lazy" width="1125" height="1500">
-          <span class="cap"><h4 data-i18n="cat4.t">Accessories</h4><p data-i18n="cat4.s">Cases · chargers · cables</p></span>
+          <span class="cap"><h4 data-i18n="cat4.t">Accessories</h4><p data-i18n="cat4.s">Selected phone &amp; computer accessories</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
           <img src="assets/networking.jpg" alt="Home and office Wi-Fi routers" loading="lazy" width="1700" height="1133">
-          <span class="cap"><h4 data-i18n="cat5.t">Networking &amp; More</h4><p data-i18n="cat5.s">Routers · SIM · setups</p></span>
+          <span class="cap"><h4 data-i18n="cat5.t">Networking Equipment</h4><p data-i18n="cat5.s">Home, office &amp; business</p></span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="price.eyebrow">Featured products &amp; prices</span>
+        <h2 style="margin-top:12px;" data-i18n="price.h2">Selected products, priced on enquiry.</h2>
+        <p data-i18n="price.p">Product availability and prices change frequently. Contact us to confirm the exact model, condition, specifications, current price and VAT treatment before purchase.</p>
+      </div>
+      <div class="price-grid">
+        <article class="price-card">
+          <h3 data-i18n="price.c1t">New &amp; pre-owned mobiles</h3>
+          <p class="pc-meta" data-i18n="price.c1m">Selected models and storage options. Condition confirmed before purchase.</p>
+          <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c1s">Enquire for current stock</span></div>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+        </article>
+        <article class="price-card">
+          <h3 data-i18n="price.c2t">Laptops</h3>
+          <p class="pc-meta" data-i18n="price.c2m">New and refurbished laptops for work, study and everyday use. Confirm model, specifications and condition.</p>
+          <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c2s">Enquire for current stock</span></div>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+        </article>
+        <article class="price-card">
+          <h3 data-i18n="price.c3t">Networking equipment</h3>
+          <p class="pc-meta" data-i18n="price.c3m">Selected networking products for home, office and business use. Contact us for specifications and availability.</p>
+          <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c3s">Enquire for availability</span></div>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+        </article>
+        <article class="price-card">
+          <h3 data-i18n="price.c4t">Accessories</h3>
+          <p class="pc-meta" data-i18n="price.c4m">Selected phone and computer accessories. Availability and prices confirmed at enquiry or purchase.</p>
+          <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c4s">Enquire for availability</span></div>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+        </article>
+      </div>
+      <p class="price-note" data-i18n="price.note">Prices are quoted in AED. VAT or other applicable charges will be stated in the quotation or at the point of sale. Wholesale and bulk pricing is available by quotation and may depend on model, condition, quantity, stock availability and agreed commercial terms.</p>
     </div>
   </section>
 
@@ -480,20 +540,20 @@
         <div class="b2b-in">
           <div>
             <span class="eyebrow" style="color:var(--accent-2);" data-i18n="b2b.eyebrow">For businesses</span>
-            <h2 style="margin-top:14px;" data-i18n="b2b.h2">General trading, done at wholesale scale.</h2>
-            <p data-i18n="b2b.p">Alongside our retail counter, Orison supplies businesses directly — resellers, exporters and shops across the region.</p>
+            <h2 style="margin-top:14px;" data-i18n="b2b.h2">Wholesale technology supply for businesses.</h2>
+            <p data-i18n="b2b.p">We supply selected new and pre-owned mobile phones, laptops, accessories and networking equipment to retailers, resellers and other business customers. Contact us with the products and quantities you need. We will confirm availability, condition, pricing, applicable taxes and commercial terms in a written quotation.</p>
             <ul class="f-list">
-              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li1">Bulk supply of new &amp; used mobiles &amp; laptops</span></li>
-              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">Accessory &amp; networking sourcing</span></li>
-              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">Trade terms tailored per order volume</span></li>
+              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li1">Bulk supply of selected new and pre-owned mobiles and laptops</span></li>
+              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">Accessory and networking equipment sourcing</span></li>
+              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">Commercial terms confirmed in a written quotation</span></li>
             </ul>
-            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="b2b.cta">Discuss a B2B order</a>
+            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="b2b.cta">Request a B2B quotation</a>
           </div>
           <div class="b2b-stats">
-            <div class="b2b-stat"><b data-i18n="b2b.s1t">All brands</b><span data-i18n="b2b.s1s">Sourced on request</span></div>
-            <div class="b2b-stat"><b data-i18n="b2b.s2t">Satwa</b><span data-i18n="b2b.s2s">Dubai trade hub</span></div>
-            <div class="b2b-stat"><b data-i18n="b2b.s3t">Bulk</b><span data-i18n="b2b.s3s">Reseller pricing</span></div>
-            <div class="b2b-stat"><b data-i18n="b2b.s4t">12–12</b><span data-i18n="b2b.s4s">Open every day</span></div>
+            <div class="b2b-stat"><b data-i18n="b2b.s1t">Selected brands</b><span data-i18n="b2b.s1s">Sourced on request</span></div>
+            <div class="b2b-stat"><b data-i18n="b2b.s2t">Satwa</b><span data-i18n="b2b.s2s">Dubai, UAE</span></div>
+            <div class="b2b-stat"><b data-i18n="b2b.s3t">Bulk</b><span data-i18n="b2b.s3s">Quotation basis</span></div>
+            <div class="b2b-stat"><b data-i18n="b2b.s4t">B2B</b><span data-i18n="b2b.s4s">Written quotation</span></div>
           </div>
         </div>
       </div>
@@ -505,12 +565,12 @@
     <div class="wrap">
       <div>
         <span class="eyebrow" data-i18n="contact.eyebrow">Get in touch</span>
-        <h2 style="margin-top:12px;" data-i18n="contact.h2">Visit the shop, or reach us online.</h2>
-        <p class="intro" data-i18n="contact.intro">We're on the ground in Al Satwa and always a message away.</p>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong data-i18n="contact.loc_l">Location</strong><span data-i18n="contact.loc_v">Orison International, Near Bus Stop, Al Satwa, Dubai</span></div></div>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">WhatsApp</strong><a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener">+971 56 348 0513</a></div></div>
+        <h2 style="margin-top:12px;" data-i18n="contact.h2">Visit the shop or contact our team.</h2>
+        <p class="intro" data-i18n="contact.intro">We are based in Al Satwa, Dubai. Contact us to check stock, request a quotation, or discuss a repair. Please confirm the full address and opening hours before visiting.</p>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong data-i18n="contact.loc_l">Location</strong><span data-i18n="contact.loc_v">Ozair Suroor Salem Building 1, 327 Al Satwa Road, Al Satwa, Dubai, United Arab Emirates</span></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">Phone / WhatsApp</strong><a class="ltr" href="tel:+971563480513">+971 56 348 0513</a> &middot; <a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="contact.wa_link">WhatsApp</a></div></div>
         <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong data-i18n="contact.email_l">Email</strong><a class="ltr" href="mailto:salesorison@gmail.com">salesorison@gmail.com</a></div></div>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><strong data-i18n="contact.hours_l">Hours</strong><span data-i18n="contact.hours_v">Open daily · Sunday–Saturday, 12:00 PM – 12:00 AM (Dubai Time)</span></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><strong data-i18n="contact.hours_l">Opening hours</strong><span data-i18n="contact.hours_v">Contact us to confirm current opening hours before visiting.</span></div></div>
         <div class="social-row">
           <a href="https://wa.me/971563480513" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
           <a href="https://www.tiktok.com/@orisonmobile.sales" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.4a6 6 0 1 0 5.5 5.98V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg></a>
@@ -518,20 +578,21 @@
           <a href="mailto:salesorison@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
         </div>
       </div>
-      <form class="msg" action="https://formsubmit.co/salesorison@gmail.com" method="post">
+      <form class="msg" action="https://formsubmit.co/salesorison@gmail.com" method="post" aria-describedby="formPrivacy">
         <input type="hidden" name="_subject" value="New enquiry from orisonigt.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label for="fname" data-i18n="form.name">Name</label>
-        <input id="fname" name="Name" type="text" required placeholder="Your name" data-i18n-ph="form.name_ph">
+        <input id="fname" name="Name" type="text" autocomplete="name" required placeholder="Your name" data-i18n-ph="form.name_ph">
         <label for="femail" data-i18n="form.email">Email Address</label>
-        <input id="femail" name="Email" type="email" required placeholder="you@example.com" data-i18n-ph="form.email_ph">
+        <input id="femail" name="Email" type="email" autocomplete="email" required placeholder="you@example.com" data-i18n-ph="form.email_ph">
         <label for="fphone" data-i18n="form.phone">Phone Number</label>
-        <input id="fphone" name="Phone" type="tel" required placeholder="+971 5X XXX XXXX" data-i18n-ph="form.phone_ph">
+        <input id="fphone" name="Phone" type="tel" autocomplete="tel" required placeholder="+971 5X XXX XXXX" data-i18n-ph="form.phone_ph">
         <label for="freason" data-i18n="form.help">How can we help?</label>
         <textarea id="freason" name="Reason for Call" required placeholder="Buying, selling, a repair, or a wholesale order?" data-i18n-ph="form.help_ph"></textarea>
         <button type="submit" class="btn btn-dark" data-i18n="form.submit">Send enquiry</button>
+        <p class="form-note" id="formPrivacy" data-i18n-html="form.privacy">By submitting this form, you agree that Orison International General Trading may use the information you provide to respond to your enquiry. Please see our <a href="/privacy-policy/">Privacy Policy</a> for details. Do not submit sensitive personal information through this form.</p>
       </form>
     </div>
   </section>
@@ -541,19 +602,32 @@
 <footer>
   <div class="wrap">
     <div class="ftop">
-      <div class="fbrand">
-        <svg class="mark" viewBox="0 0 60 60" aria-hidden="true"><polygon points="30,3 52,16 52,44 30,57 8,44 8,16" fill="none" stroke="#0097b2" stroke-width="2.4"/><circle cx="30" cy="30" r="13" fill="none" stroke="#00bcd4" stroke-width="2.4"/><text x="30" y="37.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="19" fill="#0a0e14">O</text></svg>
-        <b>Orison IGT</b>
+      <div>
+        <div class="fbrand">
+          <svg class="mark" viewBox="0 0 60 60" aria-hidden="true"><polygon points="30,3 52,16 52,44 30,57 8,44 8,16" fill="none" stroke="#0097b2" stroke-width="2.4"/><circle cx="30" cy="30" r="13" fill="none" stroke="#00bcd4" stroke-width="2.4"/><text x="30" y="37.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="19" fill="#0a0e14">O</text></svg>
+          <b>Orison IGT</b>
+        </div>
+        <div class="fcontact ltr">
+          <strong>Orison International General Trading</strong><br>
+          Ozair Suroor Salem Building 1, 327 Al Satwa Road<br>
+          Al Satwa, Dubai, United Arab Emirates<br>
+          Phone/WhatsApp: <a href="tel:+971563480513">+971 56 348 0513</a><br>
+          Email: <a href="mailto:salesorison@gmail.com">salesorison@gmail.com</a>
+        </div>
       </div>
-      <nav class="flinks">
-        <a href="#shop" data-i18n="nav.shop">Shop</a>
-        <a href="#repairs" data-i18n="nav.repairs">Repairs</a>
-        <a href="#categories" data-i18n="nav.categories">Categories</a>
-        <a href="#b2b" data-i18n="foot.b2b">B2B</a>
-        <a href="#contact" data-i18n="nav.visit">Visit Us</a>
+      <nav class="flinks" aria-label="Footer">
+        <a href="/" data-i18n="foot.home">Home</a>
+        <a href="#categories" data-i18n="foot.products">Products &amp; Services</a>
+        <a href="#b2b" data-i18n="foot.b2b">B2B Trading</a>
+        <a href="#contact" data-i18n="foot.contact">Contact</a>
       </nav>
     </div>
-    <div class="fcr" data-i18n-html="footer.cr">© <span id="year"></span> Orison International General Trading — Al Satwa, Dubai · Open daily 12pm–12am</div>
+    <nav class="fpolicy" aria-label="Legal">
+      <a href="/privacy-policy/" data-i18n="foot.privacy">Privacy Policy</a>
+      <a href="/refund-policy/" data-i18n="foot.refund">Refund Policy</a>
+      <a href="/terms-and-conditions/" data-i18n="foot.terms">Terms &amp; Conditions</a>
+    </nav>
+    <div class="fcr" data-i18n-html="footer.cr">© <span id="year"></span> Orison International General Trading. All rights reserved.</div>
   </div>
 </footer>
 
@@ -570,66 +644,135 @@
   const I18N = {
     en: {
       'meta.title':'Orison International General Trading — Mobiles, Laptops & Repairs, Satwa Dubai',
-      'meta.desc':'New & used mobiles and laptops, expert phone & laptop repair, accessories and networking gear — plus B2B wholesale. Al Satwa, Dubai. Open daily 12pm–12am.',
-      'promo':'New &amp; used phones &amp; laptops &middot; <b>Same-day repairs</b> &middot; Wholesale &amp; B2B welcome &mdash; Al Satwa, Dubai',
-      'nav.shop':'Shop','nav.repairs':'Repairs','nav.categories':'Categories','nav.b2b':'B2B & Wholesale','nav.visit':'Visit Us','nav.whatsapp':'WhatsApp','nav.menu':'Toggle menu','foot.b2b':'B2B',
+      'meta.desc':'New and pre-owned mobiles, laptops, accessories and networking equipment, plus phone and laptop repair services and B2B wholesale. Al Satwa, Dubai. Contact us to confirm stock and pricing.',
+      'promo':'New &amp; pre-owned phones &amp; laptops &middot; Repair services &middot; Wholesale &amp; B2B welcome &mdash; Al Satwa, Dubai',
+      'nav.shop':'Shop','nav.repairs':'Repairs','nav.categories':'Categories','nav.b2b':'B2B & Wholesale','nav.visit':'Visit Us','nav.whatsapp':'WhatsApp','nav.menu':'Toggle menu',
+      'foot.home':'Home','foot.products':'Products & Services','foot.b2b':'B2B Trading','foot.contact':'Contact','foot.privacy':'Privacy Policy','foot.refund':'Refund Policy','foot.terms':'Terms & Conditions',
       'hero.eyebrow':'Al Satwa, Dubai',
-      'hero.h1':'Trade, repair, and <em>trust</em> — all under one roof.',
-      'hero.lede':'New & used mobiles and laptops, expert repairs, accessories and networking gear — bought, sold, fixed and traded with honesty.',
-      'hero.cta_wa':'Chat on WhatsApp','hero.cta_browse':'Browse what we trade',
-      'hero.sub':'Open daily · 12:00 PM – 12:00 AM · Walk in or message anytime',
-      'badge1.t':'Checked & tested','badge1.s':'Every used device','badge2.t':'Same-day repairs','badge2.s':'Screens · batteries',
-      'trust1.t':'New & pre-owned','trust1.s':'Inspected before sale','trust2.t':'Expert repairs','trust2.s':'Phones & laptops','trust3.t':'B2B & wholesale','trust3.s':'Bulk pricing','trust4.t':'Open 7 days','trust4.s':'12pm – 12am daily',
-      'feat1.eyebrow':'New & used mobiles','feat1.h3':'The latest releases, and great pre-owned too.','feat1.p':'Flagship launches alongside carefully inspected used phones across every major brand — with a fair trade-in on your old device.','feat1.li1':'Every used device checked & tested','feat1.li2':'Fair trade-in value, cash or swap','feat1.li3':'All major brands in stock','feat1.cta':'Ask about stock & pricing',
-      'feat2.eyebrow':'Repair services','feat2.h3':'Broken screen? Dead battery? Fixed — often same day.','feat2.p':'Fast, reliable phone and laptop repairs done by hand in Satwa — screens, batteries, charging ports, software and more.','feat2.li1':'Screens & batteries while you wait','feat2.li2':'Phones & laptops, all brands','feat2.li3':'Honest quote before we start','feat2.cta':'Get a repair quote',
-      'cats.eyebrow':'What we trade','cats.h2':'Everything for your phone, laptop & network','cats.p':'Browse in-store in Satwa or message us for current stock and pricing.',
-      'cat1.t':'New & Used Mobiles','cat1.s':'Latest + inspected pre-owned','cat2.t':'Laptops','cat2.s':'New & refurbished','cat3.t':'Repair Services','cat3.s':'Screens & batteries, often same-day','cat4.t':'Accessories','cat4.s':'Cases · chargers · cables','cat5.t':'Networking & More','cat5.s':'Routers · SIM · setups',
-      'b2b.eyebrow':'For businesses','b2b.h2':'General trading, done at wholesale scale.','b2b.p':'Alongside our retail counter, Orison supplies businesses directly — resellers, exporters and shops across the region.','b2b.li1':'Bulk supply of new & used mobiles & laptops','b2b.li2':'Accessory & networking sourcing','b2b.li3':'Trade terms tailored per order volume','b2b.cta':'Discuss a B2B order','b2b.s1t':'All brands','b2b.s1s':'Sourced on request','b2b.s2t':'Satwa','b2b.s2s':'Dubai trade hub','b2b.s3t':'Bulk','b2b.s3s':'Reseller pricing','b2b.s4t':'12–12','b2b.s4s':'Open every day',
-      'contact.eyebrow':'Get in touch','contact.h2':'Visit the shop, or reach us online.','contact.intro':"We're on the ground in Al Satwa and always a message away.",'contact.loc_l':'Location','contact.loc_v':'Orison International, Near Bus Stop, Al Satwa, Dubai','contact.wa_l':'WhatsApp','contact.email_l':'Email','contact.hours_l':'Hours','contact.hours_v':'Open daily · Sunday–Saturday, 12:00 PM – 12:00 AM (Dubai Time)',
+      'hero.h1':'Trade, repair and <em>source technology</em> — all under one roof.',
+      'hero.lede':'New and pre-owned mobile phones, laptops, accessories and networking equipment, plus phone and laptop repair services. Serving retail customers, resellers and businesses from Al Satwa, Dubai. Contact us to confirm current stock, service availability and pricing.',
+      'hero.cta_wa':'Chat on WhatsApp','hero.cta_browse':'View Products & Services',
+      'hero.sub':'Al Satwa, Dubai · Contact us to confirm stock, service availability and pricing.',
+      'badge1.t':'New & pre-owned','badge1.s':'Condition confirmed','badge2.t':'Repair services','badge2.s':'Assessment before work',
+      'trust1.t':'New & pre-owned devices','trust1.s':'Product condition and availability confirmed before purchase.',
+      'trust2.t':'B2B & wholesale','trust2.s':'Request a quotation for bulk supply and business orders.',
+      'trust3.t':'Repair services','trust3.s':'Repair options and estimated costs confirmed after assessment, where required.',
+      'feat1.eyebrow':'New & pre-owned mobiles','feat1.h3':'Selected new and pre-owned phones.',
+      'feat1.p':'Mobile phones in selected models and conditions. Ask us to confirm specifications, availability and current price before purchase.',
+      'feat1.li1':'Condition and availability confirmed before purchase','feat1.li2':'Ask about trade-in options','feat1.li3':'Selected models across major brands','feat1.cta':'Ask about stock & pricing',
+      'feat2.eyebrow':'Repair services','feat2.h3':'Phone and laptop repairs, assessed before work begins.',
+      'feat2.p':'Phone and laptop repair enquiries are welcome — screens, batteries, charging ports, software and more. Repair options and estimated costs are confirmed after assessment, where required.',
+      'feat2.li1':'Repair options confirmed after assessment','feat2.li2':'Phones & laptops, selected brands','feat2.li3':'Quoted work approved before it starts','feat2.cta':'Get a repair quote',
+      'cats.eyebrow':'Product and service categories','cats.h2':'Products and services',
+      'cats.p':'Browse selected categories below, or message us for current stock, specifications and pricing.',
+      'cat1.t':'New & Pre-Owned Mobiles','cat1.s':'Selected models & conditions','cat2.t':'Laptops','cat2.s':'New & refurbished','cat3.t':'Repair Services','cat3.s':'Assessment before repair','cat4.t':'Accessories','cat4.s':'Selected phone & computer accessories','cat5.t':'Networking Equipment','cat5.s':'Home, office & business',
+      'price.eyebrow':'Featured products & prices','price.h2':'Selected products, priced on enquiry.',
+      'price.p':'Product availability and prices change frequently. Contact us to confirm the exact model, condition, specifications, current price and VAT treatment before purchase.',
+      'price.c1t':'New & pre-owned mobiles','price.c1m':'Selected models and storage options. Condition confirmed before purchase.','price.c1s':'Enquire for current stock',
+      'price.c2t':'Laptops','price.c2m':'New and refurbished laptops for work, study and everyday use. Confirm model, specifications and condition.','price.c2s':'Enquire for current stock',
+      'price.c3t':'Networking equipment','price.c3m':'Selected networking products for home, office and business use. Contact us for specifications and availability.','price.c3s':'Enquire for availability',
+      'price.c4t':'Accessories','price.c4m':'Selected phone and computer accessories. Availability and prices confirmed at enquiry or purchase.','price.c4s':'Enquire for availability',
+      'price.onrequest':'Price on request','price.cta':'Ask for a quotation →',
+      'price.note':'Prices are quoted in AED. VAT or other applicable charges will be stated in the quotation or at the point of sale. Wholesale and bulk pricing is available by quotation and may depend on model, condition, quantity, stock availability and agreed commercial terms.',
+      'b2b.eyebrow':'For businesses','b2b.h2':'Wholesale technology supply for businesses.',
+      'b2b.p':'We supply selected new and pre-owned mobile phones, laptops, accessories and networking equipment to retailers, resellers and other business customers. Contact us with the products and quantities you need. We will confirm availability, condition, pricing, applicable taxes and commercial terms in a written quotation.',
+      'b2b.li1':'Bulk supply of selected new and pre-owned mobiles and laptops','b2b.li2':'Accessory and networking equipment sourcing','b2b.li3':'Commercial terms confirmed in a written quotation','b2b.cta':'Request a B2B quotation',
+      'b2b.s1t':'Selected brands','b2b.s1s':'Sourced on request','b2b.s2t':'Satwa','b2b.s2s':'Dubai, UAE','b2b.s3t':'Bulk','b2b.s3s':'Quotation basis','b2b.s4t':'B2B','b2b.s4s':'Written quotation',
+      'contact.eyebrow':'Get in touch','contact.h2':'Visit the shop or contact our team.',
+      'contact.intro':'We are based in Al Satwa, Dubai. Contact us to check stock, request a quotation, or discuss a repair. Please confirm the full address and opening hours before visiting.',
+      'contact.loc_l':'Location','contact.loc_v':'Ozair Suroor Salem Building 1, 327 Al Satwa Road, Al Satwa, Dubai, United Arab Emirates',
+      'contact.wa_l':'Phone / WhatsApp','contact.wa_link':'WhatsApp','contact.email_l':'Email','contact.hours_l':'Opening hours','contact.hours_v':'Contact us to confirm current opening hours before visiting.',
       'form.name':'Name','form.name_ph':'Your name','form.email':'Email Address','form.email_ph':'you@example.com','form.phone':'Phone Number','form.phone_ph':'+971 5X XXX XXXX','form.help':'How can we help?','form.help_ph':'Buying, selling, a repair, or a wholesale order?','form.submit':'Send enquiry',
-      'footer.cr':'© {year} Orison International General Trading — Al Satwa, Dubai · Open daily 12pm–12am'
+      'form.privacy':'By submitting this form, you agree that Orison International General Trading may use the information you provide to respond to your enquiry. Please see our <a href="/privacy-policy/">Privacy Policy</a> for details. Do not submit sensitive personal information through this form.',
+      'footer.cr':'© {year} Orison International General Trading. All rights reserved.'
     },
     ar: {
       'meta.title':'Orison للتجارة العامة — هواتف ولابتوبات وإصلاح، السطوة دبي',
-      'meta.desc':'هواتف ولابتوبات جديدة ومستعملة، وإصلاح احترافي للهواتف واللابتوبات، وإكسسوارات ومعدات شبكات — إضافةً إلى البيع بالجملة للشركات. السطوة، دبي. مفتوح يوميًا من 12 ظهرًا حتى 12 منتصف الليل.',
-      'promo':'هواتف ولابتوبات جديدة ومستعملة &middot; <b>إصلاح في نفس اليوم</b> &middot; نرحّب بالجملة والشركات &mdash; السطوة، دبي',
-      'nav.shop':'المتجر','nav.repairs':'الإصلاح','nav.categories':'الأقسام','nav.b2b':'الجملة والشركات','nav.visit':'زورونا','nav.whatsapp':'واتساب','nav.menu':'القائمة','foot.b2b':'الجملة',
+      'meta.desc':'هواتف ولابتوبات وإكسسوارات ومعدات شبكات جديدة ومستعملة، إضافةً إلى خدمات إصلاح الهواتف واللابتوبات والبيع بالجملة للشركات. السطوة، دبي. تواصل معنا لتأكيد التوفر والأسعار.',
+      'promo':'هواتف ولابتوبات جديدة ومستعملة &middot; خدمات الإصلاح &middot; نرحّب بالجملة والشركات &mdash; السطوة، دبي',
+      'nav.shop':'المتجر','nav.repairs':'الإصلاح','nav.categories':'الأقسام','nav.b2b':'الجملة والشركات','nav.visit':'زورونا','nav.whatsapp':'واتساب','nav.menu':'القائمة',
+      'foot.home':'الرئيسية','foot.products':'المنتجات والخدمات','foot.b2b':'الجملة والشركات','foot.contact':'اتصل بنا','foot.privacy':'سياسة الخصوصية','foot.refund':'سياسة الاسترداد','foot.terms':'الشروط والأحكام',
       'hero.eyebrow':'السطوة، دبي',
-      'hero.h1':'بيع وشراء وإصلاح <em>بثقة</em> — كل ذلك تحت سقف واحد.',
-      'hero.lede':'هواتف ولابتوبات جديدة ومستعملة، وإصلاح احترافي، وإكسسوارات ومعدات شبكات — نبيعها ونشتريها ونصلحها ونتاجر بها بأمانة.',
-      'hero.cta_wa':'تواصل عبر واتساب','hero.cta_browse':'تصفّح ما نتاجر به',
-      'hero.sub':'مفتوح يوميًا · 12:00 ظهرًا – 12:00 منتصف الليل · زُرنا أو راسلنا في أي وقت',
-      'badge1.t':'مفحوص ومُختبَر','badge1.s':'كل جهاز مستعمل','badge2.t':'إصلاح في نفس اليوم','badge2.s':'شاشات · بطاريات',
-      'trust1.t':'جديد ومستعمل','trust1.s':'مفحوص قبل البيع','trust2.t':'إصلاح احترافي','trust2.s':'هواتف ولابتوبات','trust3.t':'جملة وشركات','trust3.s':'أسعار الجملة','trust4.t':'مفتوح 7 أيام','trust4.s':'من 12 ظهرًا حتى 12 ليلًا يوميًا',
-      'feat1.eyebrow':'هواتف جديدة ومستعملة','feat1.h3':'أحدث الإصدارات، وأيضًا أجهزة مستعملة ممتازة.','feat1.p':'أحدث الهواتف الرائدة إلى جانب هواتف مستعملة مفحوصة بعناية من كل العلامات الكبرى — مع سعر عادل لمقايضة جهازك القديم.','feat1.li1':'كل جهاز مستعمل مفحوص ومُختبَر','feat1.li2':'قيمة مقايضة عادلة، نقدًا أو استبدالًا','feat1.li3':'كل العلامات الكبرى متوفرة','feat1.cta':'اسأل عن التوفر والأسعار',
-      'feat2.eyebrow':'خدمات الإصلاح','feat2.h3':'شاشة مكسورة؟ بطارية تالفة؟ نصلحها — غالبًا في نفس اليوم.','feat2.p':'إصلاح سريع وموثوق للهواتف واللابتوبات يدويًا في السطوة — شاشات وبطاريات ومنافذ شحن وبرمجيات وأكثر.','feat2.li1':'شاشات وبطاريات أثناء انتظارك','feat2.li2':'هواتف ولابتوبات، كل العلامات','feat2.li3':'عرض سعر صادق قبل أن نبدأ','feat2.cta':'احصل على عرض سعر للإصلاح',
-      'cats.eyebrow':'ما نتاجر به','cats.h2':'كل ما يخص هاتفك ولابتوبك وشبكتك','cats.p':'تصفّح في متجرنا بالسطوة أو راسلنا لمعرفة التوفر والأسعار الحالية.',
-      'cat1.t':'هواتف جديدة ومستعملة','cat1.s':'الأحدث + مستعمل مفحوص','cat2.t':'لابتوبات','cat2.s':'جديدة ومجددة','cat3.t':'خدمات الإصلاح','cat3.s':'شاشات وبطاريات، غالبًا في نفس اليوم','cat4.t':'إكسسوارات','cat4.s':'أغطية · شواحن · كابلات','cat5.t':'شبكات وأكثر','cat5.s':'راوترات · شرائح · تركيب',
-      'b2b.eyebrow':'للشركات','b2b.h2':'تجارة عامة، على نطاق الجملة.','b2b.p':'إلى جانب البيع بالتجزئة، تزوّد Orison الشركات مباشرةً — الموزّعين والمصدّرين والمحلات في المنطقة.','b2b.li1':'توريد بالجملة لهواتف ولابتوبات جديدة ومستعملة','b2b.li2':'توفير الإكسسوارات ومعدات الشبكات','b2b.li3':'شروط تجارية حسب حجم الطلب','b2b.cta':'ناقش طلب جملة','b2b.s1t':'كل العلامات','b2b.s1s':'نوفّرها عند الطلب','b2b.s2t':'السطوة','b2b.s2s':'مركز تجاري في دبي','b2b.s3t':'الجملة','b2b.s3s':'أسعار الموزّعين','b2b.s4t':'12–12','b2b.s4s':'مفتوح كل يوم',
-      'contact.eyebrow':'تواصل معنا','contact.h2':'زُر المتجر، أو تواصل معنا عبر الإنترنت.','contact.intro':'نحن في السطوة دائمًا، وعلى بُعد رسالة واحدة.','contact.loc_l':'الموقع','contact.loc_v':'Orison International، بالقرب من موقف الحافلات، السطوة، دبي','contact.wa_l':'واتساب','contact.email_l':'البريد الإلكتروني','contact.hours_l':'ساعات العمل','contact.hours_v':'مفتوح يوميًا · من الأحد إلى السبت، 12:00 ظهرًا – 12:00 منتصف الليل (بتوقيت دبي)',
+      'hero.h1':'بيع وشراء وإصلاح <em>وتوريد التقنية</em> — كل ذلك تحت سقف واحد.',
+      'hero.lede':'هواتف ولابتوبات وإكسسوارات ومعدات شبكات جديدة ومستعملة، إضافةً إلى خدمات إصلاح الهواتف واللابتوبات. نخدم عملاء التجزئة والموزّعين والشركات من السطوة، دبي. تواصل معنا لتأكيد التوفر الحالي والخدمات والأسعار.',
+      'hero.cta_wa':'تواصل عبر واتساب','hero.cta_browse':'عرض المنتجات والخدمات',
+      'hero.sub':'السطوة، دبي · تواصل معنا لتأكيد التوفر والخدمات والأسعار.',
+      'badge1.t':'جديد ومستعمل','badge1.s':'الحالة مؤكدة','badge2.t':'خدمات الإصلاح','badge2.s':'تقييم قبل العمل',
+      'trust1.t':'أجهزة جديدة ومستعملة','trust1.s':'يتم تأكيد حالة المنتج وتوفره قبل الشراء.',
+      'trust2.t':'الجملة والشركات','trust2.s':'اطلب عرض سعر للتوريد بالجملة وطلبات الأعمال.',
+      'trust3.t':'خدمات الإصلاح','trust3.s':'يتم تأكيد خيارات الإصلاح والتكاليف التقديرية بعد التقييم، عند الحاجة.',
+      'feat1.eyebrow':'هواتف جديدة ومستعملة','feat1.h3':'هواتف مختارة جديدة ومستعملة.',
+      'feat1.p':'هواتف محمولة بطرازات وحالات مختارة. اطلب منا تأكيد المواصفات والتوفر والسعر الحالي قبل الشراء.',
+      'feat1.li1':'تأكيد الحالة والتوفر قبل الشراء','feat1.li2':'اسأل عن خيارات الاستبدال','feat1.li3':'طرازات مختارة من العلامات الكبرى','feat1.cta':'اسأل عن التوفر والأسعار',
+      'feat2.eyebrow':'خدمات الإصلاح','feat2.h3':'إصلاح الهواتف واللابتوبات، بعد التقييم قبل بدء العمل.',
+      'feat2.p':'نرحّب باستفسارات إصلاح الهواتف واللابتوبات — الشاشات والبطاريات ومنافذ الشحن والبرمجيات وأكثر. يتم تأكيد خيارات الإصلاح والتكاليف التقديرية بعد التقييم، عند الحاجة.',
+      'feat2.li1':'تأكيد خيارات الإصلاح بعد التقييم','feat2.li2':'هواتف ولابتوبات، علامات مختارة','feat2.li3':'الموافقة على العمل المسعّر قبل البدء','feat2.cta':'احصل على عرض سعر للإصلاح',
+      'cats.eyebrow':'فئات المنتجات والخدمات','cats.h2':'المنتجات والخدمات',
+      'cats.p':'تصفّح الفئات المختارة أدناه، أو راسلنا لمعرفة التوفر والمواصفات والأسعار الحالية.',
+      'cat1.t':'هواتف جديدة ومستعملة','cat1.s':'طرازات وحالات مختارة','cat2.t':'لابتوبات','cat2.s':'جديدة ومجددة','cat3.t':'خدمات الإصلاح','cat3.s':'تقييم قبل الإصلاح','cat4.t':'إكسسوارات','cat4.s':'إكسسوارات مختارة للهواتف والكمبيوتر','cat5.t':'معدات الشبكات','cat5.s':'للمنزل والمكتب والأعمال',
+      'price.eyebrow':'منتجات وأسعار مختارة','price.h2':'منتجات مختارة، بأسعار عند الاستفسار.',
+      'price.p':'يتغير توفر المنتجات وأسعارها بشكل متكرر. تواصل معنا لتأكيد الطراز والحالة والمواصفات والسعر الحالي ومعاملة ضريبة القيمة المضافة قبل الشراء.',
+      'price.c1t':'هواتف جديدة ومستعملة','price.c1m':'طرازات وخيارات تخزين مختارة. الحالة مؤكدة قبل الشراء.','price.c1s':'استفسر عن التوفر الحالي',
+      'price.c2t':'لابتوبات','price.c2m':'لابتوبات جديدة ومجددة للعمل والدراسة والاستخدام اليومي. أكّد الطراز والمواصفات والحالة.','price.c2s':'استفسر عن التوفر الحالي',
+      'price.c3t':'معدات الشبكات','price.c3m':'منتجات شبكات مختارة للمنزل والمكتب والأعمال. تواصل معنا للمواصفات والتوفر.','price.c3s':'استفسر عن التوفر',
+      'price.c4t':'إكسسوارات','price.c4m':'إكسسوارات مختارة للهواتف والكمبيوتر. يتم تأكيد التوفر والأسعار عند الاستفسار أو الشراء.','price.c4s':'استفسر عن التوفر',
+      'price.onrequest':'السعر عند الاستفسار','price.cta':'اطلب عرض سعر ←',
+      'price.note':'تُسعّر المنتجات بالدرهم الإماراتي. سيتم توضيح ضريبة القيمة المضافة أو أي رسوم أخرى في عرض السعر أو عند نقطة البيع. تتوفر أسعار الجملة والكميات الكبيرة بعرض سعر وقد تعتمد على الطراز والحالة والكمية والتوفر والشروط التجارية المتفق عليها.',
+      'b2b.eyebrow':'للشركات','b2b.h2':'توريد تقني بالجملة للشركات.',
+      'b2b.p':'نورّد هواتف ولابتوبات وإكسسوارات ومعدات شبكات مختارة، جديدة ومستعملة، لتجار التجزئة والموزّعين وغيرهم من عملاء الأعمال. تواصل معنا بالمنتجات والكميات التي تحتاجها. سنؤكد التوفر والحالة والأسعار والضرائب المطبقة والشروط التجارية في عرض سعر مكتوب.',
+      'b2b.li1':'توريد بالجملة لهواتف ولابتوبات مختارة جديدة ومستعملة','b2b.li2':'توريد الإكسسوارات ومعدات الشبكات','b2b.li3':'تأكيد الشروط التجارية في عرض سعر مكتوب','b2b.cta':'اطلب عرض سعر للجملة',
+      'b2b.s1t':'علامات مختارة','b2b.s1s':'تُوفّر عند الطلب','b2b.s2t':'السطوة','b2b.s2s':'دبي، الإمارات','b2b.s3t':'الجملة','b2b.s3s':'على أساس عرض السعر','b2b.s4t':'B2B','b2b.s4s':'عرض سعر مكتوب',
+      'contact.eyebrow':'تواصل معنا','contact.h2':'زُر المتجر أو تواصل مع فريقنا.',
+      'contact.intro':'نحن في السطوة، دبي. تواصل معنا للتحقق من التوفر أو طلب عرض سعر أو مناقشة إصلاح. يُرجى تأكيد العنوان الكامل وساعات العمل قبل الزيارة.',
+      'contact.loc_l':'الموقع','contact.loc_v':'مبنى عُزير سرور سالم 1، 327 شارع السطوة، السطوة، دبي، الإمارات العربية المتحدة',
+      'contact.wa_l':'الهاتف / واتساب','contact.wa_link':'واتساب','contact.email_l':'البريد الإلكتروني','contact.hours_l':'ساعات العمل','contact.hours_v':'تواصل معنا لتأكيد ساعات العمل الحالية قبل الزيارة.',
       'form.name':'الاسم','form.name_ph':'اسمك','form.email':'البريد الإلكتروني','form.email_ph':'you@example.com','form.phone':'رقم الهاتف','form.phone_ph':'+971 5X XXX XXXX','form.help':'كيف يمكننا مساعدتك؟','form.help_ph':'شراء، بيع، إصلاح، أو طلب جملة؟','form.submit':'إرسال الطلب',
-      'footer.cr':'© {year} Orison International General Trading — السطوة، دبي · مفتوح يوميًا من 12 ظهرًا حتى 12 ليلًا'
+      'form.privacy':'بإرسال هذا النموذج، فإنك توافق على أن تستخدم Orison International General Trading المعلومات التي تقدمها للرد على استفسارك. يُرجى الاطلاع على <a href="/privacy-policy/">سياسة الخصوصية</a> للحصول على التفاصيل. لا ترسل معلومات شخصية حساسة عبر هذا النموذج.',
+      'footer.cr':'© {year} Orison International General Trading. جميع الحقوق محفوظة.'
     },
     ur: {
       'meta.title':'Orison جنرل ٹریڈنگ — موبائل، لیپ ٹاپ اور مرمت، الستوہ دبئی',
-      'meta.desc':'نئے اور استعمال شدہ موبائل اور لیپ ٹاپ، ماہرانہ موبائل و لیپ ٹاپ مرمت، لوازمات اور نیٹ ورکنگ سامان — اور تھوک (B2B) فروخت۔ الستوہ، دبئی۔ روزانہ دوپہر 12 بجے سے رات 12 بجے تک کھلا۔',
-      'promo':'نئے اور استعمال شدہ فون اور لیپ ٹاپ &middot; <b>اسی دن مرمت</b> &middot; تھوک اور کاروباری گاہکوں کو خوش آمدید &mdash; الستوہ، دبئی',
-      'nav.shop':'اسٹور','nav.repairs':'مرمت','nav.categories':'اقسام','nav.b2b':'تھوک اور کاروبار','nav.visit':'ہم سے ملیں','nav.whatsapp':'واٹس ایپ','nav.menu':'مینو','foot.b2b':'تھوک',
+      'meta.desc':'نئے اور استعمال شدہ موبائل، لیپ ٹاپ، لوازمات اور نیٹ ورکنگ سامان، نیز فون اور لیپ ٹاپ مرمت کی خدمات اور تھوک (B2B) فروخت۔ الستوہ، دبئی۔ موجودہ اسٹاک اور قیمتوں کی تصدیق کے لیے ہم سے رابطہ کریں۔',
+      'promo':'نئے اور استعمال شدہ فون اور لیپ ٹاپ &middot; مرمت کی خدمات &middot; تھوک اور کاروباری گاہکوں کو خوش آمدید &mdash; الستوہ، دبئی',
+      'nav.shop':'اسٹور','nav.repairs':'مرمت','nav.categories':'اقسام','nav.b2b':'تھوک اور کاروبار','nav.visit':'ہم سے ملیں','nav.whatsapp':'واٹس ایپ','nav.menu':'مینو',
+      'foot.home':'ہوم','foot.products':'مصنوعات اور خدمات','foot.b2b':'تھوک تجارت','foot.contact':'رابطہ','foot.privacy':'پرائیویسی پالیسی','foot.refund':'ریفنڈ پالیسی','foot.terms':'شرائط و ضوابط',
       'hero.eyebrow':'الستوہ، دبئی',
-      'hero.h1':'خرید، فروخت اور مرمت <em>بھروسے</em> کے ساتھ — سب ایک ہی چھت تلے۔',
-      'hero.lede':'نئے اور استعمال شدہ موبائل اور لیپ ٹاپ، ماہرانہ مرمت، لوازمات اور نیٹ ورکنگ سامان — ایمانداری کے ساتھ خریدتے، بیچتے، ٹھیک کرتے اور تجارت کرتے ہیں۔',
-      'hero.cta_wa':'واٹس ایپ پر رابطہ کریں','hero.cta_browse':'ہماری اشیاء دیکھیں',
-      'hero.sub':'روزانہ کھلا · دوپہر 12:00 – رات 12:00 · آئیں یا کسی بھی وقت پیغام بھیجیں',
-      'badge1.t':'جانچا اور آزمایا','badge1.s':'ہر استعمال شدہ ڈیوائس','badge2.t':'اسی دن مرمت','badge2.s':'اسکرین · بیٹریاں',
-      'trust1.t':'نیا اور استعمال شدہ','trust1.s':'فروخت سے پہلے جانچ','trust2.t':'ماہرانہ مرمت','trust2.s':'فون اور لیپ ٹاپ','trust3.t':'تھوک اور کاروبار','trust3.s':'تھوک قیمتیں','trust4.t':'ہفتے کے 7 دن کھلا','trust4.s':'روزانہ دوپہر 12 – رات 12',
-      'feat1.eyebrow':'نئے اور استعمال شدہ موبائل','feat1.h3':'تازہ ترین ماڈلز، اور بہترین استعمال شدہ بھی۔','feat1.p':'ہر بڑے برانڈ کے تازہ ترین فلیگ شپ فونز کے ساتھ احتیاط سے جانچے گئے استعمال شدہ فون — اور آپ کے پرانے ڈیوائس کی منصفانہ قیمت پر تبدیلی۔','feat1.li1':'ہر استعمال شدہ ڈیوائس جانچا اور آزمایا گیا','feat1.li2':'منصفانہ تبادلہ قیمت، نقد یا ایکسچینج','feat1.li3':'تمام بڑے برانڈز دستیاب','feat1.cta':'دستیابی اور قیمت پوچھیں',
-      'feat2.eyebrow':'مرمت کی خدمات','feat2.h3':'ٹوٹی اسکرین؟ خراب بیٹری؟ ٹھیک — اکثر اسی دن۔','feat2.p':'الستوہ میں ہاتھوں سے تیز اور قابلِ اعتماد موبائل اور لیپ ٹاپ مرمت — اسکرین، بیٹری، چارجنگ پورٹ، سافٹ ویئر اور بہت کچھ۔','feat2.li1':'اسکرین اور بیٹریاں انتظار کے دوران','feat2.li2':'فون اور لیپ ٹاپ، تمام برانڈز','feat2.li3':'کام شروع کرنے سے پہلے ایماندار قیمت','feat2.cta':'مرمت کی قیمت حاصل کریں',
-      'cats.eyebrow':'ہم کیا بیچتے ہیں','cats.h2':'آپ کے فون، لیپ ٹاپ اور نیٹ ورک کے لیے ہر چیز','cats.p':'الستوہ میں ہمارے اسٹور پر دیکھیں یا موجودہ دستیابی اور قیمتوں کے لیے پیغام بھیجیں۔',
-      'cat1.t':'نئے اور استعمال شدہ موبائل','cat1.s':'تازہ ترین + جانچ شدہ استعمال شدہ','cat2.t':'لیپ ٹاپ','cat2.s':'نئے اور تجدید شدہ','cat3.t':'مرمت کی خدمات','cat3.s':'اسکرین اور بیٹریاں، اکثر اسی دن','cat4.t':'لوازمات','cat4.s':'کور · چارجر · کیبلز','cat5.t':'نیٹ ورکنگ اور مزید','cat5.s':'راؤٹر · سم · سیٹ اپ',
-      'b2b.eyebrow':'کاروبار کے لیے','b2b.h2':'جنرل ٹریڈنگ، تھوک پیمانے پر۔','b2b.p':'ریٹیل کاؤنٹر کے ساتھ ساتھ، Orison کاروباروں کو براہِ راست سپلائی کرتا ہے — خطے بھر کے ری سیلرز، برآمد کنندگان اور دکانیں۔','b2b.li1':'نئے اور استعمال شدہ موبائل و لیپ ٹاپ کی تھوک سپلائی','b2b.li2':'لوازمات اور نیٹ ورکنگ سامان کی فراہمی','b2b.li3':'آرڈر کے حجم کے مطابق تجارتی شرائط','b2b.cta':'تھوک آرڈر پر بات کریں','b2b.s1t':'تمام برانڈز','b2b.s1s':'درخواست پر فراہم','b2b.s2t':'الستوہ','b2b.s2s':'دبئی کا تجارتی مرکز','b2b.s3t':'تھوک','b2b.s3s':'ری سیلر قیمتیں','b2b.s4t':'12–12','b2b.s4s':'روزانہ کھلا',
-      'contact.eyebrow':'رابطہ کریں','contact.h2':'دکان پر آئیں، یا آن لائن رابطہ کریں۔','contact.intro':'ہم الستوہ میں موجود ہیں اور ہمیشہ ایک پیغام کی دوری پر ہیں۔','contact.loc_l':'مقام','contact.loc_v':'Orison International، بس اسٹاپ کے قریب، الستوہ، دبئی','contact.wa_l':'واٹس ایپ','contact.email_l':'ای میل','contact.hours_l':'اوقاتِ کار','contact.hours_v':'روزانہ کھلا · اتوار تا ہفتہ، دوپہر 12:00 – رات 12:00 (دبئی وقت)',
+      'hero.h1':'خرید، فروخت، مرمت اور <em>ٹیکنالوجی کی فراہمی</em> — سب ایک ہی چھت تلے۔',
+      'hero.lede':'نئے اور استعمال شدہ موبائل فون، لیپ ٹاپ، لوازمات اور نیٹ ورکنگ سامان، نیز فون اور لیپ ٹاپ مرمت کی خدمات۔ الستوہ، دبئی سے ریٹیل گاہکوں، ری سیلرز اور کاروباروں کی خدمت۔ موجودہ اسٹاک، خدمات کی دستیابی اور قیمتوں کی تصدیق کے لیے ہم سے رابطہ کریں۔',
+      'hero.cta_wa':'واٹس ایپ پر رابطہ کریں','hero.cta_browse':'مصنوعات اور خدمات دیکھیں',
+      'hero.sub':'الستوہ، دبئی · اسٹاک، خدمات اور قیمتوں کی تصدیق کے لیے ہم سے رابطہ کریں۔',
+      'badge1.t':'نیا اور استعمال شدہ','badge1.s':'حالت کی تصدیق','badge2.t':'مرمت کی خدمات','badge2.s':'کام سے پہلے جانچ',
+      'trust1.t':'نئے اور استعمال شدہ ڈیوائسز','trust1.s':'خریداری سے پہلے مصنوعات کی حالت اور دستیابی کی تصدیق۔',
+      'trust2.t':'تھوک اور کاروبار','trust2.s':'تھوک سپلائی اور کاروباری آرڈرز کے لیے کوٹیشن طلب کریں۔',
+      'trust3.t':'مرمت کی خدمات','trust3.s':'جائزے کے بعد مرمت کے اختیارات اور تخمینی لاگت کی تصدیق، جہاں ضروری ہو۔',
+      'feat1.eyebrow':'نئے اور استعمال شدہ موبائل','feat1.h3':'منتخب نئے اور استعمال شدہ فون۔',
+      'feat1.p':'منتخب ماڈلز اور حالتوں میں موبائل فون۔ خریداری سے پہلے خصوصیات، دستیابی اور موجودہ قیمت کی تصدیق ہم سے کریں۔',
+      'feat1.li1':'خریداری سے پہلے حالت اور دستیابی کی تصدیق','feat1.li2':'تبادلے کے اختیارات کے بارے میں پوچھیں','feat1.li3':'بڑے برانڈز کے منتخب ماڈلز','feat1.cta':'اسٹاک اور قیمت پوچھیں',
+      'feat2.eyebrow':'مرمت کی خدمات','feat2.h3':'فون اور لیپ ٹاپ کی مرمت، کام شروع کرنے سے پہلے جائزہ۔',
+      'feat2.p':'فون اور لیپ ٹاپ مرمت کی درخواستیں خوش آمدید — اسکرین، بیٹری، چارجنگ پورٹ، سافٹ ویئر اور مزید۔ جائزے کے بعد مرمت کے اختیارات اور تخمینی لاگت کی تصدیق کی جاتی ہے، جہاں ضروری ہو۔',
+      'feat2.li1':'جائزے کے بعد مرمت کے اختیارات کی تصدیق','feat2.li2':'فون اور لیپ ٹاپ، منتخب برانڈز','feat2.li3':'کام شروع ہونے سے پہلے کوٹ شدہ کام کی منظوری','feat2.cta':'مرمت کی قیمت حاصل کریں',
+      'cats.eyebrow':'مصنوعات اور خدمات کے زمرے','cats.h2':'مصنوعات اور خدمات',
+      'cats.p':'نیچے منتخب زمروں کو دیکھیں، یا موجودہ اسٹاک، خصوصیات اور قیمتوں کے لیے ہمیں پیغام بھیجیں۔',
+      'cat1.t':'نئے اور استعمال شدہ موبائل','cat1.s':'منتخب ماڈلز اور حالتیں','cat2.t':'لیپ ٹاپ','cat2.s':'نئے اور تجدید شدہ','cat3.t':'مرمت کی خدمات','cat3.s':'مرمت سے پہلے جائزہ','cat4.t':'لوازمات','cat4.s':'منتخب فون اور کمپیوٹر لوازمات','cat5.t':'نیٹ ورکنگ سامان','cat5.s':'گھر، دفتر اور کاروبار',
+      'price.eyebrow':'منتخب مصنوعات اور قیمتیں','price.h2':'منتخب مصنوعات، قیمت استفسار پر۔',
+      'price.p':'مصنوعات کی دستیابی اور قیمتیں بار بار تبدیل ہوتی ہیں۔ خریداری سے پہلے درست ماڈل، حالت، خصوصیات، موجودہ قیمت اور VAT کی تصدیق کے لیے ہم سے رابطہ کریں۔',
+      'price.c1t':'نئے اور استعمال شدہ موبائل','price.c1m':'منتخب ماڈلز اور اسٹوریج کے اختیارات۔ خریداری سے پہلے حالت کی تصدیق۔','price.c1s':'موجودہ اسٹاک کے لیے استفسار کریں',
+      'price.c2t':'لیپ ٹاپ','price.c2m':'کام، تعلیم اور روزمرہ استعمال کے لیے نئے اور تجدید شدہ لیپ ٹاپ۔ ماڈل، خصوصیات اور حالت کی تصدیق کریں۔','price.c2s':'موجودہ اسٹاک کے لیے استفسار کریں',
+      'price.c3t':'نیٹ ورکنگ سامان','price.c3m':'گھر، دفتر اور کاروبار کے لیے منتخب نیٹ ورکنگ مصنوعات۔ خصوصیات اور دستیابی کے لیے ہم سے رابطہ کریں۔','price.c3s':'دستیابی کے لیے استفسار کریں',
+      'price.c4t':'لوازمات','price.c4m':'منتخب فون اور کمپیوٹر لوازمات۔ دستیابی اور قیمتوں کی تصدیق استفسار یا خریداری پر۔','price.c4s':'دستیابی کے لیے استفسار کریں',
+      'price.onrequest':'قیمت استفسار پر','price.cta':'کوٹیشن طلب کریں →',
+      'price.note':'قیمتیں AED میں بتائی جاتی ہیں۔ VAT یا دیگر قابلِ اطلاق چارجز کوٹیشن یا فروخت کے مقام پر واضح کیے جائیں گے۔ تھوک اور بلک قیمتیں کوٹیشن کے ذریعے دستیاب ہیں اور ماڈل، حالت، مقدار، اسٹاک اور طے شدہ تجارتی شرائط پر منحصر ہو سکتی ہیں۔',
+      'b2b.eyebrow':'کاروبار کے لیے','b2b.h2':'کاروباروں کے لیے تھوک ٹیکنالوجی سپلائی۔',
+      'b2b.p':'ہم منتخب نئے اور استعمال شدہ موبائل فون، لیپ ٹاپ، لوازمات اور نیٹ ورکنگ سامان ری سیلرز، تاجروں اور دیگر کاروباری گاہکوں کو سپلائی کرتے ہیں۔ آپ کو درکار مصنوعات اور مقدار کے ساتھ ہم سے رابطہ کریں۔ ہم تحریری کوٹیشن میں دستیابی، حالت، قیمت، قابلِ اطلاق ٹیکس اور تجارتی شرائط کی تصدیق کریں گے۔',
+      'b2b.li1':'منتخب نئے اور استعمال شدہ موبائل اور لیپ ٹاپ کی تھوک سپلائی','b2b.li2':'لوازمات اور نیٹ ورکنگ سامان کی فراہمی','b2b.li3':'تحریری کوٹیشن میں تجارتی شرائط کی تصدیق','b2b.cta':'تھوک کوٹیشن طلب کریں',
+      'b2b.s1t':'منتخب برانڈز','b2b.s1s':'درخواست پر فراہم','b2b.s2t':'الستوہ','b2b.s2s':'دبئی، متحدہ عرب امارات','b2b.s3t':'تھوک','b2b.s3s':'کوٹیشن کی بنیاد پر','b2b.s4t':'B2B','b2b.s4s':'تحریری کوٹیشن',
+      'contact.eyebrow':'رابطہ کریں','contact.h2':'دکان پر آئیں یا ہماری ٹیم سے رابطہ کریں۔',
+      'contact.intro':'ہم الستوہ، دبئی میں ہیں۔ اسٹاک چیک کرنے، کوٹیشن طلب کرنے یا مرمت پر بات کرنے کے لیے ہم سے رابطہ کریں۔ تشریف لانے سے پہلے مکمل پتہ اور اوقاتِ کار کی تصدیق کریں۔',
+      'contact.loc_l':'مقام','contact.loc_v':'عزیر سرور سالم بلڈنگ 1، 327 شارع الستوہ، الستوہ، دبئی، متحدہ عرب امارات',
+      'contact.wa_l':'فون / واٹس ایپ','contact.wa_link':'واٹس ایپ','contact.email_l':'ای میل','contact.hours_l':'اوقاتِ کار','contact.hours_v':'تشریف لانے سے پہلے موجودہ اوقاتِ کار کی تصدیق کے لیے ہم سے رابطہ کریں۔',
       'form.name':'نام','form.name_ph':'آپ کا نام','form.email':'ای میل ایڈریس','form.email_ph':'you@example.com','form.phone':'فون نمبر','form.phone_ph':'+971 5X XXX XXXX','form.help':'ہم کیسے مدد کر سکتے ہیں؟','form.help_ph':'خریداری، فروخت، مرمت، یا تھوک آرڈر؟','form.submit':'استفسار بھیجیں',
-      'footer.cr':'© {year} Orison International General Trading — الستوہ، دبئی · روزانہ دوپہر 12 سے رات 12 تک کھلا'
+      'form.privacy':'اس فارم کو جمع کروا کر، آپ اس بات سے اتفاق کرتے ہیں کہ Orison International General Trading آپ کی فراہم کردہ معلومات کو آپ کے استفسار کا جواب دینے کے لیے استعمال کر سکتا ہے۔ تفصیلات کے لیے ہماری <a href="/privacy-policy/">پرائیویسی پالیسی</a> دیکھیں۔ اس فارم کے ذریعے حساس ذاتی معلومات جمع نہ کروائیں۔',
+      'footer.cr':'© {year} Orison International General Trading. جملہ حقوق محفوظ ہیں۔'
     }
   };
 
