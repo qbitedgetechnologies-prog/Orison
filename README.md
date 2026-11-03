@@ -20,7 +20,8 @@ No build step. Google Fonts is the only external dependency.
 - `privacy-policy/index.html` — Privacy Policy.
 - `refund-policy/index.html` — Refund and Return Policy.
 - `terms-and-conditions/index.html` — Terms and Conditions.
-- `css/legal.css` — shared styles for the three policy pages.
+- `404.html` — branded "page not found" page, served by Pages for any unknown URL.
+- `css/legal.css` — shared styles for the three policy pages and the 404 page.
 - `sitemap.xml`, `robots.txt` — search-engine discovery.
 - `assets/` — photography used on the home page.
 - `.nojekyll` — tells Pages to serve the files as-is (no Jekyll processing).
@@ -48,3 +49,6 @@ The site was updated against the compliance content pack dated 20 October 2026. 
 `COMPLIANCE.md` for what was fixed and what still needs the business to confirm (legal
 entity name, trade-licence address, monitored contact details, genuine product prices and
 opening hours).
+
+The three policy pages are published in English only, by business decision; the EN/AR/UR
+switcher applies to the marketing site only.

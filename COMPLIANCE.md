@@ -54,7 +54,23 @@ Review date: 2 November 2026.
 
 - Confirmed the three policy URLs were 404 on the live site before this change.
 - Added `sitemap.xml` and `robots.txt`; both were also 404 before this change.
-- Local link and layout checks are listed in the hand-off notes below.
+- Added a branded `404.html` ("You found a Work in Progress") so unknown URLs no longer
+  show GitHub's default error page. It is marked `noindex, follow`.
+- After deployment, re-tested the live site (desktop 1440px and mobile 390px): no console or
+  page errors, no failed requests, no horizontal overflow, all images loaded, all policy links
+  returning 200, language switching (EN/AR/UR) working, and the contact form validating.
+- External destinations checked and returning 200: `wa.me/971563480513`,
+  `formsubmit.co/salesorison@gmail.com`, TikTok and Instagram profiles.
+
+## Decisions recorded
+
+- **Legal documents are English-only.** The Privacy Policy, Refund and Return Policy and
+  Terms and Conditions are published in English by business decision. The EN/AR/UR switcher
+  applies to the marketing site only. Each policy page notes that translations are available
+  on request.
+- **Contact form delivery is confirmed by the business.** The form posts to FormSubmit with
+  captcha, honeypot and a table template; no further action is required.
+- **"Price on request"** is used instead of invented prices until genuine price data is supplied.
 
 ## Still needs the business / compliance team
 
@@ -86,16 +102,10 @@ information or a business decision.
    promising them.
 8. **Legal review of the three policies.** The content pack says the drafts are not legal
    advice. Have the policies reviewed against actual practices and applicable UAE law.
-9. **Contact form test.** The form posts to FormSubmit (`formsubmit.co/salesorison@gmail.com`).
-   Submit one test enquiry and confirm the email arrives, the spam/activation flow works and
-   the privacy notice is displayed. Also test the WhatsApp link, `tel:` link and `mailto:` link
-   on a real phone.
-10. **Deploy and re-test.** Merge/deploy the changes, then test every page and link on the
-    live domain (desktop and mobile). Send the live URLs and screenshots to the compliance
-    team as required by the developer checklist.
-11. **Optional: translate the policy pages.** The main site is available in English, Arabic
-    and Urdu, but the three policy pages are English-only. Add translations if the compliance
-    team requires them.
+9. **On-device link test (optional).** Open the WhatsApp, `tel:` and `mailto:` links from a
+   phone to confirm they launch the right apps. The web form itself is confirmed working.
+10. **Send the evidence to the compliance team.** The changes are deployed and re-tested;
+    send the live URLs and screenshots for sign-off, as the developer checklist requires.
 
 ## Assumptions made in this change
 
