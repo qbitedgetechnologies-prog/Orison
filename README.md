@@ -6,8 +6,9 @@ repair services, and B2B/wholesale supply.
 
 ## Hosting
 
-- **GitHub Pages** builds and serves the site via the `Deploy static site to GitHub Pages`
-  workflow (`.github/workflows/deploy-pages.yml`). Every push to `main` redeploys.
+- **GitHub Pages** serves the site from the `main` branch, repository root
+  (Pages setting: "Deploy from a branch"). There is no GitHub Actions workflow in this
+  repo — every push to `main` rebuilds and redeploys automatically, usually within a minute.
 - **Cloudflare** sits in front as CDN / DNS for the custom domain (proxied).
 
 ## Structure
