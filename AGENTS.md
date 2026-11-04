@@ -21,6 +21,10 @@ GitHub Actions workflow. Cloudflare fronts the custom domain `orisonigt.com`.
 | `js/analytics.js` | Conversion events; GA4 is off until `GA4_ID` is set |
 | `css/legal.css` | Policy pages and 404 styles |
 
+The home page also contains the repair triage wizard (`#triage`) and the hidden
+`#waTemplates` block. Both are plain HTML and inline JavaScript; there is no separate build
+step for them.
+
 **Generated — never hand-edit:** `ar/index.html`, `ur/index.html`, `sitemap.xml`.
 
 If a change affects shared markup or CSS, make it in `index.html` and run the build. If it
@@ -62,6 +66,11 @@ Notes:
   updates `[data-year]` at runtime.
 - The Arabic and Urdu pages are generated from the English markup, so keep IDs, classes and
   section anchors stable.
+- WhatsApp links use `data-wa-intent="..."`. The page script copies the matching
+  `[data-wa-template]` text into `?text=`. When adding an intent, add the template and the
+  `wa.*` key to all three dictionaries.
+- The triage wizard keeps its own state and dispatches `orison:track` events on `document`;
+  `js/analytics.js` forwards them. Do not push directly to `dataLayer` from page markup.
 
 ## SEO invariants
 
@@ -103,6 +112,10 @@ Before pushing:
 6. Anchors (`#shop`, `#repairs`, `#categories`, `#b2b`, `#contact`) resolve on every locale.
 7. Policy links return 200 and the 404 page returns HTTP 404.
 8. Keyboard: skip link, language switcher, mobile menu and Escape-to-close work.
+9. Repair triage: step transitions, back, restart, result chips, prefilled WhatsApp summary
+   and focus move to the new heading work in all three locales.
+10. Every `a[data-wa-intent]` has a non-empty `?text=` in the visitor's language, and the
+    `contact_click` event includes the right `intent`.
 
 ## Deploying
 

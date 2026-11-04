@@ -96,6 +96,7 @@
   html[lang="ur"] .badge small{font-size:10.5px;}
   html[lang="ur"] .b2b-stat b{line-height:1.5;}
   html[lang="ur"] .f-list li,html[lang="ur"] .nav-links{line-height:1.8;}
+  html[lang="ur"] .triage-copy p,html[lang="ur"] .triage-opt,html[lang="ur"] .triage-tip,html[lang="ur"] .triage-result-block p{line-height:1.9;}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
   a{color:inherit;text-decoration:none;}
   img,svg{display:block;max-width:100%;}
@@ -287,6 +288,49 @@
   .form-note{margin-top:14px;font-size:12px;line-height:1.55;color:var(--ink-dim);font-weight:500;}
   .form-note a{color:var(--accent-ink);font-weight:700;text-decoration:underline;text-underline-offset:2px;}
 
+  /* Repair triage */
+  .triage{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .triage .wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:52px;align-items:start;}
+  .triage-copy h2{font-size:clamp(30px,4vw,46px);margin-top:12px;}
+  .triage-copy p{margin-top:16px;color:var(--ink-dim);font-size:16.5px;font-weight:500;}
+  .triage-points{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:26px;}
+  .triage-points li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;color:var(--ink-2);}
+  .triage-points .dot{width:22px;height:22px;border-radius:50%;background:var(--panel);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .triage-points svg{width:13px;height:13px;}
+  .triage-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,3vw,38px);box-shadow:0 20px 50px rgba(10,14,20,.07);}
+  .triage-progress-head{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);}
+  .triage-bar{height:5px;border-radius:100px;background:var(--line);overflow:hidden;margin-top:10px;}
+  .triage-bar span{display:block;height:100%;width:33.333%;background:var(--grad-sea);border-radius:100px;transition:width .25s ease;}
+  .triage-step h3,.triage-result h3{font-size:clamp(22px,2.4vw,28px);margin:22px 0 0;}
+  .triage-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+  .triage-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:start;background:#fff;border:1.5px solid var(--line-2);border-radius:14px;padding:14px 16px;font-family:inherit;font-weight:700;font-size:14.5px;line-height:1.35;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s;}
+  .triage-opt:hover{border-color:var(--accent);background:var(--panel);}
+  .triage-opt[aria-pressed="true"]{border-color:var(--accent);background:var(--panel);box-shadow:inset 0 0 0 1px var(--accent);}
+  .triage-opt::after{content:"";width:9px;height:9px;border-radius:50%;border:1.5px solid var(--line-2);flex:0 0 auto;}
+  .triage-opt[aria-pressed="true"]::after{background:var(--accent);border-color:var(--accent);}
+  .triage-field{margin-top:20px;}
+  .triage-field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--ink-2);margin-bottom:7px;}
+  .triage-input{width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:12px;color:var(--ink);padding:13px 15px;font-family:inherit;font-size:15px;transition:border-color .15s;}
+  .triage-input:focus{outline:none;border-color:var(--accent);}
+  .triage-back{margin-top:18px;background:none;border:none;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--ink-dim);cursor:pointer;padding:4px 0;text-decoration:underline;text-underline-offset:3px;}
+  .triage-back:hover{color:var(--accent-ink);}
+  .triage-result{margin-top:22px;}
+  .triage-result .eyebrow{display:block;}
+  .triage-result h3{margin-top:8px;}
+  .triage-summary{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .triage-chip{background:var(--bg2);border:1px solid var(--line);border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:700;color:var(--ink-2);}
+  .triage-tip{margin-top:18px;background:var(--panel);border-inline-start:3px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 16px;font-size:14.5px;font-weight:600;color:var(--ink-2);}
+  [dir="rtl"] .triage-tip{border-radius:12px 0 0 12px;}
+  .triage-result-block{margin-top:18px;}
+  .triage-result-block h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);}
+  .triage-result-block p{margin-top:6px;font-size:14px;color:var(--ink-dim);font-weight:500;}
+  .triage-note{margin-top:16px;font-size:12px;line-height:1.55;color:var(--ink-dim);font-weight:500;}
+  .triage-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .triage-actions .btn{justify-content:center;}
+  .triage-fallback{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-dim);}
+  .triage-fallback a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+  .f-cta{display:flex;flex-wrap:wrap;gap:10px;}
+
   /* Footer */
   footer{background:var(--bg3);border-top:1px solid var(--line);padding:46px 0 34px;}
   footer .ftop{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;}
@@ -315,6 +359,7 @@
     .feature .f-media{order:-1;min-height:280px;}
     .b2b-in{grid-template-columns:1fr;gap:30px;padding:38px 28px;}
     .contact .wrap{grid-template-columns:1fr;}
+    .triage .wrap{grid-template-columns:1fr;gap:30px;}
     .nav-links{display:none;}
     .menu-btn{display:flex;}
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:22px 32px;gap:18px;}
@@ -333,6 +378,9 @@
     .lang-switch,.menu-btn{flex:0 0 auto;}
     .lang-switch{padding:2px;}
     .lang-switch a{min-width:32px;height:28px;font-size:11.5px;}
+    .triage-card{padding:22px 18px;}
+    .triage-options{grid-template-columns:1fr;}
+    .triage-actions .btn{width:100%;}
   }
   @media (max-width:380px){
     nav{padding-left:14px;padding-right:14px;}
@@ -370,7 +418,7 @@
         <a href="/ar/" hreflang="ar" lang="ar" data-lang="ar">AR</a>
         <a href="/ur/" hreflang="ur" lang="ur" data-lang="ur">UR</a>
       </nav>
-      <a class="btn btn-wa btn-sm" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+      <a class="btn btn-wa btn-sm" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.42-.71-2.89-1.16-4.74-4.14-4.88-4.33-.14-.19-1.16-1.55-1.16-2.96 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.66.5.24.58.83 2 .9 2.15.07.15.11.32.02.51-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.13.57.16.28.7 1.16 1.5 1.88 1.03.93 1.9 1.22 2.18 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.68-.17 1.36Z"/></svg>
         <span class="long" data-i18n="nav.whatsapp">WhatsApp</span>
       </a>
@@ -414,7 +462,7 @@
         <h1 style="margin-top:14px;" data-i18n-html="hero.h1">Trade, repair and <em>source technology</em> — all under one roof.</h1>
         <p class="lede" data-i18n="hero.lede">New and pre-owned mobile phones, laptops, accessories and networking equipment, plus phone and laptop repair services. Serving retail customers, resellers and businesses from Al Satwa, Dubai. Contact us to confirm current stock, service availability and pricing.</p>
         <div class="actions">
-          <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+          <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
             <span data-i18n="hero.cta_wa">Chat on WhatsApp</span>
           </a>
@@ -503,7 +551,7 @@
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li2">Ask about trade-in options</span></li>
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li3">Selected models across major brands</span></li>
           </ul>
-          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat1.cta">Ask about stock &amp; pricing</a>
+          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="stock" data-i18n="feat1.cta">Ask about stock &amp; pricing</a>
         </div>
       </div>
 
@@ -521,8 +569,113 @@
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li2">Phones &amp; laptops, selected brands</span></li>
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li3">Quoted work approved before it starts</span></li>
           </ul>
-          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat2.cta">Get a repair quote</a>
+          <div class="f-cta">
+            <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="repair" data-i18n="feat2.cta">Get a repair quote</a>
+            <a class="btn btn-line" href="#triage" data-i18n="feat2.triage">Start a repair check</a>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPAIR TRIAGE -->
+  <section class="triage" id="triage">
+    <div class="wrap">
+      <div class="triage-copy">
+        <span class="eyebrow" data-i18n="triage.eyebrow">Repair check</span>
+        <h2 data-i18n="triage.h2">Not sure what's wrong? Start here.</h2>
+        <p data-i18n="triage.lede">Answer three quick questions and we'll show you what we'd check first, what to bring, and how to send the details to our team.</p>
+        <ul class="triage-points">
+          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point1">General guidance, not a diagnosis</span></li>
+          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point2">No obligation to book</span></li>
+          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point3">Sends your summary to WhatsApp</span></li>
+        </ul>
+      </div>
+
+      <div class="triage-card" id="triageCard">
+        <div class="triage-progress">
+          <div class="triage-progress-head">
+            <span id="triageStepLabel" data-i18n="triage.step_label">Step 1 of 3</span>
+          </div>
+          <div class="triage-bar" id="triageProgress" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" aria-label="Repair check progress" data-i18n-aria="triage.progress_label"><span id="triageBar"></span></div>
+        </div>
+
+        <div class="triage-step" data-step="1">
+          <h3 tabindex="-1" data-i18n="triage.q1">What needs attention?</h3>
+          <div class="triage-options">
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="phone" aria-pressed="false" data-i18n="triage.device.phone">Phone</button>
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="laptop" aria-pressed="false" data-i18n="triage.device.laptop">Laptop</button>
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="tablet" aria-pressed="false" data-i18n="triage.device.tablet">Tablet</button>
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="other" aria-pressed="false" data-i18n="triage.device.other">Other device</button>
+          </div>
+        </div>
+
+        <div class="triage-step" data-step="2" hidden>
+          <h3 tabindex="-1" data-i18n="triage.q2">What's happening?</h3>
+          <div class="triage-options">
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="screen" aria-pressed="false" data-i18n="triage.issue.screen">Screen or display</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="battery" aria-pressed="false" data-i18n="triage.issue.battery">Battery or charging</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="water" aria-pressed="false" data-i18n="triage.issue.water">Water or liquid damage</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="audio" aria-pressed="false" data-i18n="triage.issue.audio">Camera, speaker or microphone</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="software" aria-pressed="false" data-i18n="triage.issue.software">Software, slow or won't start</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="heat" aria-pressed="false" data-i18n="triage.issue.heat">Overheating</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="other" aria-pressed="false" data-i18n="triage.issue.other">Something else</button>
+          </div>
+          <button class="triage-back" type="button" data-triage-back="1" data-i18n="triage.back">Back</button>
+        </div>
+
+        <div class="triage-step" data-step="3" hidden>
+          <h3 tabindex="-1" data-i18n="triage.q3">How soon do you need help?</h3>
+          <div class="triage-field">
+            <label for="triageModel" data-i18n="triage.model_label">Device model (optional)</label>
+            <input class="triage-input" id="triageModel" type="text" autocomplete="off" placeholder="e.g. iPhone 13, MacBook Air M1" data-i18n-ph="triage.model_ph">
+          </div>
+          <div class="triage-options">
+            <button class="triage-opt" type="button" data-triage-field="urgency" data-value="now" aria-pressed="false" data-i18n="triage.urgency.now">As soon as possible</button>
+            <button class="triage-opt" type="button" data-triage-field="urgency" data-value="week" aria-pressed="false" data-i18n="triage.urgency.week">This week</button>
+            <button class="triage-opt" type="button" data-triage-field="urgency" data-value="info" aria-pressed="false" data-i18n="triage.urgency.info">Just getting information</button>
+          </div>
+          <button class="triage-back" type="button" data-triage-back="2" data-i18n="triage.back">Back</button>
+        </div>
+
+        <div class="triage-result" id="triageResult" hidden>
+          <span class="eyebrow" data-i18n="triage.result_eyebrow">Your repair check</span>
+          <h3 tabindex="-1" data-i18n="triage.result_title">Here's what we'd check first.</h3>
+          <div class="triage-summary" id="triageSummary"></div>
+          <p class="triage-tip" id="triageTip"></p>
+          <div class="triage-result-block">
+            <h4 data-i18n="triage.bring_title">What to bring</h4>
+            <p data-i18n="triage.bring_text">The device, its charger and cable, and any case or accessory that may be involved. If you have photos or a short video of the fault, bring those too.</p>
+          </div>
+          <div class="triage-result-block">
+            <h4 data-i18n="triage.next_title">What happens next</h4>
+            <p data-i18n="triage.next_text">Send this summary on WhatsApp. Our team will confirm availability and the next step before you visit.</p>
+          </div>
+          <p class="triage-note" data-i18n="triage.result_note">This is general guidance, not a diagnosis. We confirm the fault after inspection and before any work.</p>
+          <div class="triage-actions">
+            <a class="btn btn-wa" id="triageWhatsApp" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="triage.wa_cta">Send this on WhatsApp</a>
+            <button class="btn btn-line" type="button" id="triageRestart" data-i18n="triage.restart">Start again</button>
+          </div>
+        </div>
+
+        <p class="triage-fallback"><a href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="repair" data-i18n="triage.fallback">Prefer to message us directly? WhatsApp +971 56 348 0513</a></p>
+
+        <div id="triageTips" hidden>
+          <span data-triage-result-label data-i18n="triage.result_label" hidden>Result</span>
+          <p data-tip="screen" data-i18n="triage.tip.screen">We'd start with the display, touch response and frame. A cracked screen can sometimes hide damage to the digitizer or connectors, so we check those before quoting.</p>
+          <p data-tip="battery" data-i18n="triage.tip.battery">We'd check the battery health, charging port, cable and power adapter. The cause could be the battery, the port, or the charging accessories, so bring the charger you normally use.</p>
+          <p data-tip="water" data-i18n="triage.tip.water">Liquid damage needs assessment before power is applied. Do not charge the device; bring it in as soon as you can so we can check for corrosion and board damage.</p>
+          <p data-tip="audio" data-i18n="triage.tip.audio">We'd test the camera, speaker, microphone and any related connections. Bring the device and, if relevant, the case or accessory you use.</p>
+          <p data-tip="software" data-i18n="triage.tip.software">We'd check the startup state, storage, updates and any recent changes. Bring the device and, if you can, note what happened before the problem started.</p>
+          <p data-tip="heat" data-i18n="triage.tip.heat">We'd check the battery, charging behaviour, vents and running temperature. Stop using the device if it is hot to the touch or swelling.</p>
+          <p data-tip="other" data-i18n="triage.tip.other">We'd start with a general assessment and confirm the fault before any work. Bring the device and anything that may be involved.</p>
+        </div>
+        <div id="triageWaTemplate" hidden data-i18n="triage.wa_template">Hello Orison, I used the repair check on your website.
+Device: {device}
+Problem: {issue}
+Urgency: {urgency}
+Model: {model}
+Please let me know the next step.</div>
       </div>
     </div>
   </section>
@@ -536,11 +689,11 @@
         <p data-i18n="cats.p">Browse selected categories below, or message us for current stock, specifications and pricing.</p>
       </div>
       <div class="cat-grid">
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="mobiles">
           <img src="/assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
           <span class="cap"><h4 data-i18n="cat1.t">New &amp; Pre-Owned Mobiles</h4><p data-i18n="cat1.s">Selected models &amp; conditions</p></span>
         </a>
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="laptops">
           <img src="/assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
           <span class="cap"><h4 data-i18n="cat2.t">Laptops</h4><p data-i18n="cat2.s">New &amp; refurbished</p></span>
         </a>
@@ -548,11 +701,11 @@
           <img src="/assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
           <span class="cap"><h4 data-i18n="cat3.t">Repair Services</h4><p data-i18n="cat3.s">Assessment before repair</p></span>
         </a>
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="accessories">
           <img src="/assets/accessories.jpg" alt="Chargers, power banks and cables" loading="lazy" width="1125" height="1500">
           <span class="cap"><h4 data-i18n="cat4.t">Accessories</h4><p data-i18n="cat4.s">Selected phone &amp; computer accessories</p></span>
         </a>
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="networking">
           <img src="/assets/networking.jpg" alt="Home and office Wi-Fi routers" loading="lazy" width="1700" height="1133">
           <span class="cap"><h4 data-i18n="cat5.t">Networking Equipment</h4><p data-i18n="cat5.s">Home, office &amp; business</p></span>
         </a>
@@ -573,25 +726,25 @@
           <h3 data-i18n="price.c1t">New &amp; pre-owned mobiles</h3>
           <p class="pc-meta" data-i18n="price.c1m">Selected models and storage options. Condition confirmed before purchase.</p>
           <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c1s">Enquire for current stock</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="mobiles" data-i18n="price.cta">Ask for a quotation &rarr;</a>
         </article>
         <article class="price-card">
           <h3 data-i18n="price.c2t">Laptops</h3>
           <p class="pc-meta" data-i18n="price.c2m">New and refurbished laptops for work, study and everyday use. Confirm model, specifications and condition.</p>
           <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c2s">Enquire for current stock</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="laptops" data-i18n="price.cta">Ask for a quotation &rarr;</a>
         </article>
         <article class="price-card">
           <h3 data-i18n="price.c3t">Networking equipment</h3>
           <p class="pc-meta" data-i18n="price.c3m">Selected networking products for home, office and business use. Contact us for specifications and availability.</p>
           <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c3s">Enquire for availability</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="networking" data-i18n="price.cta">Ask for a quotation &rarr;</a>
         </article>
         <article class="price-card">
           <h3 data-i18n="price.c4t">Accessories</h3>
           <p class="pc-meta" data-i18n="price.c4m">Selected phone and computer accessories. Availability and prices confirmed at enquiry or purchase.</p>
           <div class="pc-price"><b data-i18n="price.onrequest">Price on request</b><span data-i18n="price.c4s">Enquire for availability</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">Ask for a quotation &rarr;</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="accessories" data-i18n="price.cta">Ask for a quotation &rarr;</a>
         </article>
       </div>
       <p class="price-note" data-i18n="price.note">Prices are quoted in AED. VAT or other applicable charges will be stated in the quotation or at the point of sale. Wholesale and bulk pricing is available by quotation and may depend on model, condition, quantity, stock availability and agreed commercial terms.</p>
@@ -612,7 +765,7 @@
               <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">Accessory and networking equipment sourcing</span></li>
               <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">Commercial terms confirmed in a written quotation</span></li>
             </ul>
-            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="b2b.cta">Request a B2B quotation</a>
+            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="b2b" data-i18n="b2b.cta">Request a B2B quotation</a>
           </div>
           <div class="b2b-stats">
             <div class="b2b-stat"><b data-i18n="b2b.s1t">Selected brands</b><span data-i18n="b2b.s1s">Sourced on request</span></div>
@@ -633,11 +786,11 @@
         <h2 style="margin-top:12px;" data-i18n="contact.h2">Visit the shop or contact our team.</h2>
         <p class="intro" data-i18n="contact.intro">We are based in Al Satwa, Dubai. Contact us to check stock, request a quotation, or discuss a repair. Please confirm the full address and opening hours before visiting.</p>
         <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong data-i18n="contact.loc_l">Location</strong><span data-i18n="contact.loc_v">Ozair Suroor Salem Building 1, 327 Al Satwa Road, Al Satwa, Dubai, United Arab Emirates</span></div></div>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">Phone / WhatsApp</strong><a class="ltr" href="tel:+971563480513">+971 56 348 0513</a> &middot; <a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="contact.wa_link">WhatsApp</a></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">Phone / WhatsApp</strong><a class="ltr" href="tel:+971563480513">+971 56 348 0513</a> &middot; <a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" data-i18n="contact.wa_link">WhatsApp</a></div></div>
         <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong data-i18n="contact.email_l">Email</strong><a class="ltr" href="mailto:salesorison@gmail.com">salesorison@gmail.com</a></div></div>
         <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><strong data-i18n="contact.hours_l">Opening hours</strong><span data-i18n="contact.hours_v">Contact us to confirm current opening hours before visiting.</span></div></div>
         <div class="social-row">
-          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
+          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
           <a href="https://www.tiktok.com/@orisonmobile.sales" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.4a6 6 0 1 0 5.5 5.98V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg></a>
           <a href="https://www.instagram.com/orisonmobile.sales/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
           <a href="mailto:salesorison@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
@@ -661,6 +814,36 @@
       </form>
     </div>
   </section>
+
+  <!-- Prefilled WhatsApp messages. Hidden; the page script copies the text
+       into every link with a matching data-wa-intent so each enquiry arrives
+       with its source already written out. -->
+  <div id="waTemplates" hidden>
+    <span data-wa-template="general" data-i18n="wa.general">Hello Orison, I'd like to ask about your products and services.
+
+Sent from the website.</span>
+    <span data-wa-template="stock" data-i18n="wa.stock">Hello Orison, I'd like to ask about current stock and pricing.
+
+Sent from the shop section of orisonigt.com.</span>
+    <span data-wa-template="repair" data-i18n="wa.repair">Hello Orison, I'd like to ask about a repair.
+
+Sent from the repairs section of orisonigt.com.</span>
+    <span data-wa-template="mobiles" data-i18n="wa.mobiles">Hello Orison, I'd like to ask about new or pre-owned mobiles.
+
+Sent from the mobiles section of orisonigt.com.</span>
+    <span data-wa-template="laptops" data-i18n="wa.laptops">Hello Orison, I'd like to ask about laptops.
+
+Sent from the laptops section of orisonigt.com.</span>
+    <span data-wa-template="accessories" data-i18n="wa.accessories">Hello Orison, I'd like to ask about accessories.
+
+Sent from the accessories section of orisonigt.com.</span>
+    <span data-wa-template="networking" data-i18n="wa.networking">Hello Orison, I'd like to ask about networking equipment.
+
+Sent from the networking section of orisonigt.com.</span>
+    <span data-wa-template="b2b" data-i18n="wa.b2b">Hello Orison, I'd like to discuss a wholesale or B2B order.
+
+Sent from the B2B section of orisonigt.com.</span>
+  </div>
 
 </main>
 
@@ -717,6 +900,155 @@
   menuBtn.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* ---- Repair triage ---- */
+  (function triage(){
+    const card = document.getElementById('triageCard');
+    if (!card) return;
+
+    const steps = Array.from(card.querySelectorAll('.triage-step'));
+    const result = document.getElementById('triageResult');
+    const stepLabel = document.getElementById('triageStepLabel');
+    const progress = document.getElementById('triageProgress');
+    const bar = document.getElementById('triageBar');
+    const model = document.getElementById('triageModel');
+    const summary = document.getElementById('triageSummary');
+    const tip = document.getElementById('triageTip');
+    const wa = document.getElementById('triageWhatsApp');
+    const template = document.getElementById('triageWaTemplate');
+    const tips = document.getElementById('triageTips');
+    if (!steps.length || !result || !stepLabel || !progress || !bar || !model || !summary || !tip || !wa || !template || !tips) return;
+
+    const TOTAL = 3;
+    const rawStep = stepLabel.textContent.trim();
+    const stepTemplate = rawStep.indexOf('{current}') !== -1
+      ? rawStep
+      : rawStep.replace(/\d+/, '{current}').replace(/\d+/, '{total}');
+    const resultLabelEl = document.querySelector('[data-triage-result-label]');
+    const resultLabel = resultLabelEl ? resultLabelEl.textContent.trim() : '';
+    const state = { device: '', deviceLabel: '', issue: '', issueLabel: '', urgency: '', urgencyLabel: '' };
+
+    function track(event, params) {
+      document.dispatchEvent(new CustomEvent('orison:track', { detail: { event: event, params: params || {} } }));
+    }
+
+    function setPressed(field, value) {
+      card.querySelectorAll('[data-triage-field="' + field + '"]').forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-value') === value));
+      });
+    }
+
+    function showStep(n, focus) {
+      steps.forEach(step => { step.hidden = Number(step.getAttribute('data-step')) !== n; });
+      result.hidden = true;
+      stepLabel.textContent = stepTemplate.replace('{current}', String(n)).replace('{total}', String(TOTAL));
+      bar.style.width = ((n / TOTAL) * 100).toFixed(3) + '%';
+      progress.setAttribute('aria-valuenow', String(n));
+      if (focus !== false) {
+        track('triage_step', { step: n });
+        const heading = steps[n - 1].querySelector('h3');
+        if (heading) heading.focus({ preventScroll: true });
+      }
+    }
+
+    function showResult() {
+      steps.forEach(step => { step.hidden = true; });
+      result.hidden = false;
+      stepLabel.textContent = resultLabel;
+      bar.style.width = '100%';
+      progress.setAttribute('aria-valuenow', String(TOTAL));
+
+      summary.textContent = '';
+      [state.deviceLabel, state.issueLabel, state.urgencyLabel].forEach(label => {
+        if (!label) return;
+        const chip = document.createElement('span');
+        chip.className = 'triage-chip';
+        chip.textContent = label;
+        summary.appendChild(chip);
+      });
+
+      const matched = tips.querySelector('[data-tip="' + state.issue + '"]');
+      tip.textContent = matched ? matched.textContent.trim() : '';
+
+      const modelValue = model.value.trim();
+      const message = template.textContent
+        .replace('{device}', state.deviceLabel)
+        .replace('{issue}', state.issueLabel)
+        .replace('{urgency}', state.urgencyLabel)
+        .replace('{model}', modelValue || '—');
+      wa.href = 'https://wa.me/971563480513?text=' + encodeURIComponent(message);
+
+      track('triage_complete', {
+        device: state.device,
+        issue: state.issue,
+        urgency: state.urgency,
+        has_model: modelValue ? 'yes' : 'no'
+      });
+
+      const heading = result.querySelector('h3');
+      if (heading) heading.focus({ preventScroll: true });
+    }
+
+    function reset() {
+      track('triage_restart', {});
+      state.device = ''; state.deviceLabel = '';
+      state.issue = ''; state.issueLabel = '';
+      state.urgency = ''; state.urgencyLabel = '';
+      model.value = '';
+      card.querySelectorAll('[data-triage-field]').forEach(btn => btn.setAttribute('aria-pressed', 'false'));
+      showStep(1);
+    }
+
+    card.addEventListener('click', e => {
+      const option = e.target.closest('[data-triage-field]');
+      if (option) {
+        const field = option.getAttribute('data-triage-field');
+        const value = option.getAttribute('data-value');
+        state[field] = value;
+        state[field + 'Label'] = option.textContent.trim();
+        setPressed(field, value);
+
+        if (field === 'device') {
+          state.issue = ''; state.issueLabel = '';
+          state.urgency = ''; state.urgencyLabel = '';
+          setPressed('issue', '');
+          setPressed('urgency', '');
+          showStep(2);
+        } else if (field === 'issue') {
+          state.urgency = ''; state.urgencyLabel = '';
+          setPressed('urgency', '');
+          showStep(3);
+        } else if (field === 'urgency') {
+          showResult();
+        }
+        return;
+      }
+
+      const back = e.target.closest('[data-triage-back]');
+      if (back) {
+        showStep(Number(back.getAttribute('data-triage-back')));
+        return;
+      }
+
+      if (e.target.closest('#triageRestart')) reset();
+    });
+
+    showStep(1, false);
+  })();
+
+  /* ---- Prefilled WhatsApp links ---- */
+  (function whatsapp(){
+    const templates = {};
+    document.querySelectorAll('[data-wa-template]').forEach(el => {
+      templates[el.getAttribute('data-wa-template')] = el.textContent.trim();
+    });
+
+    document.querySelectorAll('a[data-wa-intent]').forEach(a => {
+      const text = templates[a.getAttribute('data-wa-intent')];
+      if (!text) return;
+      a.href = 'https://wa.me/971563480513?text=' + encodeURIComponent(text);
+    });
+  })();
 
   /* ---- Copyright year ---- */
   document.querySelectorAll('[data-year]').forEach(el => {

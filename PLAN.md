@@ -38,7 +38,8 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | Structured data | `Store`/`ElectronicsStore` + `WebSite` JSON-LD (no hours, geo or ratings yet) |
 | Sitemap | Generated, includes locale alternates |
 | 404 | Branded, `noindex, follow`, returns HTTP 404 for unknown paths |
-| Analytics | `dataLayer` events for call/WhatsApp/email/social/language/form; GA4 inert |
+| Analytics | `dataLayer` events for call/WhatsApp/email/social/language/form, plus `intent` on WhatsApp and triage events; GA4 inert |
+| Conversion tools | Repair triage wizard at `#triage`; every WhatsApp link carries a prefilled, localized message |
 | Build | `npm run build`, validated by `npm run check` |
 | HTTPS | Not enforced; `http://orisonigt.com/` still returns 200 |
 | Google Business Profile | Not confirmed as claimed/completed |
@@ -52,7 +53,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | B3 | Supply genuine product/service prices and VAT treatment | Business | Blocked | Real model, condition, specs, price and VAT wording; replace "Price on request" cards and add `Product`/`Offer` schema only then |
 | B4 | Confirm claims the business can honour (same-day repair, warranty, delivery, returns) | Business | Blocked | Exact terms in writing; add only in compliant wording |
 | B5 | Legal review of Privacy, Refund and Terms | Business / legal | Blocked | Reviewer sign-off; update "Last updated" dates |
-| B6 | Native Arabic and Urdu review of all 118 strings | Business / translator | Not started | Native reviewer signs off `i18n/ar.json` and `i18n/ur.json`; fix tone, dialect and technical terms |
+| B6 | Native Arabic and Urdu review of all 174 strings | Business / translator | Not started | Native reviewer signs off `i18n/ar.json` and `i18n/ur.json`; fix tone, dialect and technical terms |
 | T1 | Enforce HTTPS | Account admin | Blocked | `http://` 301-redirects to `https://`; HSTS enabled; no mixed content |
 | T2 | Verify the domain in Google Search Console and Bing Webmaster Tools; submit `sitemap.xml` | User | User action | Both properties verified; sitemap accepted with no errors |
 | L1 | Claim and fully complete the Google Business Profile | Business | Not started | Verified; correct primary category, hours, phone, website, attributes, services, products and 10+ real photos |
@@ -112,6 +113,21 @@ a fake branch page is a doorway page and must not be built.
 | C8 | Earn local links | Business | Not started | Supplier/partner pages, Satwa business groups, Dubai SME communities, local tech blogs, one local event |
 | C9 | Evaluate Abu Dhabi expansion | Business | Blocked | Only if there is a real location, delivery service or B2B coverage; otherwise keep it as an `areaServed` statement |
 
+## P2 — conversion tools
+
+These turn existing traffic into WhatsApp conversations. They must stay factual: no invented
+prices, repair timeframes or diagnosis guarantees.
+
+| ID | Task | Owner | Status | Acceptance criteria |
+| --- | --- | --- | --- | --- |
+| W1 | Repair triage wizard | Dev | Done | `#triage` on the home page; three steps, result view, back and restart; EN/AR/UR; prefilled WhatsApp summary; `triage_step`, `triage_complete`, `triage_restart` events; tested 1440–320px |
+| W2 | Prefilled WhatsApp links by intent | Dev | Done | Every WhatsApp link carries `data-wa-intent`; localized hidden templates build `?text=`; `contact_click` includes `intent`; verified on all three locales |
+| W3 | Sell or trade-in request flow | Dev + business | Not started | Model, storage, condition and photos; no instant valuation unless real pricing rules exist; prefilled WhatsApp or email handoff |
+| W4 | B2B quote builder | Dev | Not started | Categories, quantities and company details produce a WhatsApp/email RFQ summary; no prices promised |
+| W5 | Used-phone buying checklist | Content | Not started | Genuinely useful IMEI, lock, battery, screen and network checks; optional email/WhatsApp capture with consent |
+| W6 | Device Passport pilot | Business | Not started | QR tag on 20 used devices showing tested checklist, condition and what is included; only real, approved data |
+| W7 | Review wall / repair stories | Business | Not started | Real customer outcomes with written consent; no stock-photo testimonials |
+
 ## P3 — measurement and iteration
 
 | ID | Task | Owner | Status | Acceptance criteria |
@@ -148,3 +164,4 @@ S12 image conversion, S14 accessibility pass.
 | Date | Change |
 | --- | --- |
 | 2026-11-03 | Localized `/ar/` and `/ur/` URLs, hreflang, canonicals, OG/Twitter, JSON-LD, analytics events, conditional Urdu font, generated sitemap, branded 404, `npm run build`/`check`, this plan |
+| 2026-11-03 | Repair triage wizard and intent-tagged prefilled WhatsApp links; 174 strings in each dictionary; W1/W2 marked Done |

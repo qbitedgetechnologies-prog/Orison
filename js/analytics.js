@@ -41,19 +41,38 @@
     return null;
   }
 
+  function whatsappIntent(el) {
+    var intent = el.getAttribute('data-wa-intent');
+    if (intent) return intent;
+    // The triage result builds its own prefilled message.
+    if (el.id === 'triageWhatsApp') return 'triage';
+    return 'general';
+  }
+
   document.addEventListener('click', function (e) {
     var el = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!el) return;
     var href = el.getAttribute('href') || '';
     var method = classify(href, el);
     if (!method) return;
-    send('contact_click', {
+    var params = {
       method: method,
       link_url: href,
       page_location: window.location.href,
       page_language: document.documentElement.lang || 'en'
-    });
+    };
+    if (method === 'whatsapp') params.intent = whatsappIntent(el);
+    send('contact_click', params);
   }, { passive: true });
+
+  /* Components that own their own state (for example the repair triage
+   * wizard) dispatch this event instead of pushing to the data layer, so
+   * GA4 receives the same payload as everything else. */
+  document.addEventListener('orison:track', function (e) {
+    var detail = e.detail || {};
+    if (!detail.event) return;
+    send(detail.event, detail.params || {});
+  });
 
   document.addEventListener('submit', function (e) {
     var form = e.target;

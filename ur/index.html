@@ -96,6 +96,7 @@
   html[lang="ur"] .badge small{font-size:10.5px;}
   html[lang="ur"] .b2b-stat b{line-height:1.5;}
   html[lang="ur"] .f-list li,html[lang="ur"] .nav-links{line-height:1.8;}
+  html[lang="ur"] .triage-copy p,html[lang="ur"] .triage-opt,html[lang="ur"] .triage-tip,html[lang="ur"] .triage-result-block p{line-height:1.9;}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
   a{color:inherit;text-decoration:none;}
   img,svg{display:block;max-width:100%;}
@@ -287,6 +288,49 @@
   .form-note{margin-top:14px;font-size:12px;line-height:1.55;color:var(--ink-dim);font-weight:500;}
   .form-note a{color:var(--accent-ink);font-weight:700;text-decoration:underline;text-underline-offset:2px;}
 
+  /* Repair triage */
+  .triage{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .triage .wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:52px;align-items:start;}
+  .triage-copy h2{font-size:clamp(30px,4vw,46px);margin-top:12px;}
+  .triage-copy p{margin-top:16px;color:var(--ink-dim);font-size:16.5px;font-weight:500;}
+  .triage-points{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:26px;}
+  .triage-points li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;color:var(--ink-2);}
+  .triage-points .dot{width:22px;height:22px;border-radius:50%;background:var(--panel);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .triage-points svg{width:13px;height:13px;}
+  .triage-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,3vw,38px);box-shadow:0 20px 50px rgba(10,14,20,.07);}
+  .triage-progress-head{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);}
+  .triage-bar{height:5px;border-radius:100px;background:var(--line);overflow:hidden;margin-top:10px;}
+  .triage-bar span{display:block;height:100%;width:33.333%;background:var(--grad-sea);border-radius:100px;transition:width .25s ease;}
+  .triage-step h3,.triage-result h3{font-size:clamp(22px,2.4vw,28px);margin:22px 0 0;}
+  .triage-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+  .triage-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:start;background:#fff;border:1.5px solid var(--line-2);border-radius:14px;padding:14px 16px;font-family:inherit;font-weight:700;font-size:14.5px;line-height:1.35;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s;}
+  .triage-opt:hover{border-color:var(--accent);background:var(--panel);}
+  .triage-opt[aria-pressed="true"]{border-color:var(--accent);background:var(--panel);box-shadow:inset 0 0 0 1px var(--accent);}
+  .triage-opt::after{content:"";width:9px;height:9px;border-radius:50%;border:1.5px solid var(--line-2);flex:0 0 auto;}
+  .triage-opt[aria-pressed="true"]::after{background:var(--accent);border-color:var(--accent);}
+  .triage-field{margin-top:20px;}
+  .triage-field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--ink-2);margin-bottom:7px;}
+  .triage-input{width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:12px;color:var(--ink);padding:13px 15px;font-family:inherit;font-size:15px;transition:border-color .15s;}
+  .triage-input:focus{outline:none;border-color:var(--accent);}
+  .triage-back{margin-top:18px;background:none;border:none;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--ink-dim);cursor:pointer;padding:4px 0;text-decoration:underline;text-underline-offset:3px;}
+  .triage-back:hover{color:var(--accent-ink);}
+  .triage-result{margin-top:22px;}
+  .triage-result .eyebrow{display:block;}
+  .triage-result h3{margin-top:8px;}
+  .triage-summary{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .triage-chip{background:var(--bg2);border:1px solid var(--line);border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:700;color:var(--ink-2);}
+  .triage-tip{margin-top:18px;background:var(--panel);border-inline-start:3px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 16px;font-size:14.5px;font-weight:600;color:var(--ink-2);}
+  [dir="rtl"] .triage-tip{border-radius:12px 0 0 12px;}
+  .triage-result-block{margin-top:18px;}
+  .triage-result-block h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);}
+  .triage-result-block p{margin-top:6px;font-size:14px;color:var(--ink-dim);font-weight:500;}
+  .triage-note{margin-top:16px;font-size:12px;line-height:1.55;color:var(--ink-dim);font-weight:500;}
+  .triage-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .triage-actions .btn{justify-content:center;}
+  .triage-fallback{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-dim);}
+  .triage-fallback a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+  .f-cta{display:flex;flex-wrap:wrap;gap:10px;}
+
   /* Footer */
   footer{background:var(--bg3);border-top:1px solid var(--line);padding:46px 0 34px;}
   footer .ftop{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;}
@@ -315,6 +359,7 @@
     .feature .f-media{order:-1;min-height:280px;}
     .b2b-in{grid-template-columns:1fr;gap:30px;padding:38px 28px;}
     .contact .wrap{grid-template-columns:1fr;}
+    .triage .wrap{grid-template-columns:1fr;gap:30px;}
     .nav-links{display:none;}
     .menu-btn{display:flex;}
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:22px 32px;gap:18px;}
@@ -333,6 +378,9 @@
     .lang-switch,.menu-btn{flex:0 0 auto;}
     .lang-switch{padding:2px;}
     .lang-switch a{min-width:32px;height:28px;font-size:11.5px;}
+    .triage-card{padding:22px 18px;}
+    .triage-options{grid-template-columns:1fr;}
+    .triage-actions .btn{width:100%;}
   }
   @media (max-width:380px){
     nav{padding-left:14px;padding-right:14px;}
@@ -370,7 +418,7 @@
         <a href="/ar/" hreflang="ar" lang="ar" data-lang="ar">AR</a>
         <a href="/ur/" hreflang="ur" lang="ur" data-lang="ur" aria-current="page">UR</a>
       </nav>
-      <a class="btn btn-wa btn-sm" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+      <a class="btn btn-wa btn-sm" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.42-.71-2.89-1.16-4.74-4.14-4.88-4.33-.14-.19-1.16-1.55-1.16-2.96 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.66.5.24.58.83 2 .9 2.15.07.15.11.32.02.51-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.13.57.16.28.7 1.16 1.5 1.88 1.03.93 1.9 1.22 2.18 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.68-.17 1.36Z"/></svg>
         <span class="long" data-i18n="nav.whatsapp">واٹس ایپ</span>
       </a>
@@ -414,7 +462,7 @@
         <h1 style="margin-top:14px;" data-i18n-html="hero.h1">خرید، فروخت، مرمت اور <em>ٹیکنالوجی کی فراہمی</em> — سب ایک ہی چھت تلے۔</h1>
         <p class="lede" data-i18n="hero.lede">نئے اور استعمال شدہ موبائل فون، لیپ ٹاپ، لوازمات اور نیٹ ورکنگ سامان، نیز فون اور لیپ ٹاپ مرمت کی خدمات۔ الستوہ، دبئی سے ریٹیل گاہکوں، ری سیلرز اور کاروباروں کی خدمت۔ موجودہ اسٹاک، خدمات کی دستیابی اور قیمتوں کی تصدیق کے لیے ہم سے رابطہ کریں۔</p>
         <div class="actions">
-          <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+          <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
             <span data-i18n="hero.cta_wa">واٹس ایپ پر رابطہ کریں</span>
           </a>
@@ -503,7 +551,7 @@
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li2">تبادلے کے اختیارات کے بارے میں پوچھیں</span></li>
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li3">بڑے برانڈز کے منتخب ماڈلز</span></li>
           </ul>
-          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat1.cta">اسٹاک اور قیمت پوچھیں</a>
+          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="stock" data-i18n="feat1.cta">اسٹاک اور قیمت پوچھیں</a>
         </div>
       </div>
 
@@ -521,8 +569,113 @@
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li2">فون اور لیپ ٹاپ، منتخب برانڈز</span></li>
             <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li3">کام شروع ہونے سے پہلے کوٹ شدہ کام کی منظوری</span></li>
           </ul>
-          <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="feat2.cta">مرمت کی قیمت حاصل کریں</a>
+          <div class="f-cta">
+            <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="repair" data-i18n="feat2.cta">مرمت کی قیمت حاصل کریں</a>
+            <a class="btn btn-line" href="#triage" data-i18n="feat2.triage">مرمت چیک شروع کریں</a>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPAIR TRIAGE -->
+  <section class="triage" id="triage">
+    <div class="wrap">
+      <div class="triage-copy">
+        <span class="eyebrow" data-i18n="triage.eyebrow">مرمت چیک</span>
+        <h2 data-i18n="triage.h2">مسئلہ سمجھ نہیں آ رہا؟ یہاں سے شروع کریں۔</h2>
+        <p data-i18n="triage.lede">تین مختصر سوالات کے جواب دیں؛ ہم بتائیں گے کہ ہم پہلے کیا چیک کریں گے، کیا لانا ہے، اور تفصیل ٹیم کو کیسے بھیجنی ہے۔</p>
+        <ul class="triage-points">
+          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point1">عمومی رہنمائی، تشخیص نہیں</span></li>
+          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point2">بکنگ کی کوئی پابندی نہیں</span></li>
+          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point3">آپ کا خلاصہ واٹس ایپ پر بھیجتا ہے</span></li>
+        </ul>
+      </div>
+
+      <div class="triage-card" id="triageCard">
+        <div class="triage-progress">
+          <div class="triage-progress-head">
+            <span id="triageStepLabel" data-i18n="triage.step_label">مرحلہ {current} از {total}</span>
+          </div>
+          <div class="triage-bar" id="triageProgress" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" aria-label="مرمت چیک کی پیش رفت" data-i18n-aria="triage.progress_label"><span id="triageBar"></span></div>
+        </div>
+
+        <div class="triage-step" data-step="1">
+          <h3 tabindex="-1" data-i18n="triage.q1">کس چیز کو توجہ کی ضرورت ہے؟</h3>
+          <div class="triage-options">
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="phone" aria-pressed="false" data-i18n="triage.device.phone">فون</button>
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="laptop" aria-pressed="false" data-i18n="triage.device.laptop">لیپ ٹاپ</button>
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="tablet" aria-pressed="false" data-i18n="triage.device.tablet">ٹیبلٹ</button>
+            <button class="triage-opt" type="button" data-triage-field="device" data-value="other" aria-pressed="false" data-i18n="triage.device.other">دوسرا آلہ</button>
+          </div>
+        </div>
+
+        <div class="triage-step" data-step="2" hidden>
+          <h3 tabindex="-1" data-i18n="triage.q2">کیا مسئلہ ہے؟</h3>
+          <div class="triage-options">
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="screen" aria-pressed="false" data-i18n="triage.issue.screen">اسکرین یا ڈسپلے</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="battery" aria-pressed="false" data-i18n="triage.issue.battery">بیٹری یا چارجنگ</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="water" aria-pressed="false" data-i18n="triage.issue.water">پانی یا مائع سے نقصان</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="audio" aria-pressed="false" data-i18n="triage.issue.audio">کیمرہ، اسپیکر یا مائیکروفون</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="software" aria-pressed="false" data-i18n="triage.issue.software">سافٹ ویئر، سست یا آن نہ ہونا</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="heat" aria-pressed="false" data-i18n="triage.issue.heat">زیادہ گرم ہونا</button>
+            <button class="triage-opt" type="button" data-triage-field="issue" data-value="other" aria-pressed="false" data-i18n="triage.issue.other">کچھ اور</button>
+          </div>
+          <button class="triage-back" type="button" data-triage-back="1" data-i18n="triage.back">واپس</button>
+        </div>
+
+        <div class="triage-step" data-step="3" hidden>
+          <h3 tabindex="-1" data-i18n="triage.q3">آپ کو کتنی جلدی مدد چاہیے؟</h3>
+          <div class="triage-field">
+            <label for="triageModel" data-i18n="triage.model_label">ڈیوائس ماڈل (اختیاری)</label>
+            <input class="triage-input" id="triageModel" type="text" autocomplete="off" placeholder="مثلاً iPhone 13، MacBook Air M1" data-i18n-ph="triage.model_ph">
+          </div>
+          <div class="triage-options">
+            <button class="triage-opt" type="button" data-triage-field="urgency" data-value="now" aria-pressed="false" data-i18n="triage.urgency.now">جتنی جلدی ممکن ہو</button>
+            <button class="triage-opt" type="button" data-triage-field="urgency" data-value="week" aria-pressed="false" data-i18n="triage.urgency.week">اس ہفتے</button>
+            <button class="triage-opt" type="button" data-triage-field="urgency" data-value="info" aria-pressed="false" data-i18n="triage.urgency.info">صرف معلومات چاہیے</button>
+          </div>
+          <button class="triage-back" type="button" data-triage-back="2" data-i18n="triage.back">واپس</button>
+        </div>
+
+        <div class="triage-result" id="triageResult" hidden>
+          <span class="eyebrow" data-i18n="triage.result_eyebrow">آپ کا مرمت چیک</span>
+          <h3 tabindex="-1" data-i18n="triage.result_title">ہم پہلے یہ چیک کریں گے۔</h3>
+          <div class="triage-summary" id="triageSummary"></div>
+          <p class="triage-tip" id="triageTip"></p>
+          <div class="triage-result-block">
+            <h4 data-i18n="triage.bring_title">کیا لانا ہے</h4>
+            <p data-i18n="triage.bring_text">آلہ، اس کا چارجر اور کیبل، اور کوئی کیس یا لوازمہ جو متعلقہ ہو۔ اگر خرابی کی تصویر یا مختصر ویڈیو ہو تو وہ بھی لائیں۔</p>
+          </div>
+          <div class="triage-result-block">
+            <h4 data-i18n="triage.next_title">آگے کیا ہوگا</h4>
+            <p data-i18n="triage.next_text">یہ خلاصہ واٹس ایپ پر بھیجیں۔ ہماری ٹیم آپ کی تشریف آوری سے پہلے دستیابی اور اگلے مرحلے کی تصدیق کرے گی۔</p>
+          </div>
+          <p class="triage-note" data-i18n="triage.result_note">یہ عمومی رہنمائی ہے، تشخیص نہیں۔ ہم معائنے کے بعد اور کام شروع کرنے سے پہلے خرابی کی تصدیق کرتے ہیں۔</p>
+          <div class="triage-actions">
+            <a class="btn btn-wa" id="triageWhatsApp" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="triage.wa_cta">یہ واٹس ایپ پر بھیجیں</a>
+            <button class="btn btn-line" type="button" id="triageRestart" data-i18n="triage.restart">دوبارہ شروع کریں</button>
+          </div>
+        </div>
+
+        <p class="triage-fallback"><a href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="repair" data-i18n="triage.fallback">براہ راست پیغام بھیجنا چاہتے ہیں؟ واٹس ایپ +971 56 348 0513</a></p>
+
+        <div id="triageTips" hidden>
+          <span data-triage-result-label data-i18n="triage.result_label" hidden>نتیجہ</span>
+          <p data-tip="screen" data-i18n="triage.tip.screen">ہم ڈسپلے، ٹچ رسپانس اور فریم سے شروع کریں گے۔ ٹوٹی اسکرین کبھی ڈیجیٹائزر یا کنیکٹر کے نقصان کو چھپا سکتی ہے، اس لیے ہم قیمت بتانے سے پہلے یہ چیک کرتے ہیں۔</p>
+          <p data-tip="battery" data-i18n="triage.tip.battery">ہم بیٹری ہیلتھ، چارجنگ پورٹ، کیبل اور پاور اڈاپٹر چیک کریں گے۔ وجہ بیٹری، پورٹ یا چارجنگ لوازمات ہو سکتی ہے، اس لیے وہی چارجر لائیں جو آپ عام طور پر استعمال کرتے ہیں۔</p>
+          <p data-tip="water" data-i18n="triage.tip.water">مائع سے نقصان کی صورت میں بجلی دینے سے پہلے معائنہ ضروری ہے۔ ڈیوائس چارج نہ کریں؛ جلد لائیں تاکہ ہم زنگ اور بورڈ کے نقصان کو چیک کر سکیں۔</p>
+          <p data-tip="audio" data-i18n="triage.tip.audio">ہم کیمرہ، اسپیکر، مائیکروفون اور متعلقہ کنکشنز ٹیسٹ کریں گے۔ ڈیوائس لائیں اور اگر متعلقہ ہو تو کیس یا لوازمہ بھی۔</p>
+          <p data-tip="software" data-i18n="triage.tip.software">ہم اسٹارٹ اپ حالت، اسٹوریج، اپ ڈیٹس اور حالیہ تبدیلیاں چیک کریں گے۔ ڈیوائس لائیں اور اگر ممکن ہو تو بتائیں کہ مسئلہ شروع ہونے سے پہلے کیا ہوا۔</p>
+          <p data-tip="heat" data-i18n="triage.tip.heat">ہم بیٹری، چارجنگ رویہ، وینٹس اور چلنے کا درجہ حرارت چیک کریں گے۔ اگر ڈیوائس چھونے پر گرم ہو یا پھول رہی ہو تو استعمال بند کر دیں۔</p>
+          <p data-tip="other" data-i18n="triage.tip.other">ہم عمومی معائنے سے شروع کریں گے اور کام سے پہلے خرابی کی تصدیق کریں گے۔ ڈیوائس اور متعلقہ چیزیں لائیں۔</p>
+        </div>
+        <div id="triageWaTemplate" hidden data-i18n="triage.wa_template">ہیلو اوریسون، میں نے آپ کی ویب سائٹ پر مرمت چیک استعمال کیا۔
+ڈیوائس: {device}
+مسئلہ: {issue}
+جلدی: {urgency}
+ماڈل: {model}
+براہ کرم اگلا مرحلہ بتائیں۔</div>
       </div>
     </div>
   </section>
@@ -536,11 +689,11 @@
         <p data-i18n="cats.p">نیچے منتخب زمروں کو دیکھیں، یا موجودہ اسٹاک، خصوصیات اور قیمتوں کے لیے ہمیں پیغام بھیجیں۔</p>
       </div>
       <div class="cat-grid">
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="mobiles">
           <img src="/assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
           <span class="cap"><h4 data-i18n="cat1.t">نئے اور استعمال شدہ موبائل</h4><p data-i18n="cat1.s">منتخب ماڈلز اور حالتیں</p></span>
         </a>
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="laptops">
           <img src="/assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
           <span class="cap"><h4 data-i18n="cat2.t">لیپ ٹاپ</h4><p data-i18n="cat2.s">نئے اور تجدید شدہ</p></span>
         </a>
@@ -548,11 +701,11 @@
           <img src="/assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
           <span class="cap"><h4 data-i18n="cat3.t">مرمت کی خدمات</h4><p data-i18n="cat3.s">مرمت سے پہلے جائزہ</p></span>
         </a>
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="accessories">
           <img src="/assets/accessories.jpg" alt="Chargers, power banks and cables" loading="lazy" width="1125" height="1500">
           <span class="cap"><h4 data-i18n="cat4.t">لوازمات</h4><p data-i18n="cat4.s">منتخب فون اور کمپیوٹر لوازمات</p></span>
         </a>
-        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener">
+        <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="networking">
           <img src="/assets/networking.jpg" alt="Home and office Wi-Fi routers" loading="lazy" width="1700" height="1133">
           <span class="cap"><h4 data-i18n="cat5.t">نیٹ ورکنگ سامان</h4><p data-i18n="cat5.s">گھر، دفتر اور کاروبار</p></span>
         </a>
@@ -573,25 +726,25 @@
           <h3 data-i18n="price.c1t">نئے اور استعمال شدہ موبائل</h3>
           <p class="pc-meta" data-i18n="price.c1m">منتخب ماڈلز اور اسٹوریج کے اختیارات۔ خریداری سے پہلے حالت کی تصدیق۔</p>
           <div class="pc-price"><b data-i18n="price.onrequest">قیمت استفسار پر</b><span data-i18n="price.c1s">موجودہ اسٹاک کے لیے استفسار کریں</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="mobiles" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
         </article>
         <article class="price-card">
           <h3 data-i18n="price.c2t">لیپ ٹاپ</h3>
           <p class="pc-meta" data-i18n="price.c2m">کام، تعلیم اور روزمرہ استعمال کے لیے نئے اور تجدید شدہ لیپ ٹاپ۔ ماڈل، خصوصیات اور حالت کی تصدیق کریں۔</p>
           <div class="pc-price"><b data-i18n="price.onrequest">قیمت استفسار پر</b><span data-i18n="price.c2s">موجودہ اسٹاک کے لیے استفسار کریں</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="laptops" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
         </article>
         <article class="price-card">
           <h3 data-i18n="price.c3t">نیٹ ورکنگ سامان</h3>
           <p class="pc-meta" data-i18n="price.c3m">گھر، دفتر اور کاروبار کے لیے منتخب نیٹ ورکنگ مصنوعات۔ خصوصیات اور دستیابی کے لیے ہم سے رابطہ کریں۔</p>
           <div class="pc-price"><b data-i18n="price.onrequest">قیمت استفسار پر</b><span data-i18n="price.c3s">دستیابی کے لیے استفسار کریں</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="networking" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
         </article>
         <article class="price-card">
           <h3 data-i18n="price.c4t">لوازمات</h3>
           <p class="pc-meta" data-i18n="price.c4m">منتخب فون اور کمپیوٹر لوازمات۔ دستیابی اور قیمتوں کی تصدیق استفسار یا خریداری پر۔</p>
           <div class="pc-price"><b data-i18n="price.onrequest">قیمت استفسار پر</b><span data-i18n="price.c4s">دستیابی کے لیے استفسار کریں</span></div>
-          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
+          <a class="pc-link" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="accessories" data-i18n="price.cta">کوٹیشن طلب کریں →</a>
         </article>
       </div>
       <p class="price-note" data-i18n="price.note">قیمتیں AED میں بتائی جاتی ہیں۔ VAT یا دیگر قابلِ اطلاق چارجز کوٹیشن یا فروخت کے مقام پر واضح کیے جائیں گے۔ تھوک اور بلک قیمتیں کوٹیشن کے ذریعے دستیاب ہیں اور ماڈل، حالت، مقدار، اسٹاک اور طے شدہ تجارتی شرائط پر منحصر ہو سکتی ہیں۔</p>
@@ -612,7 +765,7 @@
               <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">لوازمات اور نیٹ ورکنگ سامان کی فراہمی</span></li>
               <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">تحریری کوٹیشن میں تجارتی شرائط کی تصدیق</span></li>
             </ul>
-            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="b2b.cta">تھوک کوٹیشن طلب کریں</a>
+            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="b2b" data-i18n="b2b.cta">تھوک کوٹیشن طلب کریں</a>
           </div>
           <div class="b2b-stats">
             <div class="b2b-stat"><b data-i18n="b2b.s1t">منتخب برانڈز</b><span data-i18n="b2b.s1s">درخواست پر فراہم</span></div>
@@ -633,11 +786,11 @@
         <h2 style="margin-top:12px;" data-i18n="contact.h2">دکان پر آئیں یا ہماری ٹیم سے رابطہ کریں۔</h2>
         <p class="intro" data-i18n="contact.intro">ہم الستوہ، دبئی میں ہیں۔ اسٹاک چیک کرنے، کوٹیشن طلب کرنے یا مرمت پر بات کرنے کے لیے ہم سے رابطہ کریں۔ تشریف لانے سے پہلے مکمل پتہ اور اوقاتِ کار کی تصدیق کریں۔</p>
         <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong data-i18n="contact.loc_l">مقام</strong><span data-i18n="contact.loc_v">عزیر سرور سالم بلڈنگ 1، 327 شارع الستوہ، الستوہ، دبئی، متحدہ عرب امارات</span></div></div>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">فون / واٹس ایپ</strong><a class="ltr" href="tel:+971563480513">+971 56 348 0513</a> &middot; <a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-i18n="contact.wa_link">واٹس ایپ</a></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">فون / واٹس ایپ</strong><a class="ltr" href="tel:+971563480513">+971 56 348 0513</a> &middot; <a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" data-i18n="contact.wa_link">واٹس ایپ</a></div></div>
         <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong data-i18n="contact.email_l">ای میل</strong><a class="ltr" href="mailto:salesorison@gmail.com">salesorison@gmail.com</a></div></div>
         <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><strong data-i18n="contact.hours_l">اوقاتِ کار</strong><span data-i18n="contact.hours_v">تشریف لانے سے پہلے موجودہ اوقاتِ کار کی تصدیق کے لیے ہم سے رابطہ کریں۔</span></div></div>
         <div class="social-row">
-          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
+          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
           <a href="https://www.tiktok.com/@orisonmobile.sales" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.4a6 6 0 1 0 5.5 5.98V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg></a>
           <a href="https://www.instagram.com/orisonmobile.sales/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
           <a href="mailto:salesorison@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
@@ -661,6 +814,36 @@
       </form>
     </div>
   </section>
+
+  <!-- Prefilled WhatsApp messages. Hidden; the page script copies the text
+       into every link with a matching data-wa-intent so each enquiry arrives
+       with its source already written out. -->
+  <div id="waTemplates" hidden>
+    <span data-wa-template="general" data-i18n="wa.general">ہیلو اوریسون، میں آپ کی مصنوعات اور خدمات کے بارے میں پوچھنا چاہتا ہوں۔
+
+ویب سائٹ سے بھیجا گیا۔</span>
+    <span data-wa-template="stock" data-i18n="wa.stock">ہیلو اوریسون، میں موجودہ اسٹاک اور قیمتوں کے بارے میں پوچھنا چاہتا ہوں۔
+
+orisonigt.com کے اسٹور سیکشن سے بھیجا گیا۔</span>
+    <span data-wa-template="repair" data-i18n="wa.repair">ہیلو اوریسون، میں مرمت کے بارے میں پوچھنا چاہتا ہوں۔
+
+orisonigt.com کے مرمت سیکشن سے بھیجا گیا۔</span>
+    <span data-wa-template="mobiles" data-i18n="wa.mobiles">ہیلو اوریسون، میں نئے یا پہلے استعمال شدہ موبائلز کے بارے میں پوچھنا چاہتا ہوں۔
+
+orisonigt.com کے موبائل سیکشن سے بھیجا گیا۔</span>
+    <span data-wa-template="laptops" data-i18n="wa.laptops">ہیلو اوریسون، میں لیپ ٹاپس کے بارے میں پوچھنا چاہتا ہوں۔
+
+orisonigt.com کے لیپ ٹاپ سیکشن سے بھیجا گیا۔</span>
+    <span data-wa-template="accessories" data-i18n="wa.accessories">ہیلو اوریسون، میں لوازمات کے بارے میں پوچھنا چاہتا ہوں۔
+
+orisonigt.com کے لوازمات سیکشن سے بھیجا گیا۔</span>
+    <span data-wa-template="networking" data-i18n="wa.networking">ہیلو اوریسون، میں نیٹ ورکنگ آلات کے بارے میں پوچھنا چاہتا ہوں۔
+
+orisonigt.com کے نیٹ ورکنگ سیکشن سے بھیجا گیا۔</span>
+    <span data-wa-template="b2b" data-i18n="wa.b2b">ہیلو اوریسون، میں ہول سیل یا B2B آرڈر پر بات کرنا چاہتا ہوں۔
+
+orisonigt.com کے B2B سیکشن سے بھیجا گیا۔</span>
+  </div>
 
 </main>
 
@@ -717,6 +900,155 @@
   menuBtn.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* ---- Repair triage ---- */
+  (function triage(){
+    const card = document.getElementById('triageCard');
+    if (!card) return;
+
+    const steps = Array.from(card.querySelectorAll('.triage-step'));
+    const result = document.getElementById('triageResult');
+    const stepLabel = document.getElementById('triageStepLabel');
+    const progress = document.getElementById('triageProgress');
+    const bar = document.getElementById('triageBar');
+    const model = document.getElementById('triageModel');
+    const summary = document.getElementById('triageSummary');
+    const tip = document.getElementById('triageTip');
+    const wa = document.getElementById('triageWhatsApp');
+    const template = document.getElementById('triageWaTemplate');
+    const tips = document.getElementById('triageTips');
+    if (!steps.length || !result || !stepLabel || !progress || !bar || !model || !summary || !tip || !wa || !template || !tips) return;
+
+    const TOTAL = 3;
+    const rawStep = stepLabel.textContent.trim();
+    const stepTemplate = rawStep.indexOf('{current}') !== -1
+      ? rawStep
+      : rawStep.replace(/\d+/, '{current}').replace(/\d+/, '{total}');
+    const resultLabelEl = document.querySelector('[data-triage-result-label]');
+    const resultLabel = resultLabelEl ? resultLabelEl.textContent.trim() : '';
+    const state = { device: '', deviceLabel: '', issue: '', issueLabel: '', urgency: '', urgencyLabel: '' };
+
+    function track(event, params) {
+      document.dispatchEvent(new CustomEvent('orison:track', { detail: { event: event, params: params || {} } }));
+    }
+
+    function setPressed(field, value) {
+      card.querySelectorAll('[data-triage-field="' + field + '"]').forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-value') === value));
+      });
+    }
+
+    function showStep(n, focus) {
+      steps.forEach(step => { step.hidden = Number(step.getAttribute('data-step')) !== n; });
+      result.hidden = true;
+      stepLabel.textContent = stepTemplate.replace('{current}', String(n)).replace('{total}', String(TOTAL));
+      bar.style.width = ((n / TOTAL) * 100).toFixed(3) + '%';
+      progress.setAttribute('aria-valuenow', String(n));
+      if (focus !== false) {
+        track('triage_step', { step: n });
+        const heading = steps[n - 1].querySelector('h3');
+        if (heading) heading.focus({ preventScroll: true });
+      }
+    }
+
+    function showResult() {
+      steps.forEach(step => { step.hidden = true; });
+      result.hidden = false;
+      stepLabel.textContent = resultLabel;
+      bar.style.width = '100%';
+      progress.setAttribute('aria-valuenow', String(TOTAL));
+
+      summary.textContent = '';
+      [state.deviceLabel, state.issueLabel, state.urgencyLabel].forEach(label => {
+        if (!label) return;
+        const chip = document.createElement('span');
+        chip.className = 'triage-chip';
+        chip.textContent = label;
+        summary.appendChild(chip);
+      });
+
+      const matched = tips.querySelector('[data-tip="' + state.issue + '"]');
+      tip.textContent = matched ? matched.textContent.trim() : '';
+
+      const modelValue = model.value.trim();
+      const message = template.textContent
+        .replace('{device}', state.deviceLabel)
+        .replace('{issue}', state.issueLabel)
+        .replace('{urgency}', state.urgencyLabel)
+        .replace('{model}', modelValue || '—');
+      wa.href = 'https://wa.me/971563480513?text=' + encodeURIComponent(message);
+
+      track('triage_complete', {
+        device: state.device,
+        issue: state.issue,
+        urgency: state.urgency,
+        has_model: modelValue ? 'yes' : 'no'
+      });
+
+      const heading = result.querySelector('h3');
+      if (heading) heading.focus({ preventScroll: true });
+    }
+
+    function reset() {
+      track('triage_restart', {});
+      state.device = ''; state.deviceLabel = '';
+      state.issue = ''; state.issueLabel = '';
+      state.urgency = ''; state.urgencyLabel = '';
+      model.value = '';
+      card.querySelectorAll('[data-triage-field]').forEach(btn => btn.setAttribute('aria-pressed', 'false'));
+      showStep(1);
+    }
+
+    card.addEventListener('click', e => {
+      const option = e.target.closest('[data-triage-field]');
+      if (option) {
+        const field = option.getAttribute('data-triage-field');
+        const value = option.getAttribute('data-value');
+        state[field] = value;
+        state[field + 'Label'] = option.textContent.trim();
+        setPressed(field, value);
+
+        if (field === 'device') {
+          state.issue = ''; state.issueLabel = '';
+          state.urgency = ''; state.urgencyLabel = '';
+          setPressed('issue', '');
+          setPressed('urgency', '');
+          showStep(2);
+        } else if (field === 'issue') {
+          state.urgency = ''; state.urgencyLabel = '';
+          setPressed('urgency', '');
+          showStep(3);
+        } else if (field === 'urgency') {
+          showResult();
+        }
+        return;
+      }
+
+      const back = e.target.closest('[data-triage-back]');
+      if (back) {
+        showStep(Number(back.getAttribute('data-triage-back')));
+        return;
+      }
+
+      if (e.target.closest('#triageRestart')) reset();
+    });
+
+    showStep(1, false);
+  })();
+
+  /* ---- Prefilled WhatsApp links ---- */
+  (function whatsapp(){
+    const templates = {};
+    document.querySelectorAll('[data-wa-template]').forEach(el => {
+      templates[el.getAttribute('data-wa-template')] = el.textContent.trim();
+    });
+
+    document.querySelectorAll('a[data-wa-intent]').forEach(a => {
+      const text = templates[a.getAttribute('data-wa-intent')];
+      if (!text) return;
+      a.href = 'https://wa.me/971563480513?text=' + encodeURIComponent(text);
+    });
+  })();
 
   /* ---- Copyright year ---- */
   document.querySelectorAll('[data-year]').forEach(el => {
