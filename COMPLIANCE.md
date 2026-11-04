@@ -45,10 +45,18 @@ Review date: 2 November 2026.
 
 ### 4. Language support
 
-- Updated the English, Arabic and Urdu dictionaries so switching language no longer
-  restores the old, non-compliant claims.
+- Moved the English, Arabic and Urdu dictionaries out of the inline JavaScript into
+  `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json` (118 keys each).
+- Added crawlable localized URLs: `/ar/` and `/ur/` are generated from `index.html` by
+  `tools/build-locales.js`, with the correct `lang`/`dir`, translated title and description,
+  self-referencing canonical, `hreflang` for `en`/`ar`/`ur`/`x-default`, and localized
+  Open Graph tags.
+- Replaced the JavaScript language dropdown with plain links, so search engines see each
+  language's content in the HTML instead of only after a client-side text swap.
 - Fixed the old `&amp;` entity leak in `data-i18n` strings (text was being set with
   `textContent`, so entities were displayed literally).
+- The Arabic and Urdu copy is generated from the existing translations and still needs a
+  native review before it is treated as final (tracked as B6 in `PLAN.md`).
 
 ### 5. Technical checks
 
@@ -56,11 +64,29 @@ Review date: 2 November 2026.
 - Added `sitemap.xml` and `robots.txt`; both were also 404 before this change.
 - Added a branded `404.html` ("You found a Work in Progress") so unknown URLs no longer
   show GitHub's default error page. It is marked `noindex, follow`.
-- After deployment, re-tested the live site (desktop 1440px and mobile 390px): no console or
-  page errors, no failed requests, no horizontal overflow, all images loaded, all policy links
-  returning 200, language switching (EN/AR/UR) working, and the contact form validating.
+- The previous deployment was re-tested live (desktop 1440px and mobile 390px): no console
+  or page errors, no failed requests, no horizontal overflow, all images loaded, all policy
+  links returning 200, language switching (EN/AR/UR) working, and the contact form validating.
 - External destinations checked and returning 200: `wa.me/971563480513`,
   `formsubmit.co/salesorison@gmail.com`, TikTok and Instagram profiles.
+
+### 6. SEO implementation (3 November 2026)
+
+- Added canonical tags, Open Graph and Twitter card tags, and a 1200×630 share image at
+  `assets/og-image.jpg`.
+- Added `Store`/`ElectronicsStore` and `WebSite` JSON-LD. The address is the one already
+  published on the site; opening hours, geo coordinates, prices and ratings are deliberately
+  omitted until the business confirms them.
+- Added conversion tracking in `js/analytics.js` for phone, WhatsApp, email, social and
+  language clicks plus form submits. Google Analytics remains disabled until a measurement
+  ID is set and the Privacy Policy is updated.
+- Added `npm run build` and `npm run check`. The checker validates internal links and assets,
+  locale attributes, canonical/hreflang/OG tags, JSON-LD, translation key parity, the sitemap
+  and `robots.txt`.
+- Local testing of `/`, `/ar/` and `/ur/` at 1440, 768, 430, 390, 360 and 320px found no
+  horizontal overflow, no console errors, no failed requests, and all images loaded after
+  scrolling. The localized pages still need a live re-test after deployment.
+- The full prioritised backlog, including items that need the business, is in `PLAN.md`.
 
 ## Decisions recorded
 
@@ -104,8 +130,15 @@ information or a business decision.
    advice. Have the policies reviewed against actual practices and applicable UAE law.
 9. **On-device link test (optional).** Open the WhatsApp, `tel:` and `mailto:` links from a
    phone to confirm they launch the right apps. The web form itself is confirmed working.
-10. **Send the evidence to the compliance team.** The changes are deployed and re-tested;
+10. **Send the evidence to the compliance team.** Once this change is deployed and re-tested,
     send the live URLs and screenshots for sign-off, as the developer checklist requires.
+11. **Native review of Arabic and Urdu.** The `/ar/` and `/ur/` pages are generated from the
+    existing translations. A native speaker should review tone, dialect and technical terms
+    before the localized pages are treated as final.
+12. **HTTPS enforcement.** `http://orisonigt.com/` still returns 200 without redirecting.
+    Enable "Always Use HTTPS" (or HSTS) at Cloudflare / the Pages account level.
+13. **SEO backlog ownership.** `PLAN.md` lists the remaining local-SEO work, including the
+    Google Business Profile, citations, service pages and verified business data.
 
 ## Assumptions made in this change
 

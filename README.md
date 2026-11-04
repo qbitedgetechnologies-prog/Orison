@@ -1,7 +1,7 @@
 # Orison International General Trading — website
 
 Static website for Orison International General Trading (Al Satwa, Dubai).
-New and pre-owned mobiles, laptops, accessories, networking equipment, phone and laptop
+New and pre-owned mobiles, laptops, accessories and networking equipment, phone and laptop
 repair services, and B2B/wholesale supply.
 
 ## Hosting
@@ -13,42 +13,91 @@ repair services, and B2B/wholesale supply.
 
 ## Structure
 
-No build step. Google Fonts is the only external dependency.
-
-- `index.html` — the main site (inline CSS, inline SVG and a small vanilla-JS snippet for
-  the language switcher, mobile menu, skyline parallax and footer year).
-- `privacy-policy/index.html` — Privacy Policy.
-- `refund-policy/index.html` — Refund and Return Policy.
-- `terms-and-conditions/index.html` — Terms and Conditions.
-- `404.html` — branded "page not found" page, served by Pages for any unknown URL.
-- `css/legal.css` — shared styles for the three policy pages and the 404 page.
-- `sitemap.xml`, `robots.txt` — search-engine discovery.
-- `assets/` — photography used on the home page.
+- `index.html` — English master page. Edit this file, not the generated locale pages.
+- `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (118 keys each).
+- `tools/build-locales.js` — generates `ar/index.html`, `ur/index.html` and `sitemap.xml`.
+- `tools/check-site.js` — validates links, SEO tags, hreflang, JSON-LD and translations.
+- `ar/index.html`, `ur/index.html` — **generated** Arabic and Urdu pages. Do not hand-edit.
+- `sitemap.xml` — **generated** from the page list in `tools/build-locales.js`.
+- `js/analytics.js` — conversion events for WhatsApp, phone, email, social and language
+  clicks plus form submits. GA4 stays off until a measurement ID is set.
+- `privacy-policy/index.html` — Privacy Policy (English only).
+- `refund-policy/index.html` — Refund and Return Policy (English only).
+- `terms-and-conditions/index.html` — Terms and Conditions (English only).
+- `404.html` — branded "page not found" page, served by Pages for unknown URLs.
+- `css/legal.css` — shared styles for the policy pages and the 404 page.
+- `assets/` — photography plus the 1200×630 social share image (`og-image.jpg`).
+- `robots.txt` — search-engine discovery; points at `sitemap.xml`.
+- `PLAN.md` — prioritised SEO and local-growth backlog. Read this before making changes.
+- `AGENTS.md` — build, edit and testing conventions for AI agents.
+- `COMPLIANCE.md` — compliance review record and outstanding business decisions.
 - `.nojekyll` — tells Pages to serve the files as-is (no Jekyll processing).
 - `.gitattributes` — normalises line endings to LF.
 - `CNAME` — holds the apex custom domain (`orisonigt.com`).
 
-## Editing
+## Build
 
-Open `index.html` and edit directly. Key spots:
+Requires Node.js 18 or newer. There are no npm dependencies.
+
+```bash
+npm run build   # regenerate ar/, ur/ and sitemap.xml from index.html + i18n/*.json
+npm run check   # validate links, SEO tags, hreflang, JSON-LD and translations
+```
+
+Run both before every commit. `npm run build` fails if a locale is missing a key used by
+`index.html`, so add new strings to all three dictionaries at the same time.
+
+To preview locally:
+
+```bash
+python -m http.server 8137
+# open http://127.0.0.1:8137/
+```
+
+## Language URLs
+
+Each language has its own crawlable URL:
+
+| Language | URL | `hreflang` |
+| --- | --- | --- |
+| English | `/` | `en` |
+| Arabic | `/ar/` | `ar` |
+| Urdu | `/ur/` | `ur` |
+| Default | `/` | `x-default` |
+
+The switcher is plain links, not JavaScript. Do not reintroduce a client-side text swap:
+search engines need the translated content in the HTML.
+
+## Editing
 
 - **Contact details** — WhatsApp number (`wa.me/971563480513`), phone (`tel:+971563480513`),
   email (`salesorison@gmail.com`), address and opening-hours wording.
 - **Social links** — TikTok, Instagram, WhatsApp and email in the contact section.
-- **Products / B2B copy** — the feature blocks, category tiles, pricing cards and B2B band.
+- **Products / B2B copy** — feature blocks, category tiles, pricing cards and the B2B band.
+- **SEO** — title, description, canonical, Open Graph and Twitter tags carry `data-seo`
+  markers. The build rewrites them for each locale. Keep the English values in `index.html`
+  and the translations in `i18n/*.json`.
+- **Structured data** — the `Store` / `ElectronicsStore` and `WebSite` JSON-LD block in the
+  `index.html` head. Do not add prices, ratings, opening hours or a `geo` position until the
+  business has confirmed them.
+- **Language strings** — edit `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json`, then run
+  `npm run build`. HTML-bearing keys are listed in `HTML_KEYS` inside the build script.
 - **Legal pages** — edit the three policy pages and keep their "Last updated" date current.
-- **Language strings** — the `I18N` object near the bottom of `index.html` holds English,
-  Arabic and Urdu copy. When changing an English string, update the other two dictionaries
-  as well, or the language switcher will fall back to the old wording.
+  They are English-only by business decision.
 
 Commit and push to `main`; the site redeploys automatically.
 
-## Compliance
+## Analytics
+
+`js/analytics.js` always pushes events to `window.dataLayer` and only loads Google Analytics
+when `GA4_ID` is set. Before enabling GA4, update the Privacy Policy to describe analytics
+cookies and add a consent mechanism if required.
+
+## Compliance and plan
 
 The site was updated against the compliance content pack dated 20 October 2026. See
 `COMPLIANCE.md` for what was fixed and what still needs the business to confirm (legal
 entity name, trade-licence address, monitored contact details, genuine product prices and
 opening hours).
 
-The three policy pages are published in English only, by business decision; the EN/AR/UR
-switcher applies to the marketing site only.
+See `PLAN.md` for the prioritised local-SEO backlog and `AGENTS.md` for agent conventions.

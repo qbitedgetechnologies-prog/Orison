@@ -1,0 +1,10 @@
+{
+  "name": "orison-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing site for Orison International General Trading",
+  "scripts": {
+    "build": "node tools/build-locales.js",
+    "check": "node tools/check-site.js"
+  }
+}
