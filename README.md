@@ -14,10 +14,10 @@ repair services, and B2B/wholesale supply.
 ## Structure
 
 - `index.html` — English master page. Edit this file, not the generated locale pages.
-- `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (174 keys each).
+- `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (179 keys each).
 - `tools/build-locales.js` — generates `ar/index.html`, `ur/index.html` and `sitemap.xml`.
-- `tools/check-site.js` — validates links, SEO tags, hreflang, JSON-LD, translations and
-  responsive image files.
+- `tools/check-site.js` — validates links, SEO tags, hreflang, JSON-LD, translations,
+  responsive image files and accessibility markup invariants.
 - `tools/optimize-images.py` — regenerates the AVIF and WebP variants from the JPEGs.
 - `ar/index.html`, `ur/index.html` — **generated** Arabic and Urdu pages. Do not hand-edit.
 - `sitemap.xml` — **generated** from the page list in `tools/build-locales.js`.
@@ -48,7 +48,7 @@ Requires Node.js 18 or newer. There are no npm dependencies.
 
 ```bash
 npm run build   # regenerate ar/, ur/ and sitemap.xml from index.html + i18n/*.json
-npm run check   # validate links, SEO tags, hreflang, JSON-LD, translations and images
+npm run check   # validate links, SEO tags, hreflang, JSON-LD, translations, images, a11y
 ```
 
 Run both before every commit. `npm run build` fails if a locale is missing a key used by
@@ -81,6 +81,26 @@ fallback lacks `width`/`height`, or if a `<picture>` has no AVIF/WebP source.
 The script needs Python 3 with Pillow built with WebP and AVIF support
 (`python -m pip install --upgrade pillow`). It skips `og-image.jpg` because social crawlers
 are most reliable with JPEG.
+
+## Accessibility
+
+The site targets WCAG 2.2 AA. An axe-core 4 audit of all seven pages at 320, 360, 430, 768
+and 1440px reports no violations.
+
+- One `h1` per page and no skipped heading levels. Feature headings are `h2`; category and
+  card headings are `h3`.
+- A skip link moves focus to `<main tabindex="-1">` on every page.
+- `:focus-visible` draws a 2px ring. Do not add `outline:none` to a `:focus` rule.
+- All decorative SVGs are `aria-hidden="true"`; icon-only links carry an `aria-label`.
+- Text must meet 4.5:1 (normal) or 3:1 (large). The WhatsApp button uses `#0f7b6c` because
+  the lighter brand green only reached 3.00:1 with white text.
+- The triage step label is `aria-live="polite"` and the result summary is `role="status"`.
+- `prefers-reduced-motion` disables smooth scrolling, the parallax and every transition.
+- Landmark labels are translated through `data-i18n-aria`; the element must already have an
+  `aria-label` attribute or the build leaves it in English.
+
+`npm run check` enforces the markup half of this. Run an axe pass in a browser for the rest,
+including 768px, where the header WhatsApp link is icon-only.
 
 ## Language URLs
 

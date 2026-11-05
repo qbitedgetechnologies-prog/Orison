@@ -1,6 +1,6 @@
 # Orison website — SEO and local-growth plan
 
-Last updated: 3 November 2026
+Last updated: 4 November 2026
 
 This is the shared backlog for everyone working on the site. Read it before making changes,
 and update the status in the same commit as the work. Do not mark an item **Done** without
@@ -25,7 +25,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
   Business Profile, directories and social profiles.
 - Do not hand-edit `ar/index.html`, `ur/index.html` or `sitemap.xml`. They are generated.
 
-## Current baseline (3 November 2026)
+## Current baseline (4 November 2026)
 
 | Area | State |
 | --- | --- |
@@ -40,6 +40,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | Sitemap | Generated, includes locale alternates |
 | 404 | Branded, `noindex, follow`, returns HTTP 404 for unknown paths |
 | Analytics | `dataLayer` events for call/WhatsApp/email/social/language/form, plus `intent` on WhatsApp and triage events; GA4 inert |
+| Accessibility | axe-core 4: 0 WCAG 2.2 AA violations on 7 pages at 320–1440px; skip link, visible focus, landmarks, live triage results |
 | Conversion tools | Repair triage wizard at `#triage`; every WhatsApp link carries a prefilled, localized message |
 | Build | `npm run build`, validated by `npm run check` |
 | HTTPS | Not enforced; `http://orisonigt.com/` still returns 200 |
@@ -54,7 +55,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | B3 | Supply genuine product/service prices and VAT treatment | Business | Blocked | Real model, condition, specs, price and VAT wording; replace "Price on request" cards and add `Product`/`Offer` schema only then |
 | B4 | Confirm claims the business can honour (same-day repair, warranty, delivery, returns) | Business | Blocked | Exact terms in writing; add only in compliant wording |
 | B5 | Legal review of Privacy, Refund and Terms | Business / legal | Blocked | Reviewer sign-off; update "Last updated" dates |
-| B6 | Native Arabic and Urdu review of all 174 strings | Business / translator | Not started | Native reviewer signs off `i18n/ar.json` and `i18n/ur.json`; fix tone, dialect and technical terms |
+| B6 | Native Arabic and Urdu review of all 179 strings | Business / translator | Not started | Native reviewer signs off `i18n/ar.json` and `i18n/ur.json`; fix tone, dialect and technical terms |
 | T1 | Enforce HTTPS | Account admin | Blocked | `http://` 301-redirects to `https://`; HSTS enabled; no mixed content |
 | T2 | Verify the domain in Google Search Console and Bing Webmaster Tools; submit `sitemap.xml` | User | User action | Both properties verified; sitemap accepted with no errors |
 | L1 | Claim and fully complete the Google Business Profile | Business | Not started | Verified; correct primary category, hours, phone, website, attributes, services, products and 10+ real photos |
@@ -76,7 +77,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | S11 | Internal linking between service, category and contact pages | Not started | Every page reachable in ≤2 clicks from home; descriptive anchor text |
 | S12 | Convert photography to WebP/AVIF with fallbacks | Done | `<picture>` with AVIF, WebP and JPEG fallback; dimensions unchanged; AVIF 68–82% and WebP 38–73% lighter than the JPEGs; `npm run check` enforces all three files |
 | S13 | Performance budget and LCP check | Not started | Mobile LCP < 2.5s on a throttled connection; no CLS; document results |
-| S14 | Accessibility audit | Not started | Keyboard, focus order, contrast, landmarks, alt text, `prefers-reduced-motion`; fix findings |
+| S14 | Accessibility audit | Done | axe-core 4 reports 0 WCAG 2.2 AA violations on 7 pages at 320–1440px; fixed WhatsApp button contrast (3.00 → 5.16:1), hero gradient text contrast, input focus rings, heading order, promo landmark, icon-only link name, mobile-menu focus return, skip-link focus target and triage live regions; `npm run check` now enforces the markup invariants |
 | S15 | Security headers | Not started | Cloudflare: HSTS, `X-Content-Type-Options`, `Referrer-Policy`, frame protection, CSP after testing |
 
 ### Planned URL map
@@ -153,8 +154,7 @@ prices, repair timeframes or diagnosis guarantees.
 
 **Now (week 1):** B1–B3, T1, T2, L1. Nothing else compounds until NAP and HTTPS are settled.
 
-**Weeks 2–3:** B6 native translation review, S9–S11 first two service pages, C2 contact page,
-S14 accessibility pass.
+**Weeks 2–3:** B6 native translation review, S9–S11 first two service pages, C2 contact page.
 
 **Weeks 4–6:** remaining service pages, C3 guides, C4 citations, C5 review routine.
 
@@ -167,3 +167,4 @@ S14 accessibility pass.
 | 2026-11-03 | Localized `/ar/` and `/ur/` URLs, hreflang, canonicals, OG/Twitter, JSON-LD, analytics events, conditional Urdu font, generated sitemap, branded 404, `npm run build`/`check`, this plan |
 | 2026-11-03 | Repair triage wizard and intent-tagged prefilled WhatsApp links; 174 strings in each dictionary; W1/W2 marked Done |
 | 2026-11-03 | Photography converted to AVIF/WebP with JPEG fallbacks through `<picture>`; S12 marked Done |
+| 2026-11-04 | Accessibility audit: contrast, focus rings, heading order, landmarks, live regions and menu focus fixed; axe-core clean at 320–1440px; S14 marked Done |

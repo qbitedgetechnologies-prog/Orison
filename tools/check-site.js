@@ -5,8 +5,9 @@
  *   npm run check
  *
  * Checks: required pages, locale attributes, SEO tags, hreflang, switcher
- * state, JSON-LD, internal links/assets, translation key parity, sitemap and
- * robots.txt. Exits non-zero if anything fails.
+ * state, JSON-LD, internal links/assets, responsive images, accessibility
+ * invariants, translation key parity, sitemap and robots.txt. Exits non-zero
+ * if anything fails.
  */
 'use strict';
 
@@ -130,6 +131,75 @@ for (const rel of LOCAL_PAGES) {
     }
   }
   if (pictures.length) notes.push(rel + ': ' + pictures.length + ' responsive pictures');
+
+  // Accessibility invariants (PLAN.md S14).
+  const markup = html
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<style[\s\S]*?<\/style>/g, '')
+    .replace(/<script[\s\S]*?<\/script>/g, '');
+
+  const h1Count = (markup.match(/<h1\b/g) || []).length;
+  if (h1Count !== 1) fail(rel + ': expected exactly one <h1>, found ' + h1Count);
+
+  const levels = [...markup.matchAll(/<h([1-6])\b/g)].map(m => Number(m[1]));
+  for (let i = 1; i < levels.length; i++) {
+    if (levels[i] - levels[i - 1] > 1) {
+      fail(rel + ': heading order jumps from h' + levels[i - 1] + ' to h' + levels[i]);
+      break;
+    }
+  }
+
+  for (const tag of markup.match(/<svg\b[^>]*>/g) || []) {
+    const decorative = /\baria-hidden="true"/.test(tag);
+    const labelled = /\brole="img"/.test(tag) && /\baria-label(?:ledby)?="/.test(tag);
+    if (!decorative && !labelled) {
+      fail(rel + ': <svg> needs aria-hidden="true" or role="img" with a name');
+    }
+  }
+
+  const mainTag = one(markup, /(<main\b[^>]*>)/);
+  if (!mainTag) {
+    fail(rel + ': missing <main> landmark');
+  } else if (!/\btabindex="-1"/.test(mainTag)) {
+    fail(rel + ': <main> needs tabindex="-1" so the skip link can move focus');
+  }
+
+  const labelFor = new Set([...markup.matchAll(/<label\b[^>]*\bfor="([^"]+)"/g)].map(m => m[1]));
+  for (const tag of markup.match(/<(?:input|textarea)\b[^>]*>/g) || []) {
+    if (/\btype="hidden"/.test(tag) || /\baria-hidden="true"/.test(tag)) continue;
+    if (/\baria-label(?:ledby)?="/.test(tag)) continue;
+    const id = attr(tag, 'id');
+    if (!id || !labelFor.has(id)) {
+      fail(rel + ': form control without a <label for> or aria-label: ' + tag.slice(0, 60));
+    }
+  }
+
+  for (const tag of markup.match(/<a\b[^>]*\btarget="_blank"[^>]*>/g) || []) {
+    if (!/\brel="[^"]*(?:noopener|noreferrer)/.test(tag)) {
+      fail(rel + ': target="_blank" link needs rel="noopener"');
+    }
+  }
+
+  for (const tag of markup.match(/<[^>]*data-i18n-aria="[^"]+"[^>]*>/g) || []) {
+    if (!/\baria-label="/.test(tag)) {
+      fail(rel + ': data-i18n-aria is set but aria-label is missing');
+    }
+  }
+
+  const ids = new Set([...markup.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
+  for (const tag of markup.match(/<[^>]*aria-controls="[^"]+"[^>]*>/g) || []) {
+    const target = attr(tag, 'aria-controls');
+    if (!ids.has(target)) fail(rel + ': aria-controls points at missing id ' + target);
+  }
+
+  if (rel === 'index.html') {
+    if (!/<[^>]*id="triageSummary"[^>]*role="status"/.test(html)) {
+      fail('index.html: triage summary needs role="status" so results are announced');
+    }
+    if (!/<[^>]*id="triageStepLabel"[^>]*aria-live="polite"/.test(html)) {
+      fail('index.html: triage step label needs aria-live="polite"');
+    }
+  }
 }
 
 /* ---------- locale pages ---------- */

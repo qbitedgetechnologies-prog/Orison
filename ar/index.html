@@ -79,7 +79,7 @@
   :root{
     --bg:#ffffff; --bg2:#f4f6f8; --bg3:#eef1f4; --panel:#e9f6f9;
     --ink:#0a0e14; --ink-2:#2a323c; --ink-dim:#636e7b; --line:#e4e7eb; --line-2:#d3d8de;
-    --accent:#0097b2; --accent-2:#00bcd4; --accent-ink:#006173; --wa:#1fab54;
+    --accent:#0097b2; --accent-2:#00bcd4; --accent-ink:#006173; --wa:#0f7b6c;
     --sea:#0b73b4; --sea-deep:#075a92; --sea-2:#1792c9;
     --grad-sea:linear-gradient(135deg,#00c6e0 0%,#0b73b4 100%);
     --cta:#0a0e14; --cta-hover:#272d36;
@@ -155,7 +155,7 @@
   .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:84px;}
   .hero h1{font-size:clamp(38px,5.4vw,62px);}
   @media (min-width:1100px){.hero h1 em{white-space:nowrap;}}
-  .hero h1 em{font-style:normal;background:linear-gradient(120deg,#00bcd4,#0b73b4 60%,#075a92);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--sea);}
+  .hero h1 em{font-style:normal;background:linear-gradient(120deg,#0898ae,#0b73b4 60%,#075a92);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--sea);}
   .hero .lede{margin-top:22px;font-size:19px;color:var(--ink-dim);max-width:42ch;font-weight:500;}
   .hero .actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
   .hero .sub{margin-top:20px;font-size:13.5px;color:var(--ink-dim);font-weight:600;}
@@ -219,7 +219,7 @@
   .f-media.m1{background:linear-gradient(140deg,#e9f6f9,#d4eef4);}
   .f-media.m2{background:linear-gradient(140deg,#0a0e14,#1a2832);}
   .f-copy .eyebrow{display:block;margin-bottom:16px;}
-  .f-copy h3{font-size:clamp(26px,3.3vw,38px);}
+  .f-copy h2{font-size:clamp(26px,3.3vw,38px);}
   .f-copy p{margin-top:16px;color:var(--ink-dim);font-size:16.5px;font-weight:500;max-width:46ch;}
   .f-list{margin:22px 0 28px;display:flex;flex-direction:column;gap:11px;}
   .f-list li{list-style:none;display:flex;gap:11px;align-items:center;font-weight:600;font-size:15px;}
@@ -234,7 +234,7 @@
   .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease;}
   .cat:hover img{transform:scale(1.07);}
   .cat .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:40px 16px 15px;background:linear-gradient(to top,rgba(6,20,34,.88),rgba(6,20,34,.22) 58%,transparent);color:#fff;}
-  .cat .cap h4{font-size:15.5px;font-weight:700;letter-spacing:-0.01em;}
+  .cat .cap h3{font-size:15.5px;font-weight:700;letter-spacing:-0.01em;}
   .cat .cap p{font-size:12.5px;color:rgba(255,255,255,.80);margin-top:3px;font-weight:600;}
   @media (max-width:1000px){.cat-grid{grid-template-columns:repeat(2,1fr);} .trust .wrap{grid-template-columns:repeat(2,1fr);} .cat:last-child{grid-column:1/-1;aspect-ratio:16/10;}}
 
@@ -283,7 +283,7 @@
   form.msg label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--ink-2);margin:18px 0 7px;}
   form.msg label:first-of-type{margin-top:0;}
   form.msg input,form.msg textarea{width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:12px;color:var(--ink);padding:13px 15px;font-family:inherit;font-size:15px;transition:border-color .15s;}
-  form.msg input:focus,form.msg textarea:focus{outline:none;border-color:var(--accent);}
+  form.msg input:focus,form.msg textarea:focus{border-color:var(--accent);}
   form.msg textarea{resize:vertical;min-height:110px;}
   form.msg button{margin-top:24px;width:100%;justify-content:center;border:none;cursor:pointer;}
   .form-note{margin-top:14px;font-size:12px;line-height:1.55;color:var(--ink-dim);font-weight:500;}
@@ -312,7 +312,7 @@
   .triage-field{margin-top:20px;}
   .triage-field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--ink-2);margin-bottom:7px;}
   .triage-input{width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:12px;color:var(--ink);padding:13px 15px;font-family:inherit;font-size:15px;transition:border-color .15s;}
-  .triage-input:focus{outline:none;border-color:var(--accent);}
+  .triage-input:focus{border-color:var(--accent);}
   .triage-back{margin-top:18px;background:none;border:none;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--ink-dim);cursor:pointer;padding:4px 0;text-decoration:underline;text-underline-offset:3px;}
   .triage-back:hover{color:var(--accent-ink);}
   .triage-result{margin-top:22px;}
@@ -364,7 +364,7 @@
     .nav-links{display:none;}
     .menu-btn{display:flex;}
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:22px 32px;gap:18px;}
-    .nav-right .btn .long{display:none;}
+    .nav-right .btn .long{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;}
     .lang-switch a{min-width:34px;height:30px;font-size:12px;}
   }
   @media (max-width:560px){
@@ -393,12 +393,12 @@
 <a class="skip" href="#top" data-i18n="a11y.skip">انتقل إلى المحتوى</a>
 
 <!-- PROMO BAR -->
-<div class="promo"><div class="wrap" data-i18n-html="promo">هواتف ولابتوبات جديدة ومستعملة &middot; خدمات الإصلاح &middot; نرحّب بالجملة والشركات &mdash; السطوة، دبي</div></div>
+<aside class="promo" aria-label="إعلان" data-i18n-aria="a11y.promo"><div class="wrap" data-i18n-html="promo">هواتف ولابتوبات جديدة ومستعملة &middot; خدمات الإصلاح &middot; نرحّب بالجملة والشركات &mdash; السطوة، دبي</div></aside>
 
 <!-- HEADER -->
 <header>
-  <nav>
-    <a href="#top" class="brand" aria-label="Orison home">
+  <nav aria-label="التنقل الرئيسي" data-i18n-aria="a11y.main">
+    <a href="#top" class="brand">
       <svg class="mark" viewBox="0 0 60 60" aria-hidden="true">
         <polygon points="30,3 52,16 52,44 30,57 8,44 8,16" fill="none" stroke="#0097b2" stroke-width="2.4"/>
         <circle cx="30" cy="30" r="13" fill="none" stroke="#00bcd4" stroke-width="2.4"/>
@@ -423,19 +423,19 @@
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.42-.71-2.89-1.16-4.74-4.14-4.88-4.33-.14-.19-1.16-1.55-1.16-2.96 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.66.5.24.58.83 2 .9 2.15.07.15.11.32.02.51-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.13.57.16.28.7 1.16 1.5 1.88 1.03.93 1.9 1.22 2.18 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.68-.17 1.36Z"/></svg>
         <span class="long" data-i18n="nav.whatsapp">واتساب</span>
       </a>
-      <button class="menu-btn" id="menuBtn" aria-label="القائمة" data-i18n-aria="nav.menu" aria-expanded="false">
+      <button class="menu-btn" id="menuBtn" aria-label="القائمة" data-i18n-aria="nav.menu" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </nav>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
 
   <!-- HERO -->
   <section class="hero">
     <div class="circuits" aria-hidden="true">
-      <svg viewBox="0 0 560 440" fill="none">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 560 440" fill="none">
         <polygon class="hex" points="470,44 509.8,67 509.8,113 470,136 430.2,113 430.2,67"/>
         <polygon class="hex" points="300,180 325.98,195 325.98,225 300,240 274.02,225 274.02,195"/>
         <polygon class="hex" points="120,292 152.9,311 152.9,349 120,368 87.1,349 87.1,311"/>
@@ -480,8 +480,8 @@
             <img src="/assets/ipad-lifestyle.jpg" alt="A customer using a tablet at home" loading="eager" width="1000" height="1500">
           </picture>
         </div>
-        <div class="badge b1"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div><span data-i18n="badge1.t">جديد ومستعمل</span><small data-i18n="badge1.s">الحالة مؤكدة</small></div></div>
-        <div class="badge b2"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><div><span data-i18n="badge2.t">خدمات الإصلاح</span><small data-i18n="badge2.s">تقييم قبل العمل</small></div></div>
+        <div class="badge b1"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div><span data-i18n="badge1.t">جديد ومستعمل</span><small data-i18n="badge1.s">الحالة مؤكدة</small></div></div>
+        <div class="badge b2"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><div><span data-i18n="badge2.t">خدمات الإصلاح</span><small data-i18n="badge2.s">تقييم قبل العمل</small></div></div>
       </div>
     </div>
     <!-- Dubai skyline: animated dynamic element -->
@@ -536,9 +536,9 @@
   <!-- TRUST STRIP -->
   <div class="trust">
     <div class="wrap">
-      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 21 12 17l-5.5 4L8 14.5 3 10l6.5-1.5L12 2Z"/></svg></span><div><b data-i18n="trust1.t">أجهزة جديدة ومستعملة</b><span data-i18n="trust1.s">يتم تأكيد حالة المنتج وتوفره قبل الشراء.</span></div></div>
-      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/></svg></span><div><b data-i18n="trust2.t">الجملة والشركات</b><span data-i18n="trust2.s">اطلب عرض سعر للتوريد بالجملة وطلبات الأعمال.</span></div></div>
-      <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2v6h6"/><path d="M4 2h10l6 6v14H4z"/><path d="M9 15l2 2 4-4"/></svg></span><div><b data-i18n="trust3.t">خدمات الإصلاح</b><span data-i18n="trust3.s">يتم تأكيد خيارات الإصلاح والتكاليف التقديرية بعد التقييم، عند الحاجة.</span></div></div>
+      <div class="trust-item"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 21 12 17l-5.5 4L8 14.5 3 10l6.5-1.5L12 2Z"/></svg></span><div><b data-i18n="trust1.t">أجهزة جديدة ومستعملة</b><span data-i18n="trust1.s">يتم تأكيد حالة المنتج وتوفره قبل الشراء.</span></div></div>
+      <div class="trust-item"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/></svg></span><div><b data-i18n="trust2.t">الجملة والشركات</b><span data-i18n="trust2.s">اطلب عرض سعر للتوريد بالجملة وطلبات الأعمال.</span></div></div>
+      <div class="trust-item"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2v6h6"/><path d="M4 2h10l6 6v14H4z"/><path d="M9 15l2 2 4-4"/></svg></span><div><b data-i18n="trust3.t">خدمات الإصلاح</b><span data-i18n="trust3.s">يتم تأكيد خيارات الإصلاح والتكاليف التقديرية بعد التقييم، عند الحاجة.</span></div></div>
     </div>
   </div>
 
@@ -555,12 +555,12 @@
         </div>
         <div class="f-copy">
           <span class="eyebrow" data-i18n="feat1.eyebrow">هواتف جديدة ومستعملة</span>
-          <h3 data-i18n="feat1.h3">هواتف مختارة جديدة ومستعملة.</h3>
+          <h2 data-i18n="feat1.h3">هواتف مختارة جديدة ومستعملة.</h2>
           <p data-i18n="feat1.p">هواتف محمولة بطرازات وحالات مختارة. اطلب منا تأكيد المواصفات والتوفر والسعر الحالي قبل الشراء.</p>
           <ul class="f-list">
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li1">تأكيد الحالة والتوفر قبل الشراء</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li2">اسأل عن خيارات الاستبدال</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li3">طرازات مختارة من العلامات الكبرى</span></li>
+            <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li1">تأكيد الحالة والتوفر قبل الشراء</span></li>
+            <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li2">اسأل عن خيارات الاستبدال</span></li>
+            <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat1.li3">طرازات مختارة من العلامات الكبرى</span></li>
           </ul>
           <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="stock" data-i18n="feat1.cta">اسأل عن التوفر والأسعار</a>
         </div>
@@ -577,12 +577,12 @@
         </div>
         <div class="f-copy">
           <span class="eyebrow" data-i18n="feat2.eyebrow">خدمات الإصلاح</span>
-          <h3 data-i18n="feat2.h3">إصلاح الهواتف واللابتوبات، بعد التقييم قبل بدء العمل.</h3>
+          <h2 data-i18n="feat2.h3">إصلاح الهواتف واللابتوبات، بعد التقييم قبل بدء العمل.</h2>
           <p data-i18n="feat2.p">نرحّب باستفسارات إصلاح الهواتف واللابتوبات — الشاشات والبطاريات ومنافذ الشحن والبرمجيات وأكثر. يتم تأكيد خيارات الإصلاح والتكاليف التقديرية بعد التقييم، عند الحاجة.</p>
           <ul class="f-list">
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li1">تأكيد خيارات الإصلاح بعد التقييم</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li2">هواتف ولابتوبات، علامات مختارة</span></li>
-            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li3">الموافقة على العمل المسعّر قبل البدء</span></li>
+            <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li1">تأكيد خيارات الإصلاح بعد التقييم</span></li>
+            <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li2">هواتف ولابتوبات، علامات مختارة</span></li>
+            <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="feat2.li3">الموافقة على العمل المسعّر قبل البدء</span></li>
           </ul>
           <div class="f-cta">
             <a class="btn btn-dark" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="repair" data-i18n="feat2.cta">احصل على عرض سعر للإصلاح</a>
@@ -601,16 +601,16 @@
         <h2 data-i18n="triage.h2">لست متأكداً من المشكلة؟ ابدأ هنا.</h2>
         <p data-i18n="triage.lede">أجب عن ثلاثة أسئلة سريعة وسنوضح لك ما سنفحصه أولاً، وما يجب إحضاره، وكيف ترسل التفاصيل إلى فريقنا.</p>
         <ul class="triage-points">
-          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point1">إرشاد عام وليس تشخيصاً</span></li>
-          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point2">دون أي التزام بالحجز</span></li>
-          <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point3">يرسل ملخصك إلى واتساب</span></li>
+          <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point1">إرشاد عام وليس تشخيصاً</span></li>
+          <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point2">دون أي التزام بالحجز</span></li>
+          <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="triage.point3">يرسل ملخصك إلى واتساب</span></li>
         </ul>
       </div>
 
       <div class="triage-card" id="triageCard">
         <div class="triage-progress">
           <div class="triage-progress-head">
-            <span id="triageStepLabel" data-i18n="triage.step_label">الخطوة {current} من {total}</span>
+            <span id="triageStepLabel" aria-live="polite" data-i18n="triage.step_label">الخطوة {current} من {total}</span>
           </div>
           <div class="triage-bar" id="triageProgress" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" aria-label="تقدم فحص الإصلاح" data-i18n-aria="triage.progress_label"><span id="triageBar"></span></div>
         </div>
@@ -656,7 +656,7 @@
         <div class="triage-result" id="triageResult" hidden>
           <span class="eyebrow" data-i18n="triage.result_eyebrow">نتيجة فحص الإصلاح</span>
           <h3 tabindex="-1" data-i18n="triage.result_title">هذا ما سنفحصه أولاً.</h3>
-          <div class="triage-summary" id="triageSummary"></div>
+          <div class="triage-summary" id="triageSummary" role="status"></div>
           <p class="triage-tip" id="triageTip"></p>
           <div class="triage-result-block">
             <h4 data-i18n="triage.bring_title">ما يجب إحضاره</h4>
@@ -710,7 +710,7 @@
             <source type="image/webp" srcset="/assets/iphone-float.webp">
             <img src="/assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
           </picture>
-          <span class="cap"><h4 data-i18n="cat1.t">هواتف جديدة ومستعملة</h4><p data-i18n="cat1.s">طرازات وحالات مختارة</p></span>
+          <div class="cap"><h3 data-i18n="cat1.t">هواتف جديدة ومستعملة</h3><p data-i18n="cat1.s">طرازات وحالات مختارة</p></div>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="laptops">
           <picture>
@@ -718,7 +718,7 @@
             <source type="image/webp" srcset="/assets/macbook.webp">
             <img src="/assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
           </picture>
-          <span class="cap"><h4 data-i18n="cat2.t">لابتوبات</h4><p data-i18n="cat2.s">جديدة ومجددة</p></span>
+          <div class="cap"><h3 data-i18n="cat2.t">لابتوبات</h3><p data-i18n="cat2.s">جديدة ومجددة</p></div>
         </a>
         <a class="cat" href="#repairs">
           <picture>
@@ -726,7 +726,7 @@
             <source type="image/webp" srcset="/assets/repair-parts.webp">
             <img src="/assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
           </picture>
-          <span class="cap"><h4 data-i18n="cat3.t">خدمات الإصلاح</h4><p data-i18n="cat3.s">تقييم قبل الإصلاح</p></span>
+          <div class="cap"><h3 data-i18n="cat3.t">خدمات الإصلاح</h3><p data-i18n="cat3.s">تقييم قبل الإصلاح</p></div>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="accessories">
           <picture>
@@ -734,7 +734,7 @@
             <source type="image/webp" srcset="/assets/accessories.webp">
             <img src="/assets/accessories.jpg" alt="Chargers, power banks and cables" loading="lazy" width="1125" height="1500">
           </picture>
-          <span class="cap"><h4 data-i18n="cat4.t">إكسسوارات</h4><p data-i18n="cat4.s">إكسسوارات مختارة للهواتف والكمبيوتر</p></span>
+          <div class="cap"><h3 data-i18n="cat4.t">إكسسوارات</h3><p data-i18n="cat4.s">إكسسوارات مختارة للهواتف والكمبيوتر</p></div>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="networking">
           <picture>
@@ -742,7 +742,7 @@
             <source type="image/webp" srcset="/assets/networking.webp">
             <img src="/assets/networking.jpg" alt="Home and office Wi-Fi routers" loading="lazy" width="1700" height="1133">
           </picture>
-          <span class="cap"><h4 data-i18n="cat5.t">معدات الشبكات</h4><p data-i18n="cat5.s">للمنزل والمكتب والأعمال</p></span>
+          <div class="cap"><h3 data-i18n="cat5.t">معدات الشبكات</h3><p data-i18n="cat5.s">للمنزل والمكتب والأعمال</p></div>
         </a>
       </div>
     </div>
@@ -796,9 +796,9 @@
             <h2 style="margin-top:14px;" data-i18n="b2b.h2">توريد تقني بالجملة للشركات.</h2>
             <p data-i18n="b2b.p">نورّد هواتف ولابتوبات وإكسسوارات ومعدات شبكات مختارة، جديدة ومستعملة، لتجار التجزئة والموزّعين وغيرهم من عملاء الأعمال. تواصل معنا بالمنتجات والكميات التي تحتاجها. سنؤكد التوفر والحالة والأسعار والضرائب المطبقة والشروط التجارية في عرض سعر مكتوب.</p>
             <ul class="f-list">
-              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li1">توريد بالجملة لهواتف ولابتوبات مختارة جديدة ومستعملة</span></li>
-              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">توريد الإكسسوارات ومعدات الشبكات</span></li>
-              <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">تأكيد الشروط التجارية في عرض سعر مكتوب</span></li>
+              <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li1">توريد بالجملة لهواتف ولابتوبات مختارة جديدة ومستعملة</span></li>
+              <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">توريد الإكسسوارات ومعدات الشبكات</span></li>
+              <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">تأكيد الشروط التجارية في عرض سعر مكتوب</span></li>
             </ul>
             <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="b2b" data-i18n="b2b.cta">اطلب عرض سعر للجملة</a>
           </div>
@@ -820,15 +820,15 @@
         <span class="eyebrow" data-i18n="contact.eyebrow">تواصل معنا</span>
         <h2 style="margin-top:12px;" data-i18n="contact.h2">زُر المتجر أو تواصل مع فريقنا.</h2>
         <p class="intro" data-i18n="contact.intro">نحن في السطوة، دبي. تواصل معنا للتحقق من التوفر أو طلب عرض سعر أو مناقشة إصلاح. يُرجى تأكيد العنوان الكامل وساعات العمل قبل الزيارة.</p>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong data-i18n="contact.loc_l">الموقع</strong><span data-i18n="contact.loc_v">مبنى عُزير سرور سالم 1، 327 شارع السطوة، السطوة، دبي، الإمارات العربية المتحدة</span></div></div>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">الهاتف / واتساب</strong><a class="ltr" href="tel:+971563480513">+971 56 348 0513</a> &middot; <a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" data-i18n="contact.wa_link">واتساب</a></div></div>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong data-i18n="contact.email_l">البريد الإلكتروني</strong><a class="ltr" href="mailto:salesorison@gmail.com">salesorison@gmail.com</a></div></div>
-        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><strong data-i18n="contact.hours_l">ساعات العمل</strong><span data-i18n="contact.hours_v">تواصل معنا لتأكيد ساعات العمل الحالية قبل الزيارة.</span></div></div>
+        <div class="info-row"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.3 7-12A7 7 0 0 0 5 10c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong data-i18n="contact.loc_l">الموقع</strong><span data-i18n="contact.loc_v">مبنى عُزير سرور سالم 1، 327 شارع السطوة، السطوة، دبي، الإمارات العربية المتحدة</span></div></div>
+        <div class="info-row"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></span><div><strong data-i18n="contact.wa_l">الهاتف / واتساب</strong><a class="ltr" href="tel:+971563480513">+971 56 348 0513</a> &middot; <a class="ltr" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" data-i18n="contact.wa_link">واتساب</a></div></div>
+        <div class="info-row"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong data-i18n="contact.email_l">البريد الإلكتروني</strong><a class="ltr" href="mailto:salesorison@gmail.com">salesorison@gmail.com</a></div></div>
+        <div class="info-row"><span class="ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><strong data-i18n="contact.hours_l">ساعات العمل</strong><span data-i18n="contact.hours_v">تواصل معنا لتأكيد ساعات العمل الحالية قبل الزيارة.</span></div></div>
         <div class="social-row">
-          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
-          <a href="https://www.tiktok.com/@orisonmobile.sales" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.4a6 6 0 1 0 5.5 5.98V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg></a>
-          <a href="https://www.instagram.com/orisonmobile.sales/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
-          <a href="mailto:salesorison@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="general" aria-label="WhatsApp"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg></a>
+          <a href="https://www.tiktok.com/@orisonmobile.sales" target="_blank" rel="noopener" aria-label="TikTok"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.4a6 6 0 1 0 5.5 5.98V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg></a>
+          <a href="https://www.instagram.com/orisonmobile.sales/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="mailto:salesorison@gmail.com" aria-label="البريد الإلكتروني" data-i18n-aria="a11y.email"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
         </div>
       </div>
       <form class="msg" action="https://formsubmit.co/salesorison@gmail.com" method="post" aria-describedby="formPrivacy">
@@ -898,14 +898,14 @@
           <span data-i18n="foot.email_l">البريد الإلكتروني:</span> <a href="mailto:salesorison@gmail.com">salesorison@gmail.com</a>
         </div>
       </div>
-      <nav class="flinks" aria-label="Footer">
+      <nav class="flinks" aria-label="روابط التذييل" data-i18n-aria="a11y.footer">
         <a href="/ar/" data-i18n="foot.home">الرئيسية</a>
         <a href="#categories" data-i18n="foot.products">المنتجات والخدمات</a>
         <a href="#b2b" data-i18n="foot.b2b">الجملة والشركات</a>
         <a href="#contact" data-i18n="foot.contact">اتصل بنا</a>
       </nav>
     </div>
-    <nav class="fpolicy" aria-label="Legal">
+    <nav class="fpolicy" aria-label="روابط قانونية" data-i18n-aria="a11y.legal">
       <a href="/privacy-policy/" data-i18n="foot.privacy">سياسة الخصوصية</a>
       <a href="/refund-policy/" data-i18n="foot.refund">سياسة الاسترداد</a>
       <a href="/terms-and-conditions/" data-i18n="foot.terms">الشروط والأحكام</a>
@@ -934,7 +934,12 @@
   }
   menuBtn.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      setMenu(false);
+      menuBtn.focus();
+    }
+  });
 
   /* ---- Repair triage ---- */
   (function triage(){

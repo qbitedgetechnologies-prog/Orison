@@ -46,7 +46,7 @@ Review date: 2 November 2026.
 ### 4. Language support
 
 - Moved the English, Arabic and Urdu dictionaries out of the inline JavaScript into
-  `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json` (118 keys each).
+  `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json` (179 keys each).
 - Added crawlable localized URLs: `/ar/` and `/ur/` are generated from `index.html` by
   `tools/build-locales.js`, with the correct `lang`/`dir`, translated title and description,
   self-referencing canonical, `hreflang` for `en`/`ar`/`ur`/`x-default`, and localized
@@ -91,6 +91,38 @@ Review date: 2 November 2026.
   horizontal overflow, no console errors, no failed requests, and all images loaded after
   scrolling. The localized pages still need a live re-test after deployment.
 - The full prioritised backlog, including items that need the business, is in `PLAN.md`.
+
+### 7. Accessibility audit (4 November 2026)
+
+- Ran axe-core 4 against all seven pages at 320, 360, 430, 768 and 1440px. The final run
+  reports **zero** WCAG 2.0/2.1/2.2 A and AA violations and zero best-practice violations.
+- Fixed a real contrast failure: white text on the WhatsApp buttons measured 3.00:1, below
+  the 4.5:1 requirement for normal text. The button green is now `#0f7b6c`, which measures
+  5.16:1. The hero gradient headline also started at 2.30:1 against white; the gradient now
+  starts at `#0898ae` (3.44:1), which clears the 3:1 threshold for large text.
+- Restored visible keyboard focus on the contact form and triage inputs. A later
+  `outline:none` rule had been overriding the global `:focus-visible` style, leaving only a
+  low-contrast border change.
+- Corrected the heading outline: the two product/repair feature headings are now `h2` and the
+  category captions are `h3`, so the page no longer jumps from `h1` to `h3` or `h2` to `h4`.
+- Wrapped the promo bar in an `aside` landmark so it is no longer outside every landmark.
+- Fixed the header WhatsApp link, which had no accessible name between 561px and 900px
+  because its visible label was `display:none`. The label is now visually hidden instead of
+  removed, so screen readers still announce it.
+- The mobile menu now declares `aria-controls`, and Escape returns focus to the menu button
+  instead of leaving it on a hidden link.
+- The skip link now moves focus into `<main tabindex="-1">`; the same fix was applied to the
+  policy pages and the 404 page.
+- Triage step changes are announced through `aria-live="polite"`, and the result summary is
+  a `role="status"` region. Focus already moved to each new heading.
+- Marked every decorative SVG `aria-hidden="true"` and localised the new landmark labels
+  into Arabic and Urdu (5 new strings, 179 in each dictionary).
+- `npm run check` now fails on a missing or duplicate `h1`, a skipped heading level, an
+  unlabelled SVG or form control, a `target="_blank"` link without `rel="noopener"`, a
+  `data-i18n-aria` element without `aria-label`, an `aria-controls` pointing at a missing id,
+  or a `<main>` that the skip link cannot focus.
+
+No business information, prices, hours or claims were changed by this audit.
 
 ## Decisions recorded
 
@@ -138,7 +170,7 @@ information or a business decision.
     send the live URLs and screenshots for sign-off, as the developer checklist requires.
 11. **Native review of Arabic and Urdu.** The `/ar/` and `/ur/` pages are generated from the
     existing translations. A native speaker should review tone, dialect and technical terms
-    before the localized pages are treated as final.
+    across all 179 strings before the localized pages are treated as final.
 12. **HTTPS enforcement.** `http://orisonigt.com/` still returns 200 without redirecting.
     Enable "Always Use HTTPS" (or HSTS) at Cloudflare / the Pages account level.
 13. **SEO backlog ownership.** `PLAN.md` lists the remaining local-SEO work, including the

@@ -72,6 +72,8 @@ Notes:
   `wa.*` key to all three dictionaries.
 - The triage wizard keeps its own state and dispatches `orison:track` events on `document`;
   `js/analytics.js` forwards them. Do not push directly to `dataLayer` from page markup.
+- `data-i18n-aria="key"` only rewrites an `aria-label` that is already present on the element.
+  Add both attributes; `npm run check` fails if the marker has no `aria-label`.
 
 ## SEO invariants
 
@@ -92,6 +94,23 @@ Notes:
   original `width` and `height`. Never point an `<img>` directly at a photo when a
   `<picture>` is expected. Run `python tools/optimize-images.py` after changing a JPEG;
   `npm run check` enforces the three files and the fallback dimensions.
+
+## Accessibility invariants
+
+- One `h1` per page; never skip a heading level. Feature headings are `h2`, category and
+  card headings are `h3`, triage result sub-blocks are `h4`.
+- `<main>` carries `tabindex="-1"` so the skip link moves focus into it.
+- Keep `:focus-visible`. Never add `outline:none` to a `:focus` rule: it overrides the global
+  focus ring and fails keyboard users.
+- Every decorative `<svg>` needs `aria-hidden="true"`; icon-only links need an `aria-label`.
+- Body text needs 4.5:1 contrast, large text 3:1. The WhatsApp button is `#0f7b6c` (5.16:1
+  with white); do not lighten it back to the brand green.
+- Text hidden only for layout reasons must stay in the DOM for assistive tech. The header
+  WhatsApp label is visually hidden, not `display:none`, so the link keeps its name.
+- Triage: `#triageStepLabel` stays `aria-live="polite"` and `#triageSummary` stays
+  `role="status"`, so step and result changes are announced.
+- Mobile menu: `aria-controls="navLinks"`; Escape closes it and returns focus to `#menuBtn`.
+- Landmark labels use `data-i18n-aria`; the element must already have an `aria-label`.
 
 ## Content guardrails
 
@@ -117,11 +136,15 @@ Before pushing:
 5. Language links go to the right URL and mark the current language.
 6. Anchors (`#shop`, `#repairs`, `#categories`, `#b2b`, `#contact`) resolve on every locale.
 7. Policy links return 200 and the 404 page returns HTTP 404.
-8. Keyboard: skip link, language switcher, mobile menu and Escape-to-close work.
-9. Repair triage: step transitions, back, restart, result chips, prefilled WhatsApp summary
-   and focus move to the new heading work in all three locales.
+8. Keyboard: skip link moves focus to `main`, language switcher, mobile menu and Escape-to-close
+   (focus returns to the menu button) work, and every control shows a visible focus ring.
+9. Repair triage: step transitions, back, restart, result chips, prefilled WhatsApp summary,
+   focus move to the new heading and the `aria-live`/`role="status"` announcements work in all
+   three locales.
 10. Every `a[data-wa-intent]` has a non-empty `?text=` in the visitor's language, and the
     `contact_click` event includes the right `intent`.
+11. Run an axe-core pass on all seven pages at 320, 360, 430, 768 and 1440px. The 768px case
+    matters: the header WhatsApp link is icon-only there.
 
 ## Deploying
 
