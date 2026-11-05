@@ -199,6 +199,18 @@ for (const rel of LOCAL_PAGES) {
     if (!/<[^>]*id="triageStepLabel"[^>]*aria-live="polite"/.test(html)) {
       fail('index.html: triage step label needs aria-live="polite"');
     }
+    if (!/<[^>]*id="quoteSummary"[^>]*role="status"/.test(html)) {
+      fail('index.html: quote summary needs role="status" so results are announced');
+    }
+    if (!/<[^>]*id="quoteWhatsApp"[^>]*data-wa-intent="b2b"/.test(html)) {
+      fail('index.html: quote WhatsApp handoff needs data-wa-intent="b2b"');
+    }
+    const quoteTemplate = one(html, /<div[^>]*id="quoteWaTemplate"[^>]*>([\s\S]*?)<\/div>/);
+    for (const token of ['{category}', '{quantity}', '{condition}', '{company}']) {
+      if (!quoteTemplate || quoteTemplate.indexOf(token) === -1) {
+        fail('index.html: quote WhatsApp template is missing ' + token);
+      }
+    }
   }
 }
 

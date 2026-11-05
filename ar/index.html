@@ -97,7 +97,7 @@
   html[lang="ur"] .badge small{font-size:10.5px;}
   html[lang="ur"] .b2b-stat b{line-height:1.5;}
   html[lang="ur"] .f-list li,html[lang="ur"] .nav-links{line-height:1.8;}
-  html[lang="ur"] .triage-copy p,html[lang="ur"] .triage-opt,html[lang="ur"] .triage-tip,html[lang="ur"] .triage-result-block p{line-height:1.9;}
+  html[lang="ur"] .triage-copy p,html[lang="ur"] .triage-opt,html[lang="ur"] .triage-tip,html[lang="ur"] .triage-result-block p,html[lang="ur"] .quote-copy p,html[lang="ur"] .quote-field label,html[lang="ur"] .quote-sub,html[lang="ur"] .quote-note{line-height:1.9;}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
   a{color:inherit;text-decoration:none;}
   img,svg{display:block;max-width:100%;}
@@ -330,6 +330,39 @@
   .triage-actions .btn{justify-content:center;}
   .triage-fallback{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-dim);}
   .triage-fallback a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+
+  /* B2B quote builder */
+  .quote{background:var(--bg2);border-bottom:1px solid var(--line);}
+  .quote .wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:52px;align-items:start;}
+  .quote-copy h2{font-size:clamp(30px,4vw,46px);margin-top:12px;}
+  .quote-copy p{margin-top:16px;color:var(--ink-dim);font-size:16.5px;font-weight:500;}
+  .quote-points{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:26px;}
+  .quote-points li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:600;color:var(--ink-2);}
+  .quote-points .dot{width:22px;height:22px;border-radius:50%;background:var(--panel);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .quote-points svg{width:13px;height:13px;}
+  .quote-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,3vw,38px);box-shadow:0 20px 50px rgba(10,14,20,.07);}
+  .quote-card h3{font-size:clamp(22px,2.4vw,28px);margin:0;}
+  .quote-sub{margin-top:8px;font-size:13px;line-height:1.6;color:var(--ink-dim);font-weight:500;}
+  .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}
+  .quote-field{display:flex;flex-direction:column;min-width:0;}
+  .quote-field.full{grid-column:1/-1;}
+  .quote-field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--ink-2);margin-bottom:7px;}
+  .quote-field select,.quote-field input,.quote-field textarea{width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:12px;color:var(--ink);padding:13px 15px;font-family:inherit;font-size:15px;transition:border-color .15s;}
+  .quote-field textarea{min-height:96px;resize:vertical;}
+  .quote-field select:focus,.quote-field input:focus,.quote-field textarea:focus{border-color:var(--accent);}
+  .quote-consent{margin-top:16px;font-size:12px;line-height:1.55;color:var(--ink-dim);font-weight:500;}
+  .quote-consent a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+  .quote-submit{margin-top:18px;width:100%;justify-content:center;}
+  .quote-result{margin-top:22px;}
+  .quote-result .eyebrow{display:block;}
+  .quote-result h3{margin-top:8px;}
+  .quote-summary{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .quote-chip{background:var(--bg2);border:1px solid var(--line);border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:700;color:var(--ink-2);}
+  .quote-note{margin-top:16px;font-size:12.5px;line-height:1.6;color:var(--ink-dim);font-weight:500;}
+  .quote-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .quote-actions .btn{justify-content:center;}
+  .quote-fallback{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-dim);}
+  .quote-fallback a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
   .f-cta{display:flex;flex-wrap:wrap;gap:10px;}
 
   /* Footer */
@@ -361,6 +394,7 @@
     .b2b-in{grid-template-columns:1fr;gap:30px;padding:38px 28px;}
     .contact .wrap{grid-template-columns:1fr;}
     .triage .wrap{grid-template-columns:1fr;gap:30px;}
+    .quote .wrap{grid-template-columns:1fr;gap:30px;}
     .nav-links{display:none;}
     .menu-btn{display:flex;}
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:22px 32px;gap:18px;}
@@ -382,6 +416,9 @@
     .triage-card{padding:22px 18px;}
     .triage-options{grid-template-columns:1fr;}
     .triage-actions .btn{width:100%;}
+    .quote-card{padding:22px 18px;}
+    .quote-grid{grid-template-columns:1fr;}
+    .quote-actions .btn{width:100%;}
   }
   @media (max-width:380px){
     nav{padding-left:14px;padding-right:14px;}
@@ -800,7 +837,7 @@
               <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li2">توريد الإكسسوارات ومعدات الشبكات</span></li>
               <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="b2b.li3">تأكيد الشروط التجارية في عرض سعر مكتوب</span></li>
             </ul>
-            <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="b2b" data-i18n="b2b.cta">اطلب عرض سعر للجملة</a>
+            <a class="btn btn-wa" href="#quote" data-i18n="b2b.cta">اطلب عرض سعر للجملة</a>
           </div>
           <div class="b2b-stats">
             <div class="b2b-stat"><b data-i18n="b2b.s1t">علامات مختارة</b><span data-i18n="b2b.s1s">تُوفّر عند الطلب</span></div>
@@ -809,6 +846,109 @@
             <div class="b2b-stat"><b data-i18n="b2b.s4t">B2B</b><span data-i18n="b2b.s4s">عرض سعر مكتوب</span></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B QUOTE BUILDER -->
+  <section class="quote" id="quote">
+    <div class="wrap">
+      <div class="quote-copy">
+        <span class="eyebrow" data-i18n="quote.eyebrow">عرض سعر للشركات</span>
+        <h2 data-i18n="quote.h2">جهّز طلب جملة في أقل من دقيقة.</h2>
+        <p data-i18n="quote.lede">أخبرنا بما تحتاجه. سنجهّز ملخصًا يمكنك إرساله عبر واتساب أو البريد الإلكتروني. لا يُرسل أي شيء حتى تقوم أنت بإرساله.</p>
+        <ul class="quote-points">
+          <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="quote.point1">تأكيد التوفر والسعر كتابيًا</span></li>
+          <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="quote.point2">لا تظهر أسعار أو مدة تسليم هنا</span></li>
+          <li><span class="dot"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="quote.point3">لا يُرسل أي شيء تلقائيًا</span></li>
+        </ul>
+      </div>
+
+      <div class="quote-card">
+        <form class="quote-form" id="quoteForm" action="#quote" method="post">
+          <h3 data-i18n="quote.form_title">متطلباتك</h3>
+          <p class="quote-sub" data-i18n="quote.form_sub">الحقول المطلوبة محددة. نرد بالتوفر والحالة والشروط التجارية.</p>
+          <div class="quote-grid">
+            <div class="quote-field">
+              <label for="quoteCategory" data-i18n="quote.category">فئة المنتج</label>
+              <select id="quoteCategory" name="Category" required>
+                <option value="" selected disabled data-i18n="quote.category_ph">اختر فئة</option>
+                <option value="mobiles" data-i18n="quote.category.mobiles">الهواتف المحمولة</option>
+                <option value="laptops" data-i18n="quote.category.laptops">الحواسيب المحمولة</option>
+                <option value="accessories" data-i18n="quote.category.accessories">الملحقات</option>
+                <option value="networking" data-i18n="quote.category.networking">معدات الشبكات</option>
+                <option value="mixed" data-i18n="quote.category.mixed">طلب مختلط</option>
+              </select>
+            </div>
+            <div class="quote-field">
+              <label for="quoteQty" data-i18n="quote.qty">الكمية التقريبية</label>
+              <select id="quoteQty" name="Quantity" required>
+                <option value="" selected disabled data-i18n="quote.qty_ph">اختر كمية</option>
+                <option value="1-10" data-i18n="quote.qty.1">1–10 وحدات</option>
+                <option value="11-50" data-i18n="quote.qty.2">11–50 وحدة</option>
+                <option value="51-200" data-i18n="quote.qty.3">51–200 وحدة</option>
+                <option value="200+" data-i18n="quote.qty.4">أكثر من 200 وحدة</option>
+              </select>
+            </div>
+            <div class="quote-field">
+              <label for="quoteCondition" data-i18n="quote.condition">الحالة</label>
+              <select id="quoteCondition" name="Condition">
+                <option value="either" selected data-i18n="quote.condition.either">الاثنان</option>
+                <option value="new" data-i18n="quote.condition.new">جديد</option>
+                <option value="used" data-i18n="quote.condition.used">مستعمل</option>
+              </select>
+            </div>
+            <div class="quote-field">
+              <label for="quoteCompany" data-i18n="quote.company">اسم الشركة</label>
+              <input id="quoteCompany" name="Company" type="text" autocomplete="organization" required placeholder="اسم شركتك" data-i18n-ph="quote.company_ph">
+            </div>
+            <div class="quote-field">
+              <label for="quoteName" data-i18n="quote.name">اسم جهة الاتصال (اختياري)</label>
+              <input id="quoteName" name="Contact" type="text" autocomplete="name" placeholder="اسمك" data-i18n-ph="quote.name_ph">
+            </div>
+            <div class="quote-field">
+              <label for="quoteEmailField" data-i18n="quote.email">البريد الإلكتروني (اختياري)</label>
+              <input id="quoteEmailField" name="Email" type="email" autocomplete="email" placeholder="you@company.com" data-i18n-ph="quote.email_ph">
+            </div>
+            <div class="quote-field">
+              <label for="quotePhone" data-i18n="quote.phone">الهاتف / واتساب (اختياري)</label>
+              <input id="quotePhone" name="Phone" type="tel" autocomplete="tel" placeholder="+971 5X XXX XXXX" data-i18n-ph="quote.phone_ph">
+            </div>
+            <div class="quote-field full">
+              <label for="quoteNotes" data-i18n="quote.notes">الطرازات أو ملاحظات (اختياري)</label>
+              <textarea id="quoteNotes" name="Notes" placeholder="مثال: 20 هاتف iPhone 13، 10 حواسيب MacBook Air M1" data-i18n-ph="quote.notes_ph"></textarea>
+            </div>
+          </div>
+          <p class="quote-consent" data-i18n-html="quote.consent">نستخدم هذه البيانات فقط لتجهيز طلبك. راجع <a href="/privacy-policy/">سياسة الخصوصية</a>.</p>
+          <button class="btn btn-dark quote-submit" type="submit" data-i18n="quote.submit">جهّز طلبي</button>
+        </form>
+
+        <div class="quote-result" id="quoteResult" hidden>
+          <span class="eyebrow" data-i18n="quote.result_eyebrow">طلبك</span>
+          <h3 tabindex="-1" data-i18n="quote.result_title">راجع الملخص ثم أرسله.</h3>
+          <div class="quote-summary" id="quoteSummary" role="status" aria-label="ملخص الطلب" data-i18n-aria="quote.summary_label"></div>
+          <p class="quote-note" data-i18n="quote.result_note">لم يُرسل أي شيء بعد. تفتح الأزرار أدناه واتساب أو تطبيق البريد الإلكتروني مع هذا الملخص؛ أرسله من هناك. نؤكد التوفر والحالة والسعر والضرائب والشروط التجارية في عرض سعر كتابي.</p>
+          <div class="quote-actions">
+            <a class="btn btn-wa" id="quoteWhatsApp" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="b2b" data-i18n="quote.wa_cta">أرسل عبر واتساب</a>
+            <a class="btn btn-line" id="quoteEmail" href="mailto:salesorison@gmail.com" data-i18n="quote.email_cta">أرسل بالبريد الإلكتروني</a>
+            <button class="btn btn-line" type="button" id="quoteRestart" data-i18n="quote.restart">ابدأ من جديد</button>
+          </div>
+        </div>
+
+        <p class="quote-fallback"><a href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="b2b" data-i18n="quote.fallback">تفضل مراسلتنا مباشرة؟ واتساب +971 56 348 0513</a></p>
+
+        <div id="quoteWaTemplate" hidden data-i18n="quote.wa_template">مرحبًا أوريسون، أرغب في عرض سعر للشركات.
+الفئة: {category}
+الكمية: {quantity}
+الحالة: {condition}
+الشركة: {company}
+جهة الاتصال: {name}
+البريد الإلكتروني: {email}
+الهاتف: {phone}
+ملاحظات: {notes}
+
+أُرسل من أداة عرض سعر الشركات على orisonigt.com.</div>
+        <div id="quoteEmailSubject" hidden data-i18n="quote.email_subject">طلب عرض سعر للشركات — {company}</div>
       </div>
     </div>
   </section>
@@ -1074,6 +1214,107 @@
     });
 
     showStep(1, false);
+  })();
+
+  /* ---- B2B quote builder ---- */
+  (function quote(){
+    const form = document.getElementById('quoteForm');
+    if (!form) return;
+
+    const result = document.getElementById('quoteResult');
+    const summary = document.getElementById('quoteSummary');
+    const wa = document.getElementById('quoteWhatsApp');
+    const email = document.getElementById('quoteEmail');
+    const template = document.getElementById('quoteWaTemplate');
+    const subjectEl = document.getElementById('quoteEmailSubject');
+    const restart = document.getElementById('quoteRestart');
+    const category = document.getElementById('quoteCategory');
+    const qty = document.getElementById('quoteQty');
+    const condition = document.getElementById('quoteCondition');
+    const company = document.getElementById('quoteCompany');
+    const name = document.getElementById('quoteName');
+    const mail = document.getElementById('quoteEmailField');
+    const phone = document.getElementById('quotePhone');
+    const notes = document.getElementById('quoteNotes');
+    if (!result || !summary || !wa || !email || !template || !subjectEl || !restart ||
+        !category || !qty || !condition || !company || !name || !mail || !phone || !notes) return;
+
+    function track(event, params) {
+      document.dispatchEvent(new CustomEvent('orison:track', { detail: { event: event, params: params || {} } }));
+    }
+
+    function selectedLabel(select) {
+      const opt = select.options[select.selectedIndex];
+      return opt ? opt.textContent.trim() : '';
+    }
+
+    function fill(text, token, value) {
+      return text.split(token).join(value);
+    }
+
+    function dash(value) {
+      return value.trim() || '—';
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const values = {
+        category: selectedLabel(category),
+        quantity: selectedLabel(qty),
+        condition: selectedLabel(condition),
+        company: company.value.trim(),
+        name: name.value.trim(),
+        email: mail.value.trim(),
+        phone: phone.value.trim(),
+        notes: notes.value.trim()
+      };
+
+      summary.textContent = '';
+      [values.category, values.quantity, values.condition, values.company].forEach(text => {
+        if (!text) return;
+        const chip = document.createElement('span');
+        chip.className = 'quote-chip';
+        chip.textContent = text;
+        summary.appendChild(chip);
+      });
+
+      let message = template.textContent.trim();
+      message = fill(message, '{category}', values.category);
+      message = fill(message, '{quantity}', values.quantity);
+      message = fill(message, '{condition}', values.condition);
+      message = fill(message, '{company}', values.company);
+      message = fill(message, '{name}', dash(values.name));
+      message = fill(message, '{email}', dash(values.email));
+      message = fill(message, '{phone}', dash(values.phone));
+      message = fill(message, '{notes}', dash(values.notes));
+
+      const subject = fill(subjectEl.textContent.trim(), '{company}', values.company);
+
+      wa.href = 'https://wa.me/971563480513?text=' + encodeURIComponent(message);
+      email.href = 'mailto:salesorison@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+
+      form.hidden = true;
+      result.hidden = false;
+      track('quote_complete', {
+        category: category.value,
+        quantity: qty.value,
+        condition: condition.value,
+        has_notes: values.notes ? 'yes' : 'no'
+      });
+
+      const heading = result.querySelector('h3');
+      if (heading) heading.focus();
+    });
+
+    restart.addEventListener('click', () => {
+      form.reset();
+      form.hidden = false;
+      result.hidden = true;
+      track('quote_restart', {});
+      category.focus();
+    });
   })();
 
   /* ---- Prefilled WhatsApp links ---- */

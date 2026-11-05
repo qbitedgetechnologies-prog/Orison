@@ -14,7 +14,7 @@ repair services, and B2B/wholesale supply.
 ## Structure
 
 - `index.html` — English master page. Edit this file, not the generated locale pages.
-- `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (179 keys each).
+- `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (226 keys each).
 - `tools/build-locales.js` — generates `ar/index.html`, `ur/index.html` and `sitemap.xml`.
 - `tools/check-site.js` — validates links, SEO tags, hreflang, JSON-LD, translations,
   responsive image files and accessibility markup invariants.
@@ -22,10 +22,13 @@ repair services, and B2B/wholesale supply.
 - `ar/index.html`, `ur/index.html` — **generated** Arabic and Urdu pages. Do not hand-edit.
 - `sitemap.xml` — **generated** from the page list in `tools/build-locales.js`.
 - `js/analytics.js` — conversion events for WhatsApp, phone, email, social and language
-  clicks plus form submits and the repair triage. WhatsApp events include the link's
-  `intent`. GA4 stays off until a measurement ID is set.
+  clicks plus form submits, the repair triage and the B2B quote builder. WhatsApp events
+  include the link's `intent`. GA4 stays off until a measurement ID is set.
 - `#triage` in `index.html` — three-step repair check with a prefilled WhatsApp summary.
-  All other WhatsApp links also get a localized prefilled message from the hidden
+- `#quote` in `index.html` — B2B quote builder: category, quantity band, condition, company
+  and optional contact details produce a summary with prefilled WhatsApp and email handoffs.
+  No prices, lead times or automatic submission.
+- All other WhatsApp links also get a localized prefilled message from the hidden
   `#waTemplates` block, selected by `data-wa-intent`.
 - `privacy-policy/index.html` — Privacy Policy (English only).
 - `refund-policy/index.html` — Refund and Return Policy (English only).
@@ -94,7 +97,8 @@ and 1440px reports no violations.
 - All decorative SVGs are `aria-hidden="true"`; icon-only links carry an `aria-label`.
 - Text must meet 4.5:1 (normal) or 3:1 (large). The WhatsApp button uses `#0f7b6c` because
   the lighter brand green only reached 3.00:1 with white text.
-- The triage step label is `aria-live="polite"` and the result summary is `role="status"`.
+- The triage step label is `aria-live="polite"` and both the triage and quote result
+  summaries are `role="status"`, so step and result changes are announced.
 - `prefers-reduced-motion` disables smooth scrolling, the parallax and every transition.
 - Landmark labels are translated through `data-i18n-aria`; the element must already have an
   `aria-label` attribute or the build leaves it in English.
@@ -151,6 +155,8 @@ Events:
   `repair`, `mobiles`, `laptops`, `accessories`, `networking`, `b2b`, `triage`).
 - `form_submit` — the contact form.
 - `triage_step`, `triage_complete`, `triage_restart` — the repair wizard.
+- `quote_complete`, `quote_restart` — the B2B quote builder. `quote_complete` carries the
+  selected `category`, `quantity` band, `condition` and whether notes were added.
 
 Components that own their own state dispatch an `orison:track` event on `document` with
 `{ detail: { event, params } }`; analytics.js forwards it to the same destinations.

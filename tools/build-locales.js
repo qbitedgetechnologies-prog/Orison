@@ -40,7 +40,7 @@ const LOCALES = {
   }
 };
 
-const HTML_KEYS = new Set(['promo', 'hero.h1', 'form.privacy', 'footer.cr']);
+const HTML_KEYS = new Set(['promo', 'hero.h1', 'form.privacy', 'footer.cr', 'quote.consent']);
 
 /* ---------- helpers ---------- */
 

@@ -46,7 +46,7 @@ Review date: 2 November 2026.
 ### 4. Language support
 
 - Moved the English, Arabic and Urdu dictionaries out of the inline JavaScript into
-  `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json` (179 keys each).
+  `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json` (226 keys each).
 - Added crawlable localized URLs: `/ar/` and `/ur/` are generated from `index.html` by
   `tools/build-locales.js`, with the correct `lang`/`dir`, translated title and description,
   self-referencing canonical, `hreflang` for `en`/`ar`/`ur`/`x-default`, and localized
@@ -116,13 +116,40 @@ Review date: 2 November 2026.
 - Triage step changes are announced through `aria-live="polite"`, and the result summary is
   a `role="status"` region. Focus already moved to each new heading.
 - Marked every decorative SVG `aria-hidden="true"` and localised the new landmark labels
-  into Arabic and Urdu (5 new strings, 179 in each dictionary).
+  into Arabic and Urdu (5 new strings; the dictionaries now hold 226 keys each).
 - `npm run check` now fails on a missing or duplicate `h1`, a skipped heading level, an
   unlabelled SVG or form control, a `target="_blank"` link without `rel="noopener"`, a
   `data-i18n-aria` element without `aria-label`, an `aria-controls` pointing at a missing id,
   or a `<main>` that the skip link cannot focus.
 
 No business information, prices, hours or claims were changed by this audit.
+
+### 8. B2B quote builder (4 November 2026)
+
+- Added a `#quote` section after `#b2b` with a single form: product category, approximate
+  quantity band, condition, company name and optional contact name, email, phone and notes.
+- The form is client-side only. `method="post"` prevents company and contact details from
+  appearing in the URL if a visitor submits with JavaScript disabled, and nothing is
+  transmitted on submit. The result view builds a summary and two handoffs: a prefilled
+  WhatsApp message and a `mailto:` link. The visitor still has to send it themselves.
+- No prices, lead times, availability or tax treatment are stated or promised. The copy says
+  availability, condition, pricing, taxes and commercial terms are confirmed in a written
+  quotation, matching the existing B2B wording.
+- The result summary is a `role="status"` live region, focus moves to the result heading, and
+  the WhatsApp handoff carries `data-wa-intent="b2b"` so `contact_click` reports the intent.
+- The privacy note links to the existing Privacy Policy. It states that the details are used
+  only to prepare the request. No new processor was introduced: the visitor sends the
+  message from their own WhatsApp or email app, so the site itself does not store the data.
+- `quote_complete` and `quote_restart` events are pushed to `window.dataLayer` through the
+  existing `orison:track` bridge; GA4 stays inert until a measurement ID is configured.
+- The existing `#b2b` CTA now points at `#quote` instead of opening WhatsApp directly; the
+  quote card keeps a direct WhatsApp fallback.
+- 47 new strings were added to all three dictionaries (226 keys each) and the localized
+  versions are part of the same native-review item (B6).
+- `npm run check` now enforces the quote summary live region, the WhatsApp intent and the
+  four template tokens.
+
+No business information, prices, hours or claims were changed by this change.
 
 ## Decisions recorded
 
@@ -170,7 +197,7 @@ information or a business decision.
     send the live URLs and screenshots for sign-off, as the developer checklist requires.
 11. **Native review of Arabic and Urdu.** The `/ar/` and `/ur/` pages are generated from the
     existing translations. A native speaker should review tone, dialect and technical terms
-    across all 179 strings before the localized pages are treated as final.
+    across all 226 strings before the localized pages are treated as final.
 12. **HTTPS enforcement.** `http://orisonigt.com/` still returns 200 without redirecting.
     Enable "Always Use HTTPS" (or HSTS) at Cloudflare / the Pages account level.
 13. **SEO backlog ownership.** `PLAN.md` lists the remaining local-SEO work, including the
