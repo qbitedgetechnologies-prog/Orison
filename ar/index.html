@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link id="fontLink" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/assets/ipad-lifestyle.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/ipad-lifestyle.avif" type="image/avif" fetchpriority="high">
 <script src="/js/analytics.js" defer></script>
 <script type="application/ld+json">
 {
@@ -86,6 +86,7 @@
     --radius:16px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  picture{display:contents;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
   html[dir="rtl"] body{font-family:'Tajawal','Manrope',system-ui,sans-serif;}
@@ -472,7 +473,13 @@
       </div>
       <div class="hero-art">
         <div class="glow"></div>
-        <div class="art-frame"><img src="/assets/ipad-lifestyle.jpg" alt="A customer using a tablet at home" loading="eager" width="1000" height="1500"></div>
+        <div class="art-frame">
+          <picture>
+            <source type="image/avif" srcset="/assets/ipad-lifestyle.avif">
+            <source type="image/webp" srcset="/assets/ipad-lifestyle.webp">
+            <img src="/assets/ipad-lifestyle.jpg" alt="A customer using a tablet at home" loading="eager" width="1000" height="1500">
+          </picture>
+        </div>
         <div class="badge b1"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><div><span data-i18n="badge1.t">جديد ومستعمل</span><small data-i18n="badge1.s">الحالة مؤكدة</small></div></div>
         <div class="badge b2"><span class="ic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><div><span data-i18n="badge2.t">خدمات الإصلاح</span><small data-i18n="badge2.s">تقييم قبل العمل</small></div></div>
       </div>
@@ -540,7 +547,11 @@
     <div class="wrap">
       <div class="feature">
         <div class="f-media m1">
-          <img class="fill" src="/assets/iphone-hero.jpg" alt="A customer holding a flagship smartphone" loading="lazy" width="844" height="1500">
+          <picture>
+            <source type="image/avif" srcset="/assets/iphone-hero.avif">
+            <source type="image/webp" srcset="/assets/iphone-hero.webp">
+            <img class="fill" src="/assets/iphone-hero.jpg" alt="A customer holding a flagship smartphone" loading="lazy" width="844" height="1500">
+          </picture>
         </div>
         <div class="f-copy">
           <span class="eyebrow" data-i18n="feat1.eyebrow">هواتف جديدة ومستعملة</span>
@@ -558,7 +569,11 @@
       <!-- FEATURE: REPAIRS -->
       <div class="feature flip" id="repairs">
         <div class="f-media m2">
-          <img class="fill" src="/assets/repair-tech.jpg" alt="A technician repairing a phone's circuit board at the workbench" loading="lazy" width="844" height="1500">
+          <picture>
+            <source type="image/avif" srcset="/assets/repair-tech.avif">
+            <source type="image/webp" srcset="/assets/repair-tech.webp">
+            <img class="fill" src="/assets/repair-tech.jpg" alt="A technician repairing a phone's circuit board at the workbench" loading="lazy" width="844" height="1500">
+          </picture>
         </div>
         <div class="f-copy">
           <span class="eyebrow" data-i18n="feat2.eyebrow">خدمات الإصلاح</span>
@@ -690,23 +705,43 @@
       </div>
       <div class="cat-grid">
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="mobiles">
-          <img src="/assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
+          <picture>
+            <source type="image/avif" srcset="/assets/iphone-float.avif">
+            <source type="image/webp" srcset="/assets/iphone-float.webp">
+            <img src="/assets/iphone-float.jpg" alt="A smartphone held up outdoors" loading="lazy" width="1000" height="1500">
+          </picture>
           <span class="cap"><h4 data-i18n="cat1.t">هواتف جديدة ومستعملة</h4><p data-i18n="cat1.s">طرازات وحالات مختارة</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="laptops">
-          <img src="/assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
+          <picture>
+            <source type="image/avif" srcset="/assets/macbook.avif">
+            <source type="image/webp" srcset="/assets/macbook.webp">
+            <img src="/assets/macbook.jpg" alt="A laptop on a desk" loading="lazy" width="1700" height="1135">
+          </picture>
           <span class="cap"><h4 data-i18n="cat2.t">لابتوبات</h4><p data-i18n="cat2.s">جديدة ومجددة</p></span>
         </a>
         <a class="cat" href="#repairs">
-          <img src="/assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
+          <picture>
+            <source type="image/avif" srcset="/assets/repair-parts.avif">
+            <source type="image/webp" srcset="/assets/repair-parts.webp">
+            <img src="/assets/repair-parts.jpg" alt="A phone opened up with parts and tools" loading="lazy" width="1700" height="1133">
+          </picture>
           <span class="cap"><h4 data-i18n="cat3.t">خدمات الإصلاح</h4><p data-i18n="cat3.s">تقييم قبل الإصلاح</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="accessories">
-          <img src="/assets/accessories.jpg" alt="Chargers, power banks and cables" loading="lazy" width="1125" height="1500">
+          <picture>
+            <source type="image/avif" srcset="/assets/accessories.avif">
+            <source type="image/webp" srcset="/assets/accessories.webp">
+            <img src="/assets/accessories.jpg" alt="Chargers, power banks and cables" loading="lazy" width="1125" height="1500">
+          </picture>
           <span class="cap"><h4 data-i18n="cat4.t">إكسسوارات</h4><p data-i18n="cat4.s">إكسسوارات مختارة للهواتف والكمبيوتر</p></span>
         </a>
         <a class="cat" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="networking">
-          <img src="/assets/networking.jpg" alt="Home and office Wi-Fi routers" loading="lazy" width="1700" height="1133">
+          <picture>
+            <source type="image/avif" srcset="/assets/networking.avif">
+            <source type="image/webp" srcset="/assets/networking.webp">
+            <img src="/assets/networking.jpg" alt="Home and office Wi-Fi routers" loading="lazy" width="1700" height="1133">
+          </picture>
           <span class="cap"><h4 data-i18n="cat5.t">معدات الشبكات</h4><p data-i18n="cat5.s">للمنزل والمكتب والأعمال</p></span>
         </a>
       </div>

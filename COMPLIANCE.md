@@ -81,8 +81,12 @@ Review date: 2 November 2026.
   language clicks plus form submits. Google Analytics remains disabled until a measurement
   ID is set and the Privacy Policy is updated.
 - Added `npm run build` and `npm run check`. The checker validates internal links and assets,
-  locale attributes, canonical/hreflang/OG tags, JSON-LD, translation key parity, the sitemap
-  and `robots.txt`.
+  locale attributes, canonical/hreflang/OG tags, JSON-LD, translation key parity, the sitemap,
+  `robots.txt` and the responsive image files.
+- Converted the photography to AVIF and WebP with JPEG fallbacks through `<picture>`.
+  Original pixel dimensions are retained, so `width`/`height` and layout are unchanged.
+  Measured savings against the JPEGs: AVIF 68–82%, WebP 38–73%. `og-image.jpg` stays JPEG for
+  social crawlers.
 - Local testing of `/`, `/ar/` and `/ur/` at 1440, 768, 430, 390, 360 and 320px found no
   horizontal overflow, no console errors, no failed requests, and all images loaded after
   scrolling. The localized pages still need a live re-test after deployment.

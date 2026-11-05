@@ -85,6 +85,14 @@ for (const rel of LOCAL_PAGES) {
   let m;
   while ((m = re.exec(html))) refs.add(m[1]);
 
+  const srcsetRe = /\bsrcset="([^"]+)"/g;
+  while ((m = srcsetRe.exec(html))) {
+    for (const part of m[1].split(',')) {
+      const url = part.trim().split(/\s+/)[0];
+      if (url.startsWith('/')) refs.add(url);
+    }
+  }
+
   for (const ref of refs) {
     let target;
     if (ref === '/') target = 'index.html';
@@ -95,6 +103,33 @@ for (const rel of LOCAL_PAGES) {
       fail(rel + ': broken internal reference ' + ref + ' (expected ' + target + ')');
     }
   }
+
+  // Every <picture> must offer AVIF, WebP and a sized JPEG fallback.
+  const pictures = html.match(/<picture\b[\s\S]*?<\/picture>/g) || [];
+  for (const pic of pictures) {
+    if (!/type="image\/avif"/.test(pic)) fail(rel + ': <picture> is missing an AVIF source');
+    if (!/type="image\/webp"/.test(pic)) fail(rel + ': <picture> is missing a WebP source');
+
+    const img = pic.match(/<img\b[^>]*\bsrc="(\/[^"]+\.jpg)"[^>]*>/);
+    if (!img) {
+      fail(rel + ': <picture> is missing a JPEG <img> fallback');
+      continue;
+    }
+    if (!/\bwidth="\d+"/.test(img[0]) || !/\bheight="\d+"/.test(img[0])) {
+      fail(rel + ': <picture> fallback image is missing width/height');
+    }
+
+    const base = img[1].replace(/\.jpg$/, '');
+    for (const ext of ['.avif', '.webp']) {
+      if (!pic.includes(base + ext)) {
+        fail(rel + ': <picture> does not reference ' + base + ext);
+      }
+      if (!fs.existsSync(path.join(ROOT, (base + ext).slice(1)))) {
+        fail(rel + ': missing generated image ' + base + ext);
+      }
+    }
+  }
+  if (pictures.length) notes.push(rel + ': ' + pictures.length + ' responsive pictures');
 }
 
 /* ---------- locale pages ---------- */

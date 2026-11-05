@@ -16,7 +16,9 @@ repair services, and B2B/wholesale supply.
 - `index.html` — English master page. Edit this file, not the generated locale pages.
 - `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (174 keys each).
 - `tools/build-locales.js` — generates `ar/index.html`, `ur/index.html` and `sitemap.xml`.
-- `tools/check-site.js` — validates links, SEO tags, hreflang, JSON-LD and translations.
+- `tools/check-site.js` — validates links, SEO tags, hreflang, JSON-LD, translations and
+  responsive image files.
+- `tools/optimize-images.py` — regenerates the AVIF and WebP variants from the JPEGs.
 - `ar/index.html`, `ur/index.html` — **generated** Arabic and Urdu pages. Do not hand-edit.
 - `sitemap.xml` — **generated** from the page list in `tools/build-locales.js`.
 - `js/analytics.js` — conversion events for WhatsApp, phone, email, social and language
@@ -30,7 +32,8 @@ repair services, and B2B/wholesale supply.
 - `terms-and-conditions/index.html` — Terms and Conditions (English only).
 - `404.html` — branded "page not found" page, served by Pages for unknown URLs.
 - `css/legal.css` — shared styles for the policy pages and the 404 page.
-- `assets/` — photography plus the 1200×630 social share image (`og-image.jpg`).
+- `assets/` — photography as AVIF, WebP and JPEG, plus the 1200×630 social share image
+  (`og-image.jpg`, JPEG only). Each photo is served through a `<picture>` element.
 - `robots.txt` — search-engine discovery; points at `sitemap.xml`.
 - `PLAN.md` — prioritised SEO and local-growth backlog. Read this before making changes.
 - `AGENTS.md` — build, edit and testing conventions for AI agents.
@@ -45,7 +48,7 @@ Requires Node.js 18 or newer. There are no npm dependencies.
 
 ```bash
 npm run build   # regenerate ar/, ur/ and sitemap.xml from index.html + i18n/*.json
-npm run check   # validate links, SEO tags, hreflang, JSON-LD and translations
+npm run check   # validate links, SEO tags, hreflang, JSON-LD, translations and images
 ```
 
 Run both before every commit. `npm run build` fails if a locale is missing a key used by
@@ -57,6 +60,27 @@ To preview locally:
 python -m http.server 8137
 # open http://127.0.0.1:8137/
 ```
+
+## Images
+
+Every photo in `assets/` exists as a JPEG, a WebP and an AVIF at the same pixel dimensions.
+Markup uses a `<picture>` element, so the browser picks the smallest format it supports:
+
+```html
+<picture>
+  <source type="image/avif" srcset="/assets/example.avif">
+  <source type="image/webp" srcset="/assets/example.webp">
+  <img src="/assets/example.jpg" alt="..." width="1000" height="1500" loading="lazy">
+</picture>
+```
+
+When adding or replacing a photo, keep the JPEG, run `python tools/optimize-images.py`, and
+add the `<picture>` block. `npm run check` fails if any of the three files is missing, if the
+fallback lacks `width`/`height`, or if a `<picture>` has no AVIF/WebP source.
+
+The script needs Python 3 with Pillow built with WebP and AVIF support
+(`python -m pip install --upgrade pillow`). It skips `og-image.jpg` because social crawlers
+are most reliable with JPEG.
 
 ## Language URLs
 

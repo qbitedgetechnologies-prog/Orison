@@ -18,6 +18,7 @@ GitHub Actions workflow. Cloudflare fronts the custom domain `orisonigt.com`.
 | `i18n/ar.json`, `i18n/ur.json` | Arabic and Urdu strings |
 | `tools/build-locales.js` | Generates locale pages and the sitemap |
 | `tools/check-site.js` | Validates the committed site |
+| `tools/optimize-images.py` | Regenerates the AVIF and WebP variants from the JPEGs |
 | `js/analytics.js` | Conversion events; GA4 is off until `GA4_ID` is set |
 | `css/legal.css` | Policy pages and 404 styles |
 
@@ -87,6 +88,10 @@ Notes:
 - Do not add `Product`/`Offer` prices, `aggregateRating`, `openingHoursSpecification` or
   `geo` coordinates until the business has confirmed the underlying facts.
 - The Urdu page loads Noto Nastaliq Urdu; the other pages must not.
+- Every photo uses `<picture>` with AVIF, WebP and a JPEG `<img>` fallback that keeps its
+  original `width` and `height`. Never point an `<img>` directly at a photo when a
+  `<picture>` is expected. Run `python tools/optimize-images.py` after changing a JPEG;
+  `npm run check` enforces the three files and the fallback dimensions.
 
 ## Content guardrails
 
@@ -107,7 +112,8 @@ Before pushing:
 1. `npm run build` and `npm run check` pass.
 2. Load `/`, `/ar/`, `/ur/` at 1440px, 768px, 390px and 320px.
 3. No horizontal overflow, console errors or failed requests.
-4. Images load; `og-image.jpg` exists.
+4. Images load; `og-image.jpg` exists; `currentSrc` is the AVIF file and the WebP/JPEG
+   fallbacks decode at the same dimensions.
 5. Language links go to the right URL and mark the current language.
 6. Anchors (`#shop`, `#repairs`, `#categories`, `#b2b`, `#contact`) resolve on every locale.
 7. Policy links return 200 and the 404 page returns HTTP 404.

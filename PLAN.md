@@ -35,6 +35,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | Language switching | Plain links; `hreflang` and `x-default` in every page head |
 | Canonicals | Present on `/`, `/ar/`, `/ur/` and the three policy pages |
 | Social sharing | Open Graph + Twitter tags; `assets/og-image.jpg` (1200×630) |
+| Images | AVIF + WebP through `<picture>`, JPEG fallback; original dimensions retained |
 | Structured data | `Store`/`ElectronicsStore` + `WebSite` JSON-LD (no hours, geo or ratings yet) |
 | Sitemap | Generated, includes locale alternates |
 | 404 | Branded, `noindex, follow`, returns HTTP 404 for unknown paths |
@@ -73,7 +74,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | S9 | Move from one long page to intent-specific URLs | Not started | Build the pages in the URL map below, one at a time |
 | S10 | Breadcrumbs + `Service` schema on service pages | Not started | `BreadcrumbList` and `Service` per page; no invented prices |
 | S11 | Internal linking between service, category and contact pages | Not started | Every page reachable in ≤2 clicks from home; descriptive anchor text |
-| S12 | Convert photography to WebP/AVIF with fallbacks | Not started | `<picture>` with JPEG fallback; keep dimensions to avoid layout shift; target ≥40% lighter |
+| S12 | Convert photography to WebP/AVIF with fallbacks | Done | `<picture>` with AVIF, WebP and JPEG fallback; dimensions unchanged; AVIF 68–82% and WebP 38–73% lighter than the JPEGs; `npm run check` enforces all three files |
 | S13 | Performance budget and LCP check | Not started | Mobile LCP < 2.5s on a throttled connection; no CLS; document results |
 | S14 | Accessibility audit | Not started | Keyboard, focus order, contrast, landmarks, alt text, `prefers-reduced-motion`; fix findings |
 | S15 | Security headers | Not started | Cloudflare: HSTS, `X-Content-Type-Options`, `Referrer-Policy`, frame protection, CSP after testing |
@@ -153,7 +154,7 @@ prices, repair timeframes or diagnosis guarantees.
 **Now (week 1):** B1–B3, T1, T2, L1. Nothing else compounds until NAP and HTTPS are settled.
 
 **Weeks 2–3:** B6 native translation review, S9–S11 first two service pages, C2 contact page,
-S12 image conversion, S14 accessibility pass.
+S14 accessibility pass.
 
 **Weeks 4–6:** remaining service pages, C3 guides, C4 citations, C5 review routine.
 
@@ -165,3 +166,4 @@ S12 image conversion, S14 accessibility pass.
 | --- | --- |
 | 2026-11-03 | Localized `/ar/` and `/ur/` URLs, hreflang, canonicals, OG/Twitter, JSON-LD, analytics events, conditional Urdu font, generated sitemap, branded 404, `npm run build`/`check`, this plan |
 | 2026-11-03 | Repair triage wizard and intent-tagged prefilled WhatsApp links; 174 strings in each dictionary; W1/W2 marked Done |
+| 2026-11-03 | Photography converted to AVIF/WebP with JPEG fallbacks through `<picture>`; S12 marked Done |
