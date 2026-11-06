@@ -14,7 +14,7 @@ repair services, and B2B/wholesale supply.
 ## Structure
 
 - `index.html` — English master page. Edit this file, not the generated locale pages.
-- `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (226 keys each).
+- `i18n/en.json`, `i18n/ar.json`, `i18n/ur.json` — translation dictionaries (245 keys each).
 - `tools/build-locales.js` — generates `ar/index.html`, `ur/index.html` and `sitemap.xml`.
 - `tools/check-site.js` — validates links, SEO tags, hreflang, JSON-LD, translations,
   responsive image files and accessibility markup invariants.
@@ -28,6 +28,9 @@ repair services, and B2B/wholesale supply.
 - `#quote` in `index.html` — B2B quote builder: category, quantity band, condition, company
   and optional contact details produce a summary with prefilled WhatsApp and email handoffs.
   No prices, lead times or automatic submission.
+- `#checklist` in `index.html` — used-phone buying checklist: six inspection cards (IMEI,
+  activation lock, battery, screen, network, what is included) and a prefilled WhatsApp
+  enquiry. Content only; no data is captured or stored.
 - All other WhatsApp links also get a localized prefilled message from the hidden
   `#waTemplates` block, selected by `data-wa-intent`.
 - `privacy-policy/index.html` — Privacy Policy (English only).
@@ -152,7 +155,7 @@ Events:
 
 - `contact_click` — `method` is `phone`, `whatsapp`, `email`, `tiktok`, `instagram`,
   `language_switch` or `directions`; WhatsApp events also carry `intent` (`general`, `stock`,
-  `repair`, `mobiles`, `laptops`, `accessories`, `networking`, `b2b`, `triage`).
+  `repair`, `mobiles`, `laptops`, `accessories`, `networking`, `b2b`, `checklist`, `triage`).
 - `form_submit` — the contact form.
 - `triage_step`, `triage_complete`, `triage_restart` — the repair wizard.
 - `quote_complete`, `quote_restart` — the B2B quote builder. `quote_complete` carries the

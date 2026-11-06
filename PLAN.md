@@ -39,9 +39,9 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | Structured data | `Store`/`ElectronicsStore` + `WebSite` JSON-LD (no hours, geo or ratings yet) |
 | Sitemap | Generated, includes locale alternates |
 | 404 | Branded, `noindex, follow`, returns HTTP 404 for unknown paths |
-| Analytics | `dataLayer` events for call/WhatsApp/email/social/language/form, plus `intent` on WhatsApp, triage events and `quote_complete`/`quote_restart`; GA4 inert |
+| Analytics | `dataLayer` events for call/WhatsApp/email/social/language/form, plus `intent` on WhatsApp, triage events, `quote_complete`/`quote_restart` and the checklist enquiry; GA4 inert |
 | Accessibility | axe-core 4: 0 WCAG 2.2 AA violations on 7 pages at 320–1440px; skip link, visible focus, landmarks, live triage and quote results |
-| Conversion tools | Repair triage wizard at `#triage` and B2B quote builder at `#quote`; every WhatsApp link carries a prefilled, localized message |
+| Conversion tools | Repair triage wizard at `#triage`, B2B quote builder at `#quote` and used-phone checklist at `#checklist`; every WhatsApp link carries a prefilled, localized message |
 | Build | `npm run build`, validated by `npm run check` |
 | HTTPS | Not enforced; `http://orisonigt.com/` still returns 200 |
 | Google Business Profile | Not confirmed as claimed/completed |
@@ -55,7 +55,7 @@ Priority key: **P0** blocks trust or indexing · **P1** highest organic impact �
 | B3 | Supply genuine product/service prices and VAT treatment | Business | Blocked | Real model, condition, specs, price and VAT wording; replace "Price on request" cards and add `Product`/`Offer` schema only then |
 | B4 | Confirm claims the business can honour (same-day repair, warranty, delivery, returns) | Business | Blocked | Exact terms in writing; add only in compliant wording |
 | B5 | Legal review of Privacy, Refund and Terms | Business / legal | Blocked | Reviewer sign-off; update "Last updated" dates |
-| B6 | Native Arabic and Urdu review of all 226 strings | Business / translator | Not started | Native reviewer signs off `i18n/ar.json` and `i18n/ur.json`; fix tone, dialect and technical terms |
+| B6 | Native Arabic and Urdu review of all 245 strings | Business / translator | Not started | Native reviewer signs off `i18n/ar.json` and `i18n/ur.json`; fix tone, dialect and technical terms |
 | T1 | Enforce HTTPS | Account admin | Blocked | `http://` 301-redirects to `https://`; HSTS enabled; no mixed content |
 | T2 | Verify the domain in Google Search Console and Bing Webmaster Tools; submit `sitemap.xml` | User | User action | Both properties verified; sitemap accepted with no errors |
 | L1 | Claim and fully complete the Google Business Profile | Business | Not started | Verified; correct primary category, hours, phone, website, attributes, services, products and 10+ real photos |
@@ -126,7 +126,7 @@ prices, repair timeframes or diagnosis guarantees.
 | W2 | Prefilled WhatsApp links by intent | Dev | Done | Every WhatsApp link carries `data-wa-intent`; localized hidden templates build `?text=`; `contact_click` includes `intent`; verified on all three locales |
 | W3 | Sell or trade-in request flow | Dev + business | Not started | Model, storage, condition and photos; no instant valuation unless real pricing rules exist; prefilled WhatsApp or email handoff |
 | W4 | B2B quote builder | Done | `#quote` section on the home page: category, quantity band, condition, company and optional contact details produce a localized summary and prefilled WhatsApp (`intent=b2b`) or email RFQ; no prices, lead times or automatic submission; `npm run check` enforces the live region and template tokens |
-| W5 | Used-phone buying checklist | Content | Not started | Genuinely useful IMEI, lock, battery, screen and network checks; optional email/WhatsApp capture with consent |
+| W5 | Used-phone buying checklist | Done | `#checklist` section on the home page: six inspection cards (IMEI and paperwork, activation lock, battery health, screen and body, calls/data/Wi-Fi, what is included) plus a prefilled WhatsApp enquiry (`intent=checklist`); general guidance only, no condition guarantees or prices; `npm run check` enforces the matching template |
 | W6 | Device Passport pilot | Business | Not started | QR tag on 20 used devices showing tested checklist, condition and what is included; only real, approved data |
 | W7 | Review wall / repair stories | Business | Not started | Real customer outcomes with written consent; no stock-photo testimonials |
 
@@ -169,3 +169,4 @@ prices, repair timeframes or diagnosis guarantees.
 | 2026-11-03 | Photography converted to AVIF/WebP with JPEG fallbacks through `<picture>`; S12 marked Done |
 | 2026-11-04 | Accessibility audit: contrast, focus rings, heading order, landmarks, live regions and menu focus fixed; axe-core clean at 320–1440px; S14 marked Done |
 | 2026-11-04 | B2B quote builder at `#quote`: localized form, summary chips and prefilled WhatsApp/email RFQ; 226 strings in each dictionary; W4 marked Done |
+| 2026-11-05 | Used-phone checklist at `#checklist`: six localized inspection cards, nav link and prefilled WhatsApp enquiry; 245 strings in each dictionary; W5 marked Done |

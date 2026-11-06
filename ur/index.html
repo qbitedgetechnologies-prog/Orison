@@ -363,6 +363,18 @@
   .quote-actions .btn{justify-content:center;}
   .quote-fallback{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-dim);}
   .quote-fallback a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+
+  /* Used-phone checklist */
+  .checklist .sec-head{max-width:720px;}
+  .check-grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .check-card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:24px;}
+  .check-card .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--panel);color:var(--accent-ink);font-size:13px;font-weight:800;}
+  .check-card h3{font-size:16.5px;margin-top:14px;}
+  .check-card p{margin-top:9px;font-size:14px;line-height:1.6;color:var(--ink-dim);font-weight:500;}
+  .check-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);}
+  .check-note{font-size:12.5px;line-height:1.6;color:var(--ink-dim);font-weight:500;max-width:56ch;}
+  @media (max-width:1000px){.check-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.check-grid{grid-template-columns:1fr;}}
   .f-cta{display:flex;flex-wrap:wrap;gap:10px;}
 
   /* Footer */
@@ -447,6 +459,7 @@
       <a href="#shop" data-i18n="nav.shop">اسٹور</a>
       <a href="#repairs" data-i18n="nav.repairs">مرمت</a>
       <a href="#categories" data-i18n="nav.categories">اقسام</a>
+      <a href="#checklist" data-i18n="nav.checklist">چیک لسٹ</a>
       <a href="#b2b" data-i18n="nav.b2b">تھوک اور کاروبار</a>
       <a href="#contact" data-i18n="nav.visit">ہم سے ملیں</a>
     </div>
@@ -823,6 +836,53 @@
     </div>
   </section>
 
+  <!-- USED-PHONE CHECKLIST -->
+  <section class="checklist" id="checklist">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="checklist.eyebrow">استعمال شدہ فون کی چیک لسٹ</span>
+        <h2 style="margin-top:12px;" data-i18n="checklist.h2">پہلے استعمال شدہ فون خریدنے سے پہلے چھ جانچیں۔</h2>
+        <p data-i18n="checklist.p">ایک فوری معائنہ جو آپ دکان میں کر سکتے ہیں۔ یہ عام رہنمائی ہے، حالت کی ضمانت نہیں، اور مکمل ڈائیگناسٹک کا متبادل نہیں۔</p>
+      </div>
+      <ol class="check-grid" role="list">
+        <li class="check-card">
+          <span class="num" aria-hidden="true">1</span>
+          <h3 data-i18n="checklist.c1t">IMEI اور کاغذات</h3>
+          <p data-i18n="checklist.c1p">بیچنے والے سے کہیں کہ سیٹنگز اور ڈبے پر IMEI دکھائے، اور دیکھیں کہ یہ بل سے میلتا ہے۔ تحریری طور پر تصدیق لیں کہ فون گمشدہ یا چوری شدہ رپورٹ نہیں ہوا۔</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">2</span>
+          <h3 data-i18n="checklist.c2t">ایکٹیویشن لاک</h3>
+          <p data-i18n="checklist.c2p">یقینی بنائیں کہ پچھلا مالک iCloud یا اپنے Google اکاونٹ سے سائن آؤٹ کر چکا ہے۔ جس فون میں کسی اور کا اکاونٹ مانگا جائے، وہ سیٹ اپ نہیں ہو سکتا۔</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">3</span>
+          <h3 data-i18n="checklist.c3t">بیٹری کی صحت</h3>
+          <p data-i18n="checklist.c3p">iPhone پر سیٹنگز &gt; بیٹری &gt; بیٹری ہیلتھ کھولیں۔ Android میں مینو برانڈ کے حساب سے مختلف ہوتا ہے۔ دکھائی گئی شرح کا موازنہ کریں کہ فون واقعی کتنی دیر چلتا ہے۔</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">4</span>
+          <h3 data-i18n="checklist.c4t">اسکرین اور باڈی</h3>
+          <p data-i18n="checklist.c4p">دراڑیں، خراب پکسلز، رنگ کی خرابی اور فریم کے گرد خلا تلاش کریں۔ پوری اسکرین پر انگلی پھیر کر ٹچ چیک کریں، اور بٹن اور چارجنگ پورٹ آزمائیں۔</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">5</span>
+          <h3 data-i18n="checklist.c5t">کالز، ڈیٹا اور وائی فائی</h3>
+          <p data-i18n="checklist.c5p">SIM ڈال کر کال کریں۔ موبائل ڈیٹا، وائی فائی، بلوٹوتھ اور GPS آزمائیں۔ اسپیکر، مائک اور دونوں کیمرے، بشمول ویڈیو، چیک کریں۔</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">6</span>
+          <h3 data-i18n="checklist.c6t">پیک میں کیا شامل ہے</h3>
+          <p data-i18n="checklist.c6p">پوچھیں کہ فون کے ساتھ کیا آتا ہے: چارجر، کیبل، کور، ڈبہ یا رسید۔ ادائیگی سے پہلے طے شدہ حالت اور شامل اشیاء تحریری طور پر لے لیں۔</p>
+        </li>
+      </ol>
+      <div class="check-foot">
+        <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="checklist" data-i18n="checklist.cta">استعمال شدہ فون کے بارے میں پوچھیں</a>
+        <p class="check-note" data-i18n="checklist.note">واٹس ایپ ایک پیغام کے ساتھ کھلتا ہے جسے آپ تبدیل کر کے بھیج سکتے ہیں۔ اس سائٹ پر کچھ محفوظ نہیں ہوتا۔</p>
+      </div>
+    </div>
+  </section>
+
   <!-- B2B -->
   <section id="b2b">
     <div class="wrap">
@@ -1018,6 +1078,9 @@ orisonigt.com کے نیٹ ورکنگ سیکشن سے بھیجا گیا۔</span>
     <span data-wa-template="b2b" data-i18n="wa.b2b">ہیلو اوریسون، میں ہول سیل یا B2B آرڈر پر بات کرنا چاہتا ہوں۔
 
 orisonigt.com کے B2B سیکشن سے بھیجا گیا۔</span>
+    <span data-wa-template="checklist" data-i18n="wa.checklist">ہیلو اورسن، مجھے پہلے استعمال شدہ فون میں دلچسپی ہے۔ کیا آپ خریدنے سے پہلے IMEI، ایکٹیویشن لاک کی حالت، بیٹری کی صحت، شامل اشیاء اور قیمت کی تصدیق کر سکتے ہیں؟
+
+orisonigt.com پر استعمال شدہ فون چیک لسٹ سے بھیجا گیا۔</span>
   </div>
 
 </main>

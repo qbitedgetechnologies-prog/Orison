@@ -363,6 +363,18 @@
   .quote-actions .btn{justify-content:center;}
   .quote-fallback{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-dim);}
   .quote-fallback a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+
+  /* Used-phone checklist */
+  .checklist .sec-head{max-width:720px;}
+  .check-grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .check-card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:24px;}
+  .check-card .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--panel);color:var(--accent-ink);font-size:13px;font-weight:800;}
+  .check-card h3{font-size:16.5px;margin-top:14px;}
+  .check-card p{margin-top:9px;font-size:14px;line-height:1.6;color:var(--ink-dim);font-weight:500;}
+  .check-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);}
+  .check-note{font-size:12.5px;line-height:1.6;color:var(--ink-dim);font-weight:500;max-width:56ch;}
+  @media (max-width:1000px){.check-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.check-grid{grid-template-columns:1fr;}}
   .f-cta{display:flex;flex-wrap:wrap;gap:10px;}
 
   /* Footer */
@@ -447,6 +459,7 @@
       <a href="#shop" data-i18n="nav.shop">Shop</a>
       <a href="#repairs" data-i18n="nav.repairs">Repairs</a>
       <a href="#categories" data-i18n="nav.categories">Categories</a>
+      <a href="#checklist" data-i18n="nav.checklist">Checklist</a>
       <a href="#b2b" data-i18n="nav.b2b">B2B &amp; Wholesale</a>
       <a href="#contact" data-i18n="nav.visit">Visit Us</a>
     </div>
@@ -823,6 +836,53 @@ Please let me know the next step.</div>
     </div>
   </section>
 
+  <!-- USED-PHONE CHECKLIST -->
+  <section class="checklist" id="checklist">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="checklist.eyebrow">Used-phone checklist</span>
+        <h2 style="margin-top:12px;" data-i18n="checklist.h2">Six checks before you buy a pre-owned phone.</h2>
+        <p data-i18n="checklist.p">A quick inspection you can do in the shop. It is general guidance, not a guarantee of condition, and it does not replace a full diagnostic.</p>
+      </div>
+      <ol class="check-grid" role="list">
+        <li class="check-card">
+          <span class="num" aria-hidden="true">1</span>
+          <h3 data-i18n="checklist.c1t">IMEI and paperwork</h3>
+          <p data-i18n="checklist.c1p">Ask the seller to show the IMEI in Settings and on the box, and check it matches the invoice. Ask for written confirmation that the phone has not been reported lost or stolen.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">2</span>
+          <h3 data-i18n="checklist.c2t">Activation lock</h3>
+          <p data-i18n="checklist.c2p">Make sure the previous owner has signed out of iCloud or their Google account. A phone that still asks for someone else's account cannot be set up.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">3</span>
+          <h3 data-i18n="checklist.c3t">Battery health</h3>
+          <p data-i18n="checklist.c3p">On iPhone, open Settings &gt; Battery &gt; Battery Health. On Android the menu varies by brand. Compare the reported figure with how long the phone actually lasts.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">4</span>
+          <h3 data-i18n="checklist.c4t">Screen and body</h3>
+          <p data-i18n="checklist.c4p">Look for cracks, dead pixels, discoloration and gaps around the frame. Run your finger across the whole screen to test the touch response, then try the buttons and the charging port.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">5</span>
+          <h3 data-i18n="checklist.c5t">Calls, data and Wi-Fi</h3>
+          <p data-i18n="checklist.c5p">Insert a SIM and make a call. Test mobile data, Wi-Fi, Bluetooth and GPS. Check the speaker, the microphone and both cameras, including video.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">6</span>
+          <h3 data-i18n="checklist.c6t">What is included</h3>
+          <p data-i18n="checklist.c6p">Ask what comes with the phone: charger, cable, case, box or receipt. Get the agreed condition and included items in writing before you pay.</p>
+        </li>
+      </ol>
+      <div class="check-foot">
+        <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="checklist" data-i18n="checklist.cta">Ask about a pre-owned phone</a>
+        <p class="check-note" data-i18n="checklist.note">Opens WhatsApp with a message you can edit and send. Nothing is stored on this site.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- B2B -->
   <section id="b2b">
     <div class="wrap">
@@ -1018,6 +1078,9 @@ Sent from the networking section of orisonigt.com.</span>
     <span data-wa-template="b2b" data-i18n="wa.b2b">Hello Orison, I'd like to discuss a wholesale or B2B order.
 
 Sent from the B2B section of orisonigt.com.</span>
+    <span data-wa-template="checklist" data-i18n="wa.checklist">Hello Orison, I'm interested in a pre-owned phone. Could you confirm the IMEI, activation lock status, battery health, what is included and the price before I buy?
+
+Sent from the used-phone checklist on orisonigt.com.</span>
   </div>
 
 </main>

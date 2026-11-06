@@ -46,7 +46,7 @@ Review date: 2 November 2026.
 ### 4. Language support
 
 - Moved the English, Arabic and Urdu dictionaries out of the inline JavaScript into
-  `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json` (226 keys each).
+  `i18n/en.json`, `i18n/ar.json` and `i18n/ur.json` (245 keys each).
 - Added crawlable localized URLs: `/ar/` and `/ur/` are generated from `index.html` by
   `tools/build-locales.js`, with the correct `lang`/`dir`, translated title and description,
   self-referencing canonical, `hreflang` for `en`/`ar`/`ur`/`x-default`, and localized
@@ -116,7 +116,7 @@ Review date: 2 November 2026.
 - Triage step changes are announced through `aria-live="polite"`, and the result summary is
   a `role="status"` region. Focus already moved to each new heading.
 - Marked every decorative SVG `aria-hidden="true"` and localised the new landmark labels
-  into Arabic and Urdu (5 new strings; the dictionaries now hold 226 keys each).
+  into Arabic and Urdu (5 new strings at the time; the dictionaries now hold 245 keys each).
 - `npm run check` now fails on a missing or duplicate `h1`, a skipped heading level, an
   unlabelled SVG or form control, a `target="_blank"` link without `rel="noopener"`, a
   `data-i18n-aria` element without `aria-label`, an `aria-controls` pointing at a missing id,
@@ -148,6 +148,29 @@ No business information, prices, hours or claims were changed by this audit.
   versions are part of the same native-review item (B6).
 - `npm run check` now enforces the quote summary live region, the WhatsApp intent and the
   four template tokens.
+
+No business information, prices, hours or claims were changed by this change.
+
+### 9. Used-phone checklist (5 November 2026)
+
+- Added a `#checklist` section between the pricing cards and the B2B band, with six
+  inspection cards: IMEI and paperwork, activation lock, battery health, screen and body,
+  calls/data/Wi-Fi, and what is included.
+- The copy is general buying guidance, not a guarantee. It states that it is not a
+  condition guarantee and does not replace a full diagnostic. It does not promise that any
+  particular phone is genuine, unlocked or fault-free, and it does not quote prices.
+- The section adds one prefilled WhatsApp enquiry (`data-wa-intent="checklist"`) that asks
+  about the IMEI, activation lock status, battery health, included items and price. It is a
+  handoff only: nothing is submitted or stored by the site, and the note says so.
+- No email capture or lead form was added. This keeps the section within the existing
+  privacy position and avoids a new processor or consent flow.
+- The section was added to the main navigation and localized into Arabic and Urdu. The 19
+  new strings bring each dictionary to 245 keys and are covered by the B6 native-review item.
+- `npm run check` now fails if the checklist section exists without its WhatsApp intent and
+  matching `data-wa-template` entry.
+- Verified at 1440, 1200, 1000, 768, 560, 390 and 320px in all three locales: no overflow,
+  no console errors, axe-core reports no violations, and the nav link and mobile-menu close
+  work.
 
 No business information, prices, hours or claims were changed by this change.
 
@@ -197,7 +220,7 @@ information or a business decision.
     send the live URLs and screenshots for sign-off, as the developer checklist requires.
 11. **Native review of Arabic and Urdu.** The `/ar/` and `/ur/` pages are generated from the
     existing translations. A native speaker should review tone, dialect and technical terms
-    across all 226 strings before the localized pages are treated as final.
+    across all 245 strings before the localized pages are treated as final.
 12. **HTTPS enforcement.** `http://orisonigt.com/` still returns 200 without redirecting.
     Enable "Always Use HTTPS" (or HSTS) at Cloudflare / the Pages account level.
 13. **SEO backlog ownership.** `PLAN.md` lists the remaining local-SEO work, including the

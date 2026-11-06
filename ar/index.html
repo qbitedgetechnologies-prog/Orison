@@ -363,6 +363,18 @@
   .quote-actions .btn{justify-content:center;}
   .quote-fallback{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-dim);}
   .quote-fallback a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+
+  /* Used-phone checklist */
+  .checklist .sec-head{max-width:720px;}
+  .check-grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .check-card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:24px;}
+  .check-card .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--panel);color:var(--accent-ink);font-size:13px;font-weight:800;}
+  .check-card h3{font-size:16.5px;margin-top:14px;}
+  .check-card p{margin-top:9px;font-size:14px;line-height:1.6;color:var(--ink-dim);font-weight:500;}
+  .check-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);}
+  .check-note{font-size:12.5px;line-height:1.6;color:var(--ink-dim);font-weight:500;max-width:56ch;}
+  @media (max-width:1000px){.check-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.check-grid{grid-template-columns:1fr;}}
   .f-cta{display:flex;flex-wrap:wrap;gap:10px;}
 
   /* Footer */
@@ -447,6 +459,7 @@
       <a href="#shop" data-i18n="nav.shop">المتجر</a>
       <a href="#repairs" data-i18n="nav.repairs">الإصلاح</a>
       <a href="#categories" data-i18n="nav.categories">الأقسام</a>
+      <a href="#checklist" data-i18n="nav.checklist">قائمة الفحص</a>
       <a href="#b2b" data-i18n="nav.b2b">الجملة والشركات</a>
       <a href="#contact" data-i18n="nav.visit">زورونا</a>
     </div>
@@ -823,6 +836,53 @@
     </div>
   </section>
 
+  <!-- USED-PHONE CHECKLIST -->
+  <section class="checklist" id="checklist">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="checklist.eyebrow">قائمة فحص الهاتف المستعمل</span>
+        <h2 style="margin-top:12px;" data-i18n="checklist.h2">ستة فحوص قبل شراء هاتف مستعمل.</h2>
+        <p data-i18n="checklist.p">فحص سريع يمكنك إجراؤه في المتجر. هذه إرشادات عامة وليست ضمانًا لحالة الجهاز، ولا تغني عن فحص فني كامل.</p>
+      </div>
+      <ol class="check-grid" role="list">
+        <li class="check-card">
+          <span class="num" aria-hidden="true">1</span>
+          <h3 data-i18n="checklist.c1t">رقم IMEI والأوراق</h3>
+          <p data-i18n="checklist.c1p">اطلب من البائع أن يعرض رقم IMEI من الإعدادات ومن العلبة، وتأكد من مطابقته للفاتورة. اطلب تأكيدًا كتابيًا بأن الهاتف لم يُبلَّغ عنه كمفقود أو مسروق.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">2</span>
+          <h3 data-i18n="checklist.c2t">قفل التنشيط</h3>
+          <p data-i18n="checklist.c2p">تأكد من أن المالك السابق سجّل الخروج من iCloud أو حساب Google. الهاتف الذي يطلب حساب شخص آخر لا يمكن إعداده.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">3</span>
+          <h3 data-i18n="checklist.c3t">صحة البطارية</h3>
+          <p data-i18n="checklist.c3p">على iPhone، افتح الإعدادات &gt; البطارية &gt; صحة البطارية. على Android تختلف القائمة حسب الشركة. قارن النسبة المعروضة بمدة استخدام الهاتف فعليًا.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">4</span>
+          <h3 data-i18n="checklist.c4t">الشاشة والجسم</h3>
+          <p data-i18n="checklist.c4p">ابحث عن شقوق أو بكسلات ميتة أو تغيّر في اللون أو فراغات حول الإطار. مرّر إصبعك على الشاشة كاملة لاختبار الاستجابة، ثم جرّب الأزرار ومنفذ الشحن.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">5</span>
+          <h3 data-i18n="checklist.c5t">المكالمات والبيانات والواي فاي</h3>
+          <p data-i18n="checklist.c5p">أدخل شريحة SIM وأجرِ مكالمة. اختبر بيانات الهاتف والواي فاي والبلوتوث وGPS. افحص السماعة والميكروفون والكاميرتين بما في ذلك الفيديو.</p>
+        </li>
+        <li class="check-card">
+          <span class="num" aria-hidden="true">6</span>
+          <h3 data-i18n="checklist.c6t">ما الموجود في العلبة</h3>
+          <p data-i18n="checklist.c6p">اسأل عما يأتي مع الهاتف: الشاحن أو الكابل أو الحافظة أو العلبة أو الفاتورة. اطلب تدوين الحالة المتفق عليها والملحقات كتابيًا قبل الدفع.</p>
+        </li>
+      </ol>
+      <div class="check-foot">
+        <a class="btn btn-wa" href="https://wa.me/971563480513" target="_blank" rel="noopener" data-wa-intent="checklist" data-i18n="checklist.cta">اسأل عن هاتف مستعمل</a>
+        <p class="check-note" data-i18n="checklist.note">يفتح واتساب برسالة يمكنك تعديلها وإرسالها. لا يُخزّن أي شيء على هذا الموقع.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- B2B -->
   <section id="b2b">
     <div class="wrap">
@@ -1018,6 +1078,9 @@
     <span data-wa-template="b2b" data-i18n="wa.b2b">مرحباً أوريسون، أرغب في مناقشة طلب جملة أو B2B.
 
 أُرسلت من قسم الأعمال في موقع orisonigt.com.</span>
+    <span data-wa-template="checklist" data-i18n="wa.checklist">مرحبًا أوريسون، أنا مهتم بهاتف مستعمل. هل يمكنكم تأكيد رقم IMEI وحالة قفل التنشيط وصحة البطارية والملحقات المرفقة والسعر قبل الشراء؟
+
+أُرسل من قائمة فحص الهاتف المستعمل على orisonigt.com.</span>
   </div>
 
 </main>

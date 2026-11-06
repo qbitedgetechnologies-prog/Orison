@@ -211,6 +211,14 @@ for (const rel of LOCAL_PAGES) {
         fail('index.html: quote WhatsApp template is missing ' + token);
       }
     }
+    if (html.indexOf('id="checklist"') !== -1) {
+      if (!/<[^>]*data-wa-intent="checklist"/.test(html)) {
+        fail('index.html: checklist section needs a data-wa-intent="checklist" link');
+      }
+      if (!/<[^>]*data-wa-template="checklist"/.test(html)) {
+        fail('index.html: missing data-wa-template="checklist" for the checklist link');
+      }
+    }
   }
 }
 

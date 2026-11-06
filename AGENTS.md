@@ -23,8 +23,8 @@ GitHub Actions workflow. Cloudflare fronts the custom domain `orisonigt.com`.
 | `css/legal.css` | Policy pages and 404 styles |
 
 The home page also contains the repair triage wizard (`#triage`), the B2B quote builder
-(`#quote`) and the hidden `#waTemplates` block. They are plain HTML and inline JavaScript;
-there is no separate build step for them.
+(`#quote`), the used-phone checklist (`#checklist`) and the hidden `#waTemplates` block.
+They are plain HTML and inline JavaScript; there is no separate build step for them.
 
 **Generated — never hand-edit:** `ar/index.html`, `ur/index.html`, `sitemap.xml`.
 
@@ -76,6 +76,9 @@ Notes:
 - The quote builder's WhatsApp template (`#quoteWaTemplate`) must keep the `{category}`,
   `{quantity}`, `{condition}` and `{company}` tokens; `npm run check` enforces them. Its form
   is client-side only: nothing is submitted until the visitor opens WhatsApp or email.
+- The used-phone checklist is content, not a promise: keep it to inspection steps a buyer can
+  perform, with no condition guarantees, prices or repair outcomes. Its WhatsApp link uses
+  `data-wa-intent="checklist"`; `npm run check` enforces the matching template.
 - `data-i18n-aria="key"` only rewrites an `aria-label` that is already present on the element.
   Add both attributes; `npm run check` fails if the marker has no `aria-label`.
 
@@ -140,8 +143,8 @@ Before pushing:
 4. Images load; `og-image.jpg` exists; `currentSrc` is the AVIF file and the WebP/JPEG
    fallbacks decode at the same dimensions.
 5. Language links go to the right URL and mark the current language.
-6. Anchors (`#shop`, `#repairs`, `#categories`, `#b2b`, `#quote`, `#contact`) resolve on every
-   locale.
+6. Anchors (`#shop`, `#repairs`, `#categories`, `#checklist`, `#b2b`, `#quote`, `#contact`)
+   resolve on every locale.
 7. Policy links return 200 and the 404 page returns HTTP 404.
 8. Keyboard: skip link moves focus to `main`, language switcher, mobile menu and Escape-to-close
    (focus returns to the menu button) work, and every control shows a visible focus ring.
@@ -153,7 +156,10 @@ Before pushing:
 11. B2B quote builder: empty required fields block submission and focus the first invalid
     field; the result chips, WhatsApp text and mailto body match the inputs in all three
     locales; restart clears the form; `quote_complete` fires once per submission.
-12. Run an axe-core pass on all seven pages at 320, 360, 430, 768 and 1440px. The 768px case
+12. Used-phone checklist: six cards render in order at every breakpoint, the nav link jumps to
+    `#checklist` and closes the mobile menu, and the WhatsApp button opens the localized
+    checklist message with `intent=checklist`.
+13. Run an axe-core pass on all seven pages at 320, 360, 430, 768 and 1440px. The 768px case
     matters: the header WhatsApp link is icon-only there.
 
 ## Deploying
